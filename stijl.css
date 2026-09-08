@@ -1,4 +1,4 @@
-/* Stijl naslag Informatiemanagement (CE, Fontys) - v1.1 (8-9-2026)
+/* Stijl naslag Informatiemanagement (CE, Fontys) - v1.2 (8-9-2026)
    Eén stijlbestand voor alle naslagpagina's. De navigatie brengt zijn eigen stijl mee (nav.js). */
 :root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
 *{box-sizing:border-box}
@@ -95,3 +95,19 @@ table.t2 th{background:var(--light);color:var(--p)}
 .rol .ic{flex:none;width:26px;height:26px}
 .rol.sam .ic{color:var(--m)}
 .rol.uit .ic{color:var(--p)}
+
+/* uitklapbaar blok met de originele tekst van de criteria (gevuld door nav.js) */
+details.crit{border:1.5px solid var(--line);border-radius:8px;margin:14px 0;background:#fff}
+details.crit>summary{cursor:pointer;list-style:none;padding:11px 14px;font-size:14.5px;font-weight:700;color:var(--p);display:flex;align-items:center;gap:8px}
+details.crit>summary::-webkit-details-marker{display:none}
+details.crit>summary:before{content:"\201C\201D";font-size:0}
+details.crit>summary:after{content:"\25BE";margin-left:auto;color:var(--grey);font-weight:400}
+details.crit[open]>summary:after{content:"\25B4"}
+details.crit>summary:hover{background:#faf6fa;border-radius:8px}
+details.crit .cb{padding:0 14px 14px}
+details.crit .ci{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+details.crit .ci:first-child{border-top:0;margin-top:0;padding-top:0}
+details.crit .cnaam{display:flex;align-items:center;gap:8px;margin:0 0 2px;font-weight:700;color:var(--p);font-size:15px}
+details.crit .cn{flex:none;width:24px;height:24px;border-radius:50%;background:var(--p);color:#fff;font-size:13px;display:inline-flex;align-items:center;justify-content:center}
+details.crit .ct{font-size:14.5px;margin:2px 0}
+details.crit .lbl{margin-top:8px}

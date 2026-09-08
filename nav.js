@@ -1,4 +1,4 @@
-/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.4 (8-9-2026)
+/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.5 (8-9-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
    (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
@@ -15,7 +15,7 @@
     { file: '05-werkwijze-in-vijf-regels.html', title: 'Je werkwijze in vijf regels', desc: 'Invullen en plakken bij elk bewijs waarin je AI gebruikte.', group: 'ai', status: 'klaar' },
 
     { file: '06-eigen-onderzoek-controleerbaar.html', title: 'Eigen onderzoek controleerbaar maken', desc: 'Aantallen, respondenten, citaten, methode: zo kan een ander het nakijken.', group: 'analyse', status: 'klaar' },
-    { file: '07-tien-secondentest.html', title: 'De tien-secondentest', desc: 'Checklist voor je visualisatie: titel, eenheid, noemer, bron, en kun jij hem uitleggen.', group: 'analyse', status: 'klaar' },
+    { file: '07-tien-secondentest.html', title: 'De tien-secondentest', desc: 'Checklist voor je visualisatie: titel, eenheid, waarvan, bron, en kun jij hem uitleggen.', group: 'analyse', status: 'klaar' },
 
     { file: '08-advies-onderbouwen.html', title: 'Advies onderbouwen', desc: 'Argumentatietabel: advies in één zin, argumenten met bron, en wat je bewijs niet dekt.', group: 'advies', status: 'klaar' },
 
@@ -24,6 +24,26 @@
 
     { file: 'kies-methode.html', title: 'De KIES-methode', desc: 'De methode zelf: mens-AI-mens, de vier letters, drie vragen, drie manieren, acht rollen en de taak-ontleder met werkblad.', group: 'achtergrond', status: 'klaar' }
   ];
+
+
+  /* Originele tekst van de succescriteria en het voortgangsformulier (bron: leeruitkomst IM).
+     Op een pagina zet je alleen <div data-crit="1"></div>, "1,2" of "alle"; de tekst staat hier. */
+  var CRITERIA = [
+    { n: 1, naam: 'Informatie zoeken en beoordelen',
+      sc: 'Student maakt de wijze waarop passende, betrouwbare methodes voor dataverzameling en -analyse zijn toegepast, inzichtelijk.',
+      vf: 'De student verzamelt, onder begeleiding, systematisch relevante informatie uit diverse bronnen, zowel offline als online, en beoordeelt de betrouwbaarheid en relevantie ervan.' },
+    { n: 2, naam: 'Data-analyse en interpretatie',
+      sc: 'Verbindt informatie uit verschillende bronnen om zakelijke inzichten te genereren.',
+      vf: 'De student past onder begeleiding geschikte analysetechnieken toe om ruwe data om te zetten in betekenisvolle inzichten voor de organisatie.' },
+    { n: 3, naam: 'Visualisatie en presentatie van data',
+      sc: 'Gekozen analysetools en visualisaties zijn relevant.',
+      vf: 'De student cre\u00eeert onder begeleiding effectieve grafische weergaven en schema\u2019s om complexe informatie helder te communiceren aan verschillende stakeholders.' },
+    { n: 4, naam: 'Reflectie op informatiegebruik en betrouwbaarheid',
+      sc: 'Formuleert een verantwoorde onderbouwing van besluiten op basis van verkregen informatie.',
+      vf: 'De student reflecteert op de betrouwbaarheid van de verzamelde informatie en de manier waarop deze is gebruikt in besluitvorming.' }
+  ];
+
+  var LEERUITKOMST = 'De student ontwikkelt, onder begeleiding, de vaardigheid om effectief en systematisch informatie te zoeken, te beoordelen en om te zetten in bruikbare zakelijke inzichten. Hierbij maakt de student gebruik van zowel offline als online bronnen en leert data te vertalen naar praktisch toepasbare informatie.';
 
   var GROUPS = [
     { id: 'start', title: 'Begin hier', sub: 'De route door de leeruitkomst' },
@@ -203,6 +223,33 @@
     });
   }
 
-  function start() { build(); gedrag(); }
+
+  /* Uitklapbaar blok met de originele tekst van de criteria.
+     Gebruik: <div data-crit="1"></div>, <div data-crit="1,2"></div> of <div data-crit="alle"></div>. */
+  function criteriaBlokken() {
+    document.querySelectorAll('[data-crit]').forEach(function (el) {
+      var v = String(el.getAttribute('data-crit') || '').trim();
+      var alle = v === 'alle';
+      var lijst = alle ? CRITERIA : CRITERIA.filter(function (c) {
+        return v.split(',').map(function (x) { return x.trim(); }).indexOf(String(c.n)) >= 0;
+      });
+      if (!lijst.length) return;
+      var titel = alle ? 'Originele tekst van de vier criteria'
+        : (lijst.length === 1 ? 'Originele tekst van criterium ' + lijst[0].n
+          : 'Originele tekst van criterium ' + lijst.map(function (c) { return c.n; }).join(' en '));
+      var h = '<details class="crit"><summary>' + esc(titel) + '</summary><div class="cb">';
+      if (alle) h += '<div class="ci"><p class="lbl">Leeruitkomst</p><p class="ct">' + esc(LEERUITKOMST) + '</p></div>';
+      lijst.forEach(function (c) {
+        h += '<div class="ci"><p class="cnaam"><span class="cn">' + c.n + '</span>' + esc(c.naam) + '</p>' +
+          '<p class="lbl">Succescriterium ' + c.n + '</p><p class="ct">' + esc(c.sc) + '</p>' +
+          '<p class="lbl">Voortgangsformulier, op niveau</p><p class="ct">' + esc(c.vf) + '</p></div>';
+      });
+      h += '<p class="small">Letterlijk uit de leeruitkomst Informatiemanagement en het voortgangsformulier. Het voortgangsformulier is een one-point rubric: alleen \u201cop niveau\u201d staat beschreven.</p>';
+      h += '</div></details>';
+      el.innerHTML = h;
+    });
+  }
+
+  function start() { build(); gedrag(); criteriaBlokken(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
