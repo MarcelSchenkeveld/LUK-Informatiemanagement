@@ -5,19 +5,19 @@
 (function () {
   var PAGES = [
     { file: 'index.html', title: 'Overzicht', desc: 'Alle pagina’s van de naslag op één plek.', group: 'start', status: 'klaar', hide: true },
-    { file: '00-start-de-route.html', title: 'De route', desc: 'Wat je minimaal doet en inlevert, waar het leren zit, en de drie afspraken. Lees dit eerst.', group: 'start', status: 'klaar' },
+    { file: '00-start-de-route.html', title: 'De route', desc: 'Hoe je aan deze leeruitkomst werkt, welk bewijs erbij past, waar het leren zit, en de drie afspraken. Lees dit eerst.', group: 'start', status: 'klaar' },
 
     { file: '01-bron-controleren.html', title: 'Een bron controleren', desc: 'Vijf vragen bij elke bron, met sterk/matig/zwak per vraag en een sjabloon voor je bronnentabel.', group: 'zoeken', status: 'klaar' },
     { file: '02-welke-bron-is-dit.html', title: 'Welke bron is dit?', desc: 'Van oorspronkelijke auteur tot uitlegsite: wat weegt zwaar, wat niet.', group: 'zoeken', status: 'volgt' },
 
     { file: '03-ai-als-leerpartner.html', title: 'AI als leerpartner', desc: 'KIES in vier stappen en de leerpartner-prompt per criterium.', group: 'ai', status: 'volgt' },
     { file: '04-voorspel-vraag-vergelijk.html', title: 'Voorspel, vraag, vergelijk', desc: 'Werkblad voor gewoonte 1: eerst zelf, dan AI, dan vergelijken.', group: 'ai', status: 'volgt' },
-    { file: '05-werkwijze-in-vijf-regels.html', title: 'Je werkwijze in vijf regels', desc: 'Invullen en plakken bij elk bewijsstuk waarin je AI gebruikte.', group: 'ai', status: 'volgt' },
+    { file: '05-werkwijze-in-vijf-regels.html', title: 'Je werkwijze in vijf regels', desc: 'Invullen en plakken bij elk bewijs waarin je AI gebruikte.', group: 'ai', status: 'volgt' },
 
     { file: '06-eigen-onderzoek-controleerbaar.html', title: 'Eigen onderzoek controleerbaar maken', desc: 'Aantallen, respondenten, citaten, methode: zo kan een ander het nakijken.', group: 'analyse', status: 'volgt' },
     { file: '07-tien-secondentest.html', title: 'De tien-secondentest', desc: 'Checklist voor je visualisatie: titel, eenheid, noemer, bron, en kun jij hem uitleggen.', group: 'analyse', status: 'volgt' },
 
-    { file: '08-advies-onderbouwen.html', title: 'Advies onderbouwen', desc: 'Argumentatietabel: advies in één zin, drie argumenten met bron, en wat je bewijs niet dekt.', group: 'advies', status: 'volgt' },
+    { file: '08-advies-onderbouwen.html', title: 'Advies onderbouwen', desc: 'Argumentatietabel: advies in één zin, argumenten met bron, en wat je bewijs niet dekt.', group: 'advies', status: 'volgt' },
 
     { file: '09-kies-a-of-b.html', title: 'Kies A of B', desc: 'Vier contrasten uit bewerkt studentenwerk: waaraan zie je kwaliteit?', group: 'algemeen', status: 'volgt' },
     { file: '10-je-leercontract.html', title: 'Je leercontract', desc: 'Invulhulp bij de vijf vragen, met een voorbeeld voor deze leeruitkomst.', group: 'algemeen', status: 'volgt' }
@@ -25,10 +25,10 @@
 
   var GROUPS = [
     { id: 'start', title: 'Begin hier', sub: 'De route door de leeruitkomst' },
-    { id: 'zoeken', title: 'Zoeken en beoordelen', sub: 'Bewijsstuk 1: bronnentabel (klaar voor OW4)' },
+    { id: 'zoeken', title: 'Zoeken en beoordelen', sub: 'Criterium 1, bijvoorbeeld een bronnentabel' },
     { id: 'ai', title: 'Werken met AI', sub: 'Zo blijft het jouw leerproces' },
-    { id: 'analyse', title: 'Analyseren en visualiseren', sub: 'Bewijsstuk 2 en 3: analyse en visualisatie (klaar voor OW7)' },
-    { id: 'advies', title: 'Onderbouwen en reflecteren', sub: 'Bewijsstuk 4: advies en reflectie (klaar voor OW10)' },
+    { id: 'analyse', title: 'Analyseren en visualiseren', sub: 'Criterium 2 en 3, bijvoorbeeld een analyse en een visualisatie' },
+    { id: 'advies', title: 'Onderbouwen en reflecteren', sub: 'Criterium 4, bijvoorbeeld een onderbouwd advies met reflectie' },
     { id: 'algemeen', title: 'Kwaliteit en leercontract', sub: 'Voor het hele traject' }
   ];
 
