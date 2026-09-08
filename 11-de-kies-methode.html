@@ -4,222 +4,138 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>De KIES-methode</title>
-<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
-.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
-header.top{background:var(--p);color:#fff;padding:22px 18px}
-header.top .wrap{padding:0}
-header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
-header.top p{margin:0;opacity:.9;font-size:15px}
-.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
-h2{color:var(--p);font-size:20px;margin:28px 0 8px}
-h3{color:var(--p);font-size:17px;margin:18px 0 6px}
-p{margin:8px 0}
-.lead{font-size:17px}
-.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
-.card.white{background:#fff;border:1.5px solid var(--line)}
-.card.accent{border-left:6px solid var(--m)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
-.tile b{display:block;font-size:22px;margin-bottom:2px}
-.tile strong{display:block;font-size:15px;margin-bottom:6px}
-.tile span{font-size:13.5px;opacity:.95}
-.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
-.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
-.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
-.row div{flex:1}
-button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
-button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
-button:disabled{opacity:.45;cursor:default}
-.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
-.opt:hover{border-color:var(--p)}
-.opt input{margin-right:8px}
-.opt.sel{border-color:var(--p);background:#faf6fa}
-textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
-textarea{min-height:64px;resize:vertical}
-.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
-.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
-.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
-.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
-.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
-.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
-.steps span.on{background:var(--p);color:#fff;font-weight:700}
-.steps span.done{background:var(--g);color:#fff}
-.step{display:none}.step.on{display:block}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
-.small{font-size:13.5px;color:var(--grey)}
-.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:640px){.ab{grid-template-columns:1fr}}
-.ab .card{margin:0}
-.ab h4{margin:0 0 6px;font-size:15px}
-.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
-ul{padding-left:20px;margin:6px 0}
-li{margin:4px 0}
-.check{list-style:none;padding:0}
-.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
-.check input{margin-top:5px}
-.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
-a{color:var(--p)}
-.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
-.links a b{color:var(--p)}
-.links a span{color:var(--grey);font-size:14px}
-
-.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
-.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
-.acc>button .chip{margin:0}
-.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
-.acc .body{display:none;padding:0 16px 16px 54px}
-.acc.open .body{display:block}
-.acc.open>button .arr{transform:rotate(180deg)}
-.body p{margin:6px 0}
-.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
-.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
-.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
-.reveal{display:none;margin-top:10px}
-.reveal.on{display:block}
-</style>
+<link rel="stylesheet" href="stijl.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
-<span class="tag">Informatiemanagement · uitleg</span>
+<span class="tag">Informatiemanagement · naslag</span>
 <h1>De KIES-methode</h1>
-<p>Wat KIES is, waar het vandaan komt en hoe je het gebruikt bij deze leeruitkomst. Lees dit als je wilt begrijpen waarom de sessies en de naslag zo in elkaar zitten.</p>
+<p>Het denkraam achter de sessies: mens-AI-mens, vier letters, drie manieren, acht rollen en de taak-ontleder.</p>
 </div></header>
 
 <div class="wrap">
 <div class="card accent">
-<b>Waarom dit ertoe doet.</b> Je gebruikt AI bij bijna elke stap van je project: zoeken, samenvatten, analyseren, een grafiek maken, een advies schrijven. Dat mag. De leeruitkomst vraagt geen AI en beloont geen AI, maar alles wat je met AI maakt valt onder dezelfde vier criteria. KIES is de taal die we in de drie sessies en op deze pagina's gebruiken om over dat AI-gebruik te praten: niet "mag het", maar "wat kies je, hoe stuur je, wat check je, en waar hang je boven". Op de pagina <a href="03-ai-als-leerpartner.html">AI als leerpartner</a> staat de korte, praktische versie met de prompts. Hier staat de uitleg.
+<b>Waarvoor deze pagina is.</b> Dit is de naslag bij de methode zelf: de begrippen die in de workshops en in de sessies langskomen, op één plek, zodat je ze kunt terugzoeken. Wil je weten hoe je KIES toepast op je onderzoek voor deze leeruitkomst, ga dan naar <a href="03-ai-als-leerpartner.html">AI als leerpartner</a>. KIES is een denkraam, geen checklist en geen voorschrift.
 </div>
 
-<h2>In één alinea</h2>
-<p class="lead">KIES staat voor <b>Kiezen, Instrueren, Evalueren en Spelregels</b>. Het is een denkraam voor AI-vaardigheid van leerlingen en studenten, ontwikkeld door AI voor Docenten (Mutsaarts, 2026). De kern: AI-vaardigheid begint bij kiezen, niet bij prompten. Per stap van een opdracht beslis je of je iets zelf doet, samen met AI doet of aan AI uitbesteedt, en waarom. Daarna stuur je AI scherp aan, beoordeel je wat eruit komt alsof het grondstof is (want dat is het), en kijk je af en toe van een afstand naar wat je AI-gebruik kost en doet. Onder alles ligt één principe: <b>mens, AI, mens</b>. Jij vraagt, AI levert, jij sluit de cirkel.</p>
-
-<h2>Waar KIES vandaan komt</h2>
-<p>KIES is een Nederlandse vertaling van twee internationale bronnen. De eerste is het <b>AI Fluency Framework</b> van Anthropic (Dakan en Feller, 2025), met vier vaardigheden die alle vier met een D beginnen: Delegation (bewust kiezen wat je aan AI overlaat), Description (helder beschrijven wat je wilt), Discernment (kritisch beoordelen wat AI levert) en Diligence (verantwoord en transparant omgaan met AI). De vier letters van KIES zijn precies die vier D's: K is Delegation, I is Description, E is Discernment, S is Diligence.</p>
-<p>De tweede bron is het werk van Ethan en Lilach Mollick (2023) over de rollen die AI kan spelen in het leerproces van studenten: tutor, coach, mentor, teammate, tool, simulator en student. KIES heeft die zeven rollen vereenvoudigd tot acht herkenbare rollen in twee groepen: samenwerken met AI en uitbesteden aan AI.</p>
-<p>KIES is bewust klein gehouden: vier letters, acht rollen, drie vragen. Het past in je hoofd op het moment dat je een opdracht opent en je hand naar een chatbot gaat. Het is een denkraam, geen checklist en geen verbod.</p>
-
-<h2>De basis: mens, AI, mens</h2>
+<h2>Het uitgangspunt: mens-AI-mens</h2>
 <div class="grid">
-  <div class="tile p"><b>1</b><strong>Mens</strong><span>Jij bepaalt de vraag, de context en wat je wilt leren. Hier begint het, niet bij de chatbot.</span></div>
-  <div class="tile b"><b>2</b><strong>AI</strong><span>AI produceert iets: bronnen, een samenvatting, een eerste analyse, een grafiek. Dat is grondstof.</span></div>
-  <div class="tile m"><b>3</b><strong>Mens</strong><span>Jij toetst, corrigeert, herschrijft en maakt het eigen. Zonder deze stap is AI-gebruik wegklikken, geen leren.</span></div>
+  <div class="tile p"><b>M</b><strong>Mens: input</strong><span>Jij bepaalt de koers, de context en de vraag. Jij weet wat je opdrachtgever nodig heeft.</span></div>
+  <div class="tile b"><b>AI</b><strong>Verwerking</strong><span>AI voert uit wat jij vraagt. Wat eruit komt is grondstof, geen eindproduct.</span></div>
+  <div class="tile t"><b>M</b><strong>Mens: output</strong><span>Jij controleert, kiest, herschrijft en neemt de verantwoordelijkheid.</span></div>
 </div>
-<p>Dit principe geldt ook als je iets uitbesteedt. Een samenvatting die AI maakte, blijft jouw verantwoordelijkheid: je moet weten wat erin staat en of het klopt. In je bewijs zie je dit terug als de <a href="05-werkwijze-in-vijf-regels.html">werkwijze in vijf regels</a>: waarvoor gebruikt, wat gecontroleerd, wat zelf besloten, wat klopte niet, wat geleerd.</p>
+<p class="small">Niet door AI gebruikt worden, maar AI bewust gebruiken. De regie ligt aan het begin en aan het eind bij jou; dat is precies wat je in het driehoeksgesprek en bij de portfolioshow laat zien.</p>
 
 <h2>De vier letters</h2>
-
-<div class="acc"><button onclick="tg(this)"><span class="chip p">K</span>Kiezen: het hart van KIES<span class="arr">▼</span></button>
-<div class="body">
-<p>Kiezen is een werkwoord. De kern van AI-vaardigheid zit niet in het bedienen van een tool, maar in het afwegen: zet ik hier AI in, en zo ja, hoe? Die keuze maak je niet één keer per opdracht, maar per stap.</p>
-<p class="lbl">Drie niveaus van kiezen</p>
-<ul>
-<li><b>Wel of geen AI?</b> Als het antwoord "geen" is, stopt het hier. Dat is een volwaardige keuze.</li>
-<li><b>Samenwerken of uitbesteden?</b> Bij samenwerken blijf jij aan het stuur en voegt AI iets toe aan je denken. Bij uitbesteden levert AI een product dat jij daarna beoordeelt en eigen maakt.</li>
-<li><b>In welke rol?</b> Een uitlegger vraag je iets anders dan een schrijver. De rol bepaalt hoe je straks instrueert.</li>
-</ul>
-<p class="lbl">De subtaak als eenheid</p>
-<p>Een opdracht is zelden één ding. Het informatiedeel van je project valt uiteen in: bepalen welke informatie je nodig hebt, zoeken, bronnen beoordelen, lezen, veldonderzoek voorbereiden en uitvoeren, analyseren, visualiseren, adviseren. Het leerdoel zit meestal in een paar van die stappen. Voor een ondersteunende stap kan uitbesteden verstandig zijn; voor de stap waar het leerdoel zit, levert uitbesteden vrijwel geen leerwinst op. Dat verschil leren zien is waar het in K om draait. In de infosessie deed je dit met de subtakentabel; bij deze leeruitkomst staan vier stappen vast als jouw zelf-momenten: verwachten, kiezen, oordelen en concluderen, uitleggen.</p>
-<p class="lbl">Acht rollen, met een voorbeeld uit je project</p>
-<div class="ab">
-  <div class="card a"><h4>Samenwerken: jij blijft aan zet</h4>
-  <ul>
-  <li><b>Uitlegger:</b> "Leg het verschil uit tussen een steekproef en een populatie, op het niveau van een tweedejaars CE-student."</li>
-  <li><b>Brainstormer:</b> "Welke zoektermen passen bij e-bikeverhuur aan toeristen in een landelijke regio?"</li>
-  <li><b>Feedbackgever:</b> "Hier is mijn interviewleidraad. Welke vragen zijn suggestief?"</li>
-  <li><b>Oefenmaatje:</b> "Speel mijn opdrachtgever en stel de drie lastigste vragen over mijn advies."</li>
-  </ul></div>
-  <div class="card bb"><h4>Uitbesteden: AI levert, jij controleert</h4>
-  <ul>
-  <li><b>Schrijver:</b> een eerste opzet van een mail aan een respondent.</li>
-  <li><b>Vertaler:</b> een Engelstalig brancherapport toegankelijk maken.</li>
-  <li><b>Verbeteraar:</b> je bronnentabel nakijken op spelling en consistente APA-vorm.</li>
-  <li><b>Samenvatter:</b> een rapport van zestig pagina's samenvatten, waarna jij de cijfers in het rapport zelf controleert.</li>
-  </ul></div>
+<div class="scroll">
+<table class="t2">
+<tr><th>Letter</th><th>Waar het over gaat</th><th>De kernvraag</th></tr>
+<tr><td><b>K</b> Kiezen</td><td>Wat doe je zelf, wat samen met AI, wat besteed je uit. Per subtaak, niet per opdracht.</td><td>Waar zit hier mijn leren, en wat mag weg?</td></tr>
+<tr><td><b>I</b> Instrueren</td><td>AI scherp aansturen met rol, context, instructies en voorbeeld.</td><td>Weet AI genoeg van mijn situatie om iets bruikbaars te doen?</td></tr>
+<tr><td><b>E</b> Evalueren</td><td>Beoordelen wat eruit komt: klopt het, is het compleet, is het van mij?</td><td>Hoe weet ik dat dit klopt?</td></tr>
+<tr><td><b>S</b> Spelregels</td><td>Privacy, transparantie, duurzaamheid, en het effect op je eigen denkvermogen.</td><td>Mag dit, moet ik het melden, en wat doet het met mijn leren?</td></tr>
+</table>
 </div>
-<p class="lbl">Het morele hart: drie vragen</p>
-<div class="ex">Stel ze voor en na elke keuze:<br>1. <b>Leren:</b> leer ik door deze AI-inzet minder, hetzelfde of meer dan wanneer ik het zelf had gedaan?<br>2. <b>Snelheid:</b> gaat het langzamer, even snel of sneller?<br>3. <b>Kwaliteit:</b> wordt het resultaat slechter, even goed of beter?</div>
-<p>Sneller en beter zijn legitieme doelen. Maar bij een stap waar het leerdoel zit, weegt de eerste vraag zwaarder dan de andere twee. De kunst is het verschil herkennen. In de infosessie ervoer je dit met werkvorm 2: AI beoordeelt bronnen sneller en vaak even goed, maar wie de eigen ronde overslaat, heeft geen eigen oordeel om AI mee te vergelijken en leert dus niets over bronnen.</p>
-<label class="done"><input type="checkbox" data-k="k"> Gelezen</label>
-</div></div>
+<p class="small">KIES is ontwikkeld door AI voor Docenten en is gebaseerd op het AI Fluency Framework van Anthropic.</p>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip b">I</span>Instrueren: de gekozen rol aansturen<span class="arr">▼</span></button>
+<h2>Het morele hart: drie vragen</h2>
+<p>Stel deze drie vragen bij elke subtaak waarvan je overweegt hem aan AI te geven. Je antwoordt met min, gelijk of plus.</p>
+<div class="grid">
+  <div class="tile p"><strong>Leren</strong><span>Leer ik door deze inzet minder, hetzelfde of meer?</span></div>
+  <div class="tile b"><strong>Snelheid</strong><span>Gaat het langzamer, even snel of sneller?</span></div>
+  <div class="tile t"><strong>Kwaliteit</strong><span>Wordt het resultaat slechter, even goed of beter?</span></div>
+</div>
+<p>Sneller en beter zijn legitieme doelen; je hoeft niet alles zelf te doen. Maar bij een subtaak die met je leerdoel te maken heeft, weegt de eerste vraag het zwaarst. Bij Informatiemanagement geldt dat vooral voor beoordelen, concluderen en onderbouwen.</p>
+
+<h2>Drie manieren</h2>
+<div class="row"><span class="chip p">1</span><div><b>Zelf.</b> Geen AI, jij doet het denkwerk volledig.</div></div>
+<div class="row"><span class="chip b">2</span><div><b>Samen met AI.</b> AI helpt of prikkelt, jij blijft aan zet.</div></div>
+<div class="row"><span class="chip t">3</span><div><b>AI doet het.</b> AI levert het product, jij beoordeelt en past aan.</div></div>
+<p class="small">Geen van de drie is altijd goed. Het hangt af van wat je wilt leren en van wat het werk moet opleveren.</p>
+
+<h2>Acht rollen</h2>
+<div class="scroll">
+<table class="t2">
+<tr><th colspan="2">Samenwerken met AI: jij blijft aan zet</th></tr>
+<tr><td><b>Uitlegger</b></td><td>Legt iets uit op jouw niveau</td></tr>
+<tr><td><b>Brainstormer</b></td><td>Helpt bij het bedenken van ideeën</td></tr>
+<tr><td><b>Feedbackgever</b></td><td>Geeft commentaar op je eigen werk</td></tr>
+<tr><td><b>Oefenmaatje</b></td><td>Sparringpartner voor een gesprek of presentatie</td></tr>
+<tr><th colspan="2">Uitbesteden aan AI: AI produceert, jij beoordeelt</th></tr>
+<tr><td><b>Schrijver</b></td><td>Schrijft een eerste tekst of opzet</td></tr>
+<tr><td><b>Vertaler</b></td><td>Vertaalt teksten of maakt kronkelzinnen leesbaar</td></tr>
+<tr><td><b>Verbeteraar</b></td><td>Polijst stijl en spelling</td></tr>
+<tr><td><b>Samenvatter</b></td><td>Vat artikelen of rapporten samen</td></tr>
+</table>
+</div>
+<p class="small">Bij Informatiemanagement zijn de rollen uit de bovenste helft het interessantst: uitlegger bij theorie die je nog niet snapt, feedbackgever op je eigen analyse, oefenmaatje als je je advies wilt testen. Zie de prompts bij <a href="03-ai-als-leerpartner.html">AI als leerpartner</a>.</p>
+
+<h2>De taak-ontleder in vier fases</h2>
+<p>Dit is de werkvorm uit de workshop, en de manier waarop je de K van kiezen praktisch maakt. Je doet hem op een echte opdracht: je eigen informatievraagstuk uit je project.</p>
+
+<div class="acc"><button><span class="chip p">1</span>Stappen invoeren<span class="arr">▼</span></button>
 <div class="body">
-<p>Pas nadat je gekozen hebt, komt het prompten. Instrueren is in KIES niet het hart van de vaardigheid, maar wel de voorwaarde om je keuze tot iets bruikbaars te laten leiden. Een vage prompt levert vaag werk op.</p>
-<p class="lbl">Vier delen van een goede prompt</p>
-<ul>
-<li><b>Rol:</b> tegen wie praat AI? "Je bent een kritische marktonderzoeker."</li>
-<li><b>Context:</b> wat moet AI weten over de situatie? "Ik werk aan een adviesrapport voor een fietsenwinkel die e-bikeverhuur overweegt; dit is mijn deelvraag."</li>
-<li><b>Instructies:</b> wat moet AI precies doen? "Stel me eerst drie vragen om mijn deelvraag scherper te maken; geef nog geen antwoord."</li>
-<li><b>Voorbeeld:</b> hoe ziet een goed antwoord eruit? "Reageer zoals een docent in een feedbackgesprek: kort, met een concrete verbeterrichting." Dit deel vergeten de meeste studenten, terwijl het vaak het grootste verschil maakt.</li>
-</ul>
-<p class="lbl">Instrueren verschilt per rol</p>
-<p>Bij een uitlegger geef je je eigen niveau en wat je al weet. Bij een brainstormer geef je het probleem en nodig je uit tot veel ideeën. Bij een feedbackgever geef je de tekst én het criterium waarop je feedback wilt. Bij een schrijver geef je doel, doelgroep, toon en lengte. En bijsturen na de eerste output is vaak belangrijker dan de eerste prompt: opnieuw vragen, aanvullen, de rol verfijnen.</p>
-<p>De <a href="03-ai-als-leerpartner.html">leerpartner-prompt</a> is een uitgewerkt voorbeeld van I: rol (leerpartner), context (jouw project), instructies (geen antwoord voor mijn eigen poging, één vraag tegelijk, vraag hoe ik heb gecontroleerd) en voorbeeld (begin met: wat verwacht je zelf?).</p>
-<label class="done"><input type="checkbox" data-k="i"> Gelezen</label>
+<p class="lbl">Wat doe je</p>
+<ul><li>Knip je opdracht op in stappen, in de volgorde waarin je ze doet. Vijf tot acht stappen is meestal genoeg.</li><li>Voor een informatievraagstuk bijvoorbeeld: deelvragen bepalen, bronnen zoeken, bronnen beoordelen, veldonderzoek voorbereiden, data verzamelen, analyseren, visualiseren, conclusie en advies schrijven.</li></ul>
+<p class="lbl">Let op</p>
+<p>Hoe grover je knipt, hoe grover je keuze. "Onderzoek doen" als één stap levert altijd het antwoord "samen met AI" op, en daar heb je niets aan.</p>
+<label class="done"><input type="checkbox" data-k="s1"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip t">E</span>Evalueren: grondstof beoordelen<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip b">2</span>Aanpak per stap<span class="arr">▼</span></button>
 <div class="body">
-<p>Wat uit AI komt is grondstof, geen eindproduct. Evalueren is waar het mens-AI-mens-principe landt: jij wordt eigenaar van wat je met AI produceert, en dat vraagt een actieve beoordelingsstap. Ook als je iets hebt uitbesteed, moet je weten wat er staat en of het klopt.</p>
-<p class="lbl">Waarom AI de fout in gaat</p>
-<p>Een taalmodel voorspelt welk woord waarschijnlijk volgt. Er zit geen feitendatabase achter. Daardoor klinkt AI even zelfverzekerd over dingen die kloppen als over dingen die niet kloppen. Drie typische valkuilen:</p>
-<ul>
-<li><b>Bias (vooroordelen):</b> AI herhaalt aannames uit zijn trainingsdata. In een doelgroepomschrijving worden "jongeren" vanzelf "prijsbewust en online" en "ouderen" "trouw aan de winkel", zonder dat daar een cijfer onder ligt.</li>
-<li><b>Hallucinaties (verzinsels):</b> AI verzint feiten, cijfers en bronnen die plausibel klinken. Een marktomvang van "3,2 miljard euro (Rabobank, 2024)" kan volledig verzonnen zijn, inclusief de bron.</li>
-<li><b>Sycophancy (ja-knikken):</b> AI is geneigd je gelijk te geven. Vraag je "mijn advies is Instagram, toch?", dan krijg je vaak een enthousiaste bevestiging van een zwak advies.</li>
-</ul>
-<p class="lbl">Hoe je evalueert</p>
-<div class="ex">Bij elke AI-output vier vragen: klopt het (bestaat de bron, staat erin wat AI zegt, van hoeveel en van wie is dit cijfer)? Is het compleet? Is het relevant voor mijn vraagstuk en mijn opdrachtgever? Past het bij mijn eigen stem en is dit mijn conclusie?</div>
-<p>Praktisch: een bron uit AI zoek je eerst zelf op (<a href="01-bron-controleren.html">Een bron controleren</a>, stap 0). Een cijfer uit AI controleer je bij de bron. Een conclusie uit AI leg je naast je eigen verwachting (<a href="04-voorspel-vraag-vergelijk.html">Voorspel, vraag, vergelijk</a>). En een bevestiging van AI vertrouw je pas als je AI ook expliciet om de tegenargumenten hebt gevraagd.</p>
-<p>Belangrijk: dit is geen verhaal over hoe gevaarlijk AI is. AI heeft typische zwakke plekken, en als je weet welke, kun je er beter mee werken. Dat is een professionele houding, geen pleidooi tegen AI.</p>
-<label class="done"><input type="checkbox" data-k="e"> Gelezen</label>
+<p class="lbl">Wat doe je</p>
+<ul><li>Kies per stap: zelf, samen met AI, of AI doet het.</li><li>Kies bij de laatste twee ook een rol uit de acht hierboven.</li><li>Schrijf in één regel op waarom. Die regel is later je onderbouwing.</li></ul>
+<label class="done"><input type="checkbox" data-k="s2"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip m">S</span>Spelregels: boven je eigen gebruik hangen<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip t">3</span>Inschatten<span class="arr">▼</span></button>
 <div class="body">
-<p>De S is de meest meta laag van KIES. Het gaat om de afspraken die gelden (in de opleiding, bij je opdrachtgever, in je toekomstige beroep), maar vooral om het vermogen om van een afstand naar je eigen AI-gebruik te kijken en vragen te stellen die verder reiken dan deze ene opdracht.</p>
-<p class="lbl">Drie thema's</p>
-<ul>
-<li><b>Privacy: wat stop je in AI?</b> Klantdata van je opdrachtgever, uitspraken van respondenten, vertrouwelijke bedrijfsinformatie: die horen niet in een publieke AI-tool. Namen weghalen is meestal niet genoeg; combinaties van gegevens blijven herleidbaar, en veel tools bewaren wat je invoert. Vraag je opdrachtgever wat mag, en gebruik voor gevoelige data een tool die je opleiding of de organisatie daarvoor aanwijst, of doe het zonder AI.</li>
-<li><b>Transparantie: wanneer meld je AI-gebruik?</b> Bij deze leeruitkomst is de afspraak eenvoudig: AI mag, je verantwoordt het in je werkwijze in vijf regels, en een AI-tool is nooit zelf een bron. Richting een opdrachtgever geldt hetzelfde: kunnen zeggen wat AI deed en welk denken van jou is, hoort bij professioneel adviseren. De APA-richtlijn voor generatieve AI (Werkgroep APA, 2024) zegt in de kern hetzelfde: AI-gebruik verantwoord je in de tekst, niet als bron in de lijst.</li>
-<li><b>Duurzaamheid: wat kost een prompt?</b> Eén vraag stelt weinig voor; dagelijks gebruik door miljoenen mensen telt op in energie en water. Geen schuldgevoel, wel bewustzijn: gebruik AI gericht, niet als reflex.</li>
-</ul>
-<p class="lbl">En de vierde vraag</p>
-<p>KIES stelt nog een vraag die zelden in een regel staat: wat doet dagelijks AI-gebruik op termijn met je eigen denkvermogen, je geheugen en je aandacht? Onderzoek laat zien dat studenten die vrij met AI oefenden, daarna zonder AI slechter presteerden dan studenten zonder AI; met een AI die alleen hints gaf, verdween dat nadeel (Bastani e.a., 2024). Daarom draait deze leeruitkomst om de vier zelf-momenten en de vier gewoontes: niet minder AI, maar AI op de plekken waar het jouw leren niet in de weg zit.</p>
-<label class="done"><input type="checkbox" data-k="s"> Gelezen</label>
+<p class="lbl">Wat doe je</p>
+<p>Zet per stap de drie vragen erbij, met min, gelijk of plus: leren, snelheid, kwaliteit.</p>
+<div class="ex">Bronnen zoeken, samen met AI (brainstormer): leren =, snelheid +, kwaliteit + &nbsp;·&nbsp; Bronnen beoordelen, zelf: leren +, snelheid −, kwaliteit + &nbsp;·&nbsp; Transcripten samenvatten, AI doet het (samenvatter): leren −, snelheid +, kwaliteit =</div>
+<p class="lbl">Waar het om gaat</p>
+<p>Kijk naar het patroon over je hele opdracht. Staat er bij leren overal een min, dan lever je straks een product in waar je zelf weinig van hebt opgestoken, en dat merk je in het gesprek erover.</p>
+<label class="done"><input type="checkbox" data-k="s3"> Gedaan</label>
 </div></div>
 
-<h2>KIES in deze leeruitkomst</h2>
-<p>Je hoeft KIES niet te leren als theorie. Je doet het, in de drie sessies en met deze pagina's. Zo hangt het samen:</p>
+<div class="acc"><button><span class="chip g">4</span>Experimenteren<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat doe je</p>
+<ul><li>Kies één of twee stappen en verander je aanpak bewust: doe iets zelf dat je zou uitbesteden, of andersom.</li><li>Kijk wat er verandert aan de drie scores, en aan het resultaat.</li><li>Noteer wat je merkt. Dat is materiaal voor je leercontract (vraag 2 en 4) en voor je beschouwing.</li></ul>
+<label class="done"><input type="checkbox" data-k="s4"> Gedaan</label>
+</div></div>
+
+<h2>Sjabloon: taak-ontleder</h2>
+<div class="out" id="tpl">Taak-ontleder: [mijn opdracht]
+
+| Nr | Stap | Aanpak (zelf / samen / AI) | Rol | Waarom | Leren | Snelheid | Kwaliteit |
+| 1 | ... | ... | ... | ... | -/=/+ | -/=/+ | -/=/+ |
+| 2 | ... | ... | ... | ... | -/=/+ | -/=/+ | -/=/+ |
+| 3 | ... | ... | ... | ... | -/=/+ | -/=/+ | -/=/+ |
+
+Welke stap hangt het sterkst samen met mijn leerdoel: ...
+Wat valt me op aan het patroon: ...
+Experiment: bij stap ... doe ik het anders, namelijk ...
+Wat er veranderde: ...</div>
+<p><button class="secondary" data-kopieer="tpl">Kopieer sjabloon</button> <span class="small kopie-melding"></span></p>
+
+<h2>Spelregels, kort</h2>
 <div class="card">
-<div class="row"><span class="chip p">K</span><div><b>Kiezen.</b> In de infosessie ontleedde je het informatiedeel van je project in subtaken en koos je per subtaak. In de sessie over zoeken en beoordelen verfijn je die keuze met de rollen. In je leercontract (vraag 2 en 4) staat wat je zelf doet en wat je aan AI overlaat, en in welke rol.</div></div>
-<div class="row"><span class="chip b">I</span><div><b>Instrueren.</b> De leerpartner-prompt uit de infosessie is je basis. In de sessie over analyseren en visualiseren bouw je zelf een prompt in vier delen voor je eigen data.</div></div>
-<div class="row"><span class="chip t">E</span><div><b>Evalueren.</b> Werkvorm 3 uit de infosessie (voorspel, vraag, controleer) en de pagina Een bron controleren zijn E in de praktijk. AI-bronnen gaan door dezelfde controle als alle andere bronnen; AI-conclusies leg je naast je eigen verwachting.</div></div>
-<div class="row"><span class="chip m">S</span><div><b>Spelregels.</b> De afspraak "AI mag, maar je verantwoordt het" en de werkwijze in vijf regels. In de sessies bespreken we stellingen over respondentdata in AI, AI-gebruik melden aan je opdrachtgever en methodische verantwoording.</div></div>
-</div>
-
-<h2>Wat KIES niet is</h2>
 <ul>
-<li>Geen checklist en geen verbod. Er is geen "goede" of "foute" keuze; er is een onderbouwde keuze en een niet-gemaakte keuze.</li>
-<li>Geen vervanging van de leeruitkomst. De vier criteria blijven het vertrekpunt; KIES helpt je om ze ook met AI te halen zonder dat je leren verdampt.</li>
-<li>Geen prompttrucjes. Wie alleen leert prompten, slaat de K over. En de K is waar het verschil zit tussen AI gebruiken en door AI gebruikt worden.</li>
+<li><b>Privacy.</b> Geen persoonsgegevens van respondenten of klanten en geen vertrouwelijke bedrijfsgegevens in een chatbot. Anonimiseer eerst.</li>
+<li><b>Transparantie.</b> Heeft AI-gebruik invloed op wat je aan je opdrachtgever levert, zeg dat er dan bij; vraag ook of er afspraken over zijn.</li>
+<li><b>Verantwoording.</b> Bij elk bewijs waarin je AI gebruikte hoort <a href="05-werkwijze-in-vijf-regels.html">je werkwijze in vijf regels</a>.</li>
+<li><b>Duurzaamheid.</b> Elke vraag aan een AI-model kost energie en water. Dat is geen reden om het niet te doen, wel om niet alles drie keer opnieuw te laten genereren.</li>
+<li><b>Je eigen denkvermogen.</b> De belangrijkste spelregel is de eerste van de drie vragen: wat doet dit met wat ik leer?</li>
 </ul>
+</div>
 
 <h2>Meer weten</h2>
-<p class="small">Mutsaarts, M. (2026). <i>Raamwerk KIES: een denkraam voor de AI-vaardigheid van leerlingen en studenten</i> en <i>Whitepaper KIES</i>. AI voor Docenten, aivoordocenten.nl. · Dakan, R. en Feller, J. (2025). <i>AI Fluency Framework</i>. Anthropic. · Mollick, E. en Mollick, L. (2023). <i>Assigning AI: Seven approaches for students, with prompts</i>. · Bastani, H. e.a. (2024). <i>Generative AI can harm learning</i>. Wharton School. · Werkgroep APA (2024). <i>De APA-richtlijnen uitgelegd: generatieve AI</i>, versie 1.0. SURF.</p>
+<p class="small">KIES is ontwikkeld door AI voor Docenten (Mutsaarts, 2026) op basis van het AI Fluency Framework van Anthropic; de acht rollen zijn afgeleid van Mollick en Mollick (2025). Voor de toepassing op deze leeruitkomst: <a href="03-ai-als-leerpartner.html">AI als leerpartner</a>. Voor de gewoonte die er het meest toe doet: <a href="04-voorspel-vraag-vergelijk.html">Voorspel, vraag, vergelijk</a>.</p>
 
-<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. KIES is een denkraam van AI voor Docenten; hier vertaald naar de vier criteria van deze leeruitkomst. De criteria vragen geen AI en belonen geen AI, maar gelden voor alles wat je met AI maakt.</div>
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. KIES is een denkraam, geen checklist; de leeruitkomst vraagt geen AI en beloont geen AI.</div>
 </div>
-
-<script>
-function tg(b){b.parentNode.classList.toggle('open')}
-(function(){var key='im_kies_methode';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
-document.querySelectorAll('.done input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
-document.querySelector('.acc').classList.add('open');})();
-</script>
 <script src="nav.js"></script>
 </body>
 </html>

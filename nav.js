@@ -1,4 +1,4 @@
-/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.2 (8-9-2026)
+/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.3 (8-9-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
    (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
@@ -11,9 +11,9 @@
     { file: '02-welke-bron-is-dit.html', title: 'Welke bron is dit?', desc: 'Van oorspronkelijke auteur tot uitlegsite: wat weegt zwaar, wat niet, en hoe je je bronnenlijst indeelt.', group: 'zoeken', status: 'klaar' },
 
     { file: '03-ai-als-leerpartner.html', title: 'AI als leerpartner', desc: 'KIES in vier stappen en de leerpartner-prompt per criterium.', group: 'ai', status: 'klaar' },
-    { file: '11-de-kies-methode.html', title: 'De KIES-methode', desc: 'Wat KIES is, waar het vandaan komt en hoe je het bij deze leeruitkomst gebruikt: kiezen, instrueren, evalueren, spelregels.', group: 'ai', status: 'klaar' },
     { file: '04-voorspel-vraag-vergelijk.html', title: 'Voorspel, vraag, vergelijk', desc: 'Werkblad voor gewoonte 1: eerst zelf, dan AI, dan vergelijken.', group: 'ai', status: 'klaar' },
     { file: '05-werkwijze-in-vijf-regels.html', title: 'Je werkwijze in vijf regels', desc: 'Invullen en plakken bij elk bewijs waarin je AI gebruikte.', group: 'ai', status: 'klaar' },
+    { file: '11-de-kies-methode.html', title: 'De KIES-methode', desc: 'De methode zelf: mens-AI-mens, de vier letters, drie vragen, drie manieren, acht rollen en de taak-ontleder.', group: 'ai', status: 'klaar' },
 
     { file: '06-eigen-onderzoek-controleerbaar.html', title: 'Eigen onderzoek controleerbaar maken', desc: 'Aantallen, respondenten, citaten, methode: zo kan een ander het nakijken.', group: 'analyse', status: 'klaar' },
     { file: '07-tien-secondentest.html', title: 'De tien-secondentest', desc: 'Checklist voor je visualisatie: titel, eenheid, noemer, bron, en kun jij hem uitleggen.', group: 'analyse', status: 'klaar' },
