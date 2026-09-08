@@ -1,4 +1,4 @@
-/* Stijl naslag Informatiemanagement (CE, Fontys) - v1.0 (8-9-2026)
+/* Stijl naslag Informatiemanagement (CE, Fontys) - v1.1 (8-9-2026)
    Eén stijlbestand voor alle naslagpagina's. De navigatie brengt zijn eigen stijl mee (nav.js). */
 :root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
 *{box-sizing:border-box}
@@ -89,3 +89,9 @@ table.t2{width:100%;border-collapse:collapse;margin:10px 0;font-size:14.5px}
 table.t2 th,table.t2 td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
 table.t2 th{background:var(--light);color:var(--p)}
 .scroll{overflow-x:auto}
+
+/* rolregel met icoon (iconen uit de KIES-workshop) */
+.rol{display:flex;align-items:center;gap:10px}
+.rol .ic{flex:none;width:26px;height:26px}
+.rol.sam .ic{color:var(--m)}
+.rol.uit .ic{color:var(--p)}
