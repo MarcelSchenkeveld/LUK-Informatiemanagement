@@ -1,4 +1,4 @@
-/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.3 (8-9-2026)
+/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.4 (8-9-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
    (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
@@ -13,7 +13,6 @@
     { file: '03-ai-als-leerpartner.html', title: 'AI als leerpartner', desc: 'KIES in vier stappen en de leerpartner-prompt per criterium.', group: 'ai', status: 'klaar' },
     { file: '04-voorspel-vraag-vergelijk.html', title: 'Voorspel, vraag, vergelijk', desc: 'Werkblad voor gewoonte 1: eerst zelf, dan AI, dan vergelijken.', group: 'ai', status: 'klaar' },
     { file: '05-werkwijze-in-vijf-regels.html', title: 'Je werkwijze in vijf regels', desc: 'Invullen en plakken bij elk bewijs waarin je AI gebruikte.', group: 'ai', status: 'klaar' },
-    { file: '11-de-kies-methode.html', title: 'De KIES-methode', desc: 'De methode zelf: mens-AI-mens, de vier letters, drie vragen, drie manieren, acht rollen en de taak-ontleder.', group: 'ai', status: 'klaar' },
 
     { file: '06-eigen-onderzoek-controleerbaar.html', title: 'Eigen onderzoek controleerbaar maken', desc: 'Aantallen, respondenten, citaten, methode: zo kan een ander het nakijken.', group: 'analyse', status: 'klaar' },
     { file: '07-tien-secondentest.html', title: 'De tien-secondentest', desc: 'Checklist voor je visualisatie: titel, eenheid, noemer, bron, en kun jij hem uitleggen.', group: 'analyse', status: 'klaar' },
@@ -21,16 +20,20 @@
     { file: '08-advies-onderbouwen.html', title: 'Advies onderbouwen', desc: 'Argumentatietabel: advies in één zin, argumenten met bron, en wat je bewijs niet dekt.', group: 'advies', status: 'klaar' },
 
     { file: '09-kies-a-of-b.html', title: 'Kies A of B', desc: 'Vier contrasten uit bewerkt studentenwerk: waaraan zie je kwaliteit?', group: 'algemeen', status: 'klaar' },
-    { file: '10-je-leercontract.html', title: 'Je leercontract', desc: 'Invulhulp bij de vijf vragen, met een voorbeeld voor deze leeruitkomst.', group: 'algemeen', status: 'klaar' }
+    { file: '10-je-leercontract.html', title: 'Je leercontract', desc: 'Invulhulp bij de vijf vragen, met een voorbeeld voor deze leeruitkomst.', group: 'algemeen', status: 'klaar' },
+
+    { file: 'kies-methode.html', title: 'De KIES-methode', desc: 'De methode zelf: mens-AI-mens, de vier letters, drie vragen, drie manieren, acht rollen en de taak-ontleder met werkblad.', group: 'achtergrond', status: 'klaar' }
   ];
 
   var GROUPS = [
     { id: 'start', title: 'Begin hier', sub: 'De route door de leeruitkomst' },
     { id: 'zoeken', title: 'Zoeken en beoordelen', sub: 'Criterium 1, bijvoorbeeld een bronnentabel' },
-    { id: 'ai', title: 'Werken met AI', sub: 'Zo blijft het jouw leerproces' },
+    { id: 'ai', title: 'Werken met AI', sub: 'Zo blijft het jouw leerproces',
+      noot: 'De methode achter deze drie pagina\u2019s staat beschreven bij <a href="kies-methode.html">De KIES-methode</a>.' },
     { id: 'analyse', title: 'Analyseren en visualiseren', sub: 'Criterium 2 en 3, bijvoorbeeld een analyse en een visualisatie' },
     { id: 'advies', title: 'Onderbouwen en reflecteren', sub: 'Criterium 4, bijvoorbeeld een onderbouwd advies met reflectie' },
-    { id: 'algemeen', title: 'Kwaliteit en leercontract', sub: 'Voor het hele traject' }
+    { id: 'algemeen', title: 'Kwaliteit en leercontract', sub: 'Voor het hele traject' },
+    { id: 'achtergrond', title: 'Achtergrond', sub: 'Geen stap in je project, wel handig om terug te zoeken' }
   ];
 
   var CSS = '' +
@@ -61,6 +64,7 @@
     '.ov .list span{font-size:14.5px}' +
     '.ov .list .n{flex:none;width:28px;height:28px;border-radius:50%;background:#663366;color:#fff;font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;margin-top:1px}' +
     '.ov .list div.soon .n{background:#cfcfcf}' +
+    '.ov .list a.zonder-nr,.ov .list div.soon.zonder-nr{padding-left:54px}' +
     '.ov .list .tag2{flex:none;font-size:11.5px;font-weight:700;color:#6b6b6b;border:1px solid #cfcfcf;border-radius:10px;padding:1px 8px;margin-top:4px;letter-spacing:.3px}';
 
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
@@ -134,6 +138,7 @@
         o += '<h2>' + esc(g.title) + '</h2><p class="sub">' + esc(g.sub) + '</p><div class="list">';
         items.forEach(function (p) { o += item(p); });
         o += '</div>';
+        if (g.noot) o += '<p class="small">' + g.noot + '</p>';
       });
       ov.innerHTML = o;
     }
@@ -150,10 +155,11 @@
   function item(p) {
     var n = numberFor(p);
     var num = n ? '<span class="n">' + n + '</span>' : '';
+    var kl = n ? '' : ' class="zonder-nr"';
     if (p.status === 'klaar') {
-      return '<a href="' + p.file + '">' + num + '<div><b>' + esc(p.title) + '</b><span>' + esc(p.desc) + '</span></div></a>';
+      return '<a href="' + p.file + '"' + kl + '>' + num + '<div><b>' + esc(p.title) + '</b><span>' + esc(p.desc) + '</span></div></a>';
     }
-    return '<div class="soon">' + num + '<div><b>' + esc(p.title) + '</b><span>' + esc(p.desc) + '</span></div><span class="tag2">VOLGT</span></div>';
+    return '<div class="soon' + (n ? '' : ' zonder-nr') + '">' + num + '<div><b>' + esc(p.title) + '</b><span>' + esc(p.desc) + '</span></div><span class="tag2">VOLGT</span></div>';
   }
 
   /* Gedrag dat op elke pagina hetzelfde is: stappen uitklappen, vinkjes onthouden,

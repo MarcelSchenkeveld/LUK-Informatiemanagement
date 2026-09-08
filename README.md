@@ -10,7 +10,9 @@ Adres: https://marcelschenkeveld.github.io/LUK-Informatiemanagement/
 - `index.html`: hoofdpagina (overzicht). Alle pagina's gegroepeerd per criterium, plus links naar bibliotheek, LibraryGuides en Zoekwijzer. Dit is de link voor Canvas en Teams.
 - `00-start-de-route.html`: de route (hoe je aan de leeruitkomst werkt, welk bewijs erbij past, zelf-momenten, gewoontes, afspraken).
 - `01` tot en met `10`: stap-voor-stap-pagina's, alle volgens hetzelfde model: waarom dit ertoe doet, een contrast A/B om te onthullen, uitklapbare stappen met een afvinkje, en een kopieerbaar sjabloon.
+- `kies-methode.html`: achtergrondpagina over de KIES-methode zelf. Geen stap in het traject, dus geen nummer; staat achteraan in het overzicht, met een verwijzing eronder bij de groep Werken met AI.
 - `stijl.css`: de opmaak van alle pagina's. Eén plek voor kleuren, kaarten, stappen en sjablonen.
+- `werkblad-taak-ontleder.docx`: het invulbare Word-werkblad bij de pagina De KIES-methode (Fontys-huisstijl, liggend A4). Staat als bestand in de repo; die pagina linkt ernaar met een downloadknop. Nieuwe versie: bestand vervangen onder dezelfde naam, dan blijft de link werken.
 - `nav.js`: de navigatie en het gedrag. Bevat de paginalijst (PAGES) en de groepen, zet op elke pagina de bovenbalk en de knoppen vorige / overzicht / volgende, vult de overzichtslijsten, en regelt het uitklappen, de vinkjes (lokaal in de browser), het onthullen en het kopiëren.
 
 ## Nieuwe pagina toevoegen
