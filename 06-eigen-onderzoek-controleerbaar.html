@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eigen onderzoek controleerbaar maken</title>
+<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
+header.top{background:var(--p);color:#fff;padding:22px 18px}
+header.top .wrap{padding:0}
+header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
+header.top p{margin:0;opacity:.9;font-size:15px}
+.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
+h2{color:var(--p);font-size:20px;margin:28px 0 8px}
+h3{color:var(--p);font-size:17px;margin:18px 0 6px}
+p{margin:8px 0}
+.lead{font-size:17px}
+.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
+.card.white{background:#fff;border:1.5px solid var(--line)}
+.card.accent{border-left:6px solid var(--m)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
+.tile b{display:block;font-size:22px;margin-bottom:2px}
+.tile strong{display:block;font-size:15px;margin-bottom:6px}
+.tile span{font-size:13.5px;opacity:.95}
+.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
+.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
+.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
+.row div{flex:1}
+button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
+button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
+button:disabled{opacity:.45;cursor:default}
+.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt:hover{border-color:var(--p)}
+.opt input{margin-right:8px}
+.opt.sel{border-color:var(--p);background:#faf6fa}
+textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
+textarea{min-height:64px;resize:vertical}
+.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
+.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
+.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
+.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
+.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
+.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
+.steps span.on{background:var(--p);color:#fff;font-weight:700}
+.steps span.done{background:var(--g);color:#fff}
+.step{display:none}.step.on{display:block}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
+.small{font-size:13.5px;color:var(--grey)}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.ab{grid-template-columns:1fr}}
+.ab .card{margin:0}
+.ab h4{margin:0 0 6px;font-size:15px}
+.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
+ul{padding-left:20px;margin:6px 0}
+li{margin:4px 0}
+.check{list-style:none;padding:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
+.check input{margin-top:5px}
+.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
+a{color:var(--p)}
+.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.links a b{color:var(--p)}
+.links a span{color:var(--grey);font-size:14px}
+
+.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
+.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
+.acc>button .chip{margin:0}
+.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
+.acc .body{display:none;padding:0 16px 16px 54px}
+.acc.open .body{display:block}
+.acc.open>button .arr{transform:rotate(180deg)}
+.body p{margin:6px 0}
+.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
+.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
+.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
+.reveal{display:none;margin-top:10px}
+.reveal.on{display:block}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<span class="tag">Informatiemanagement · stappenplan</span>
+<h1>Eigen onderzoek controleerbaar maken</h1>
+<p>"Uit de interviews blijkt" is geen bewijs. Laat aantallen, respondenten, citaten en methode zien. Klik een stap open, doe hem, vink hem af.</p>
+</div></header>
+
+<div class="wrap">
+<div class="card accent">
+<b>Waarom dit ertoe doet.</b> Criterium 1 vraagt dat je je methodes inzichtelijk maakt, en criterium 2 vraagt dat je bronnen verbindt tot zakelijke inzichten. Je eigen interviews, enquête of observaties zijn zo'n bron, en dus moet een lezer kunnen zien waar een bewering vandaan komt. Dit hoort bij je bewijs bij criterium 2, bijvoorbeeld een analyse met datatabel. Een conclusie zonder aantallen kan niemand controleren, ook jij niet.
+</div>
+
+<h2>Eerst kijken: wat is het verschil?</h2>
+<div class="ab">
+  <div class="card a"><h4>Fragment A</h4><p class="small">"Uit de interviews blijkt dat klanten vooral op prijs letten."</p></div>
+  <div class="card bb"><h4>Fragment B</h4><p class="small">"Zes van de negen geïnterviewde klanten noemden prijs als eerste; respondent 3: 'ik vergelijk altijd eerst online'. Interviewleidraad en samenvattingen in bijlage 2 en 3."</p></div>
+</div>
+<p><button class="secondary" onclick="document.getElementById('rv').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
+<div class="reveal" id="rv"><div class="feedback good" style="display:block"><b>B.</b> Je ziet hoeveel van hoeveel, je hoort een respondent zelf, en je weet waar de leidraad en de samenvattingen staan. A kan waar zijn, maar niemand kan het nagaan: hoeveel interviews, wie, en wat zeiden ze precies?</div></div>
+
+<h2>Het stappenplan</h2>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip p">1</span>Methode in drie zinnen<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat doe je</p>
+<ul><li>Zin 1: wie en hoeveel (bijvoorbeeld negen klanten van de opdrachtgever).</li><li>Zin 2: hoe geworven en wanneer (via de mailinglijst van de opdrachtgever, in welke week).</li><li>Zin 3: welke vragen, en waar de leidraad staat (zes open vragen over koopgedrag, bijlage 2).</li></ul>
+<p class="lbl">Voorbeeld</p>
+<div class="ex">"Ik heb negen bestaande klanten van [opdrachtgever] geïnterviewd. Ze zijn geworven via de nieuwsbrief en gesproken tussen 6 en 10 oktober 2026, telefonisch, twintig minuten per gesprek. De leidraad met zes open vragen staat in bijlage 2."</div>
+<label class="done"><input type="checkbox" data-k="s1"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip b">2</span>Respondenten in een tabel<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat doe je</p>
+<ul><li>Eén rij per respondent: code, kenmerk dat ertoe doet (bijvoorbeeld klant sinds, leeftijdsgroep, type klant), datum.</li><li>Geen namen. Gebruik codes: R1, R2, R3.</li><li>Zet de tabel in een bijlage en verwijs ernaar.</li></ul>
+<p class="lbl">Voorbeeld</p>
+<div class="ex">R1 · particuliere klant, sinds 2023 · 6-10-2026<br>R2 · zakelijke klant, sinds 2019 · 7-10-2026<br>R3 · particuliere klant, nieuw in 2026 · 7-10-2026</div>
+<label class="done"><input type="checkbox" data-k="s2"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip t">3</span>Van antwoord naar bewering: tel<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat doe je</p>
+<ul><li>Tel per vraag hoeveel respondenten iets noemden: hoeveel van hoeveel.</li><li>Bij minder dan twintig respondenten nooit een percentage zonder noemer. Schrijf "zes van de negen", niet "67%".</li><li>Zet de telling in je datatabel, zodat elke bewering terug te vinden is.</li></ul>
+<p class="lbl">Sterk, zwak</p>
+<div class="ex"><b>Sterk:</b> "Zes van de negen noemden prijs als eerste; twee noemden service; één noemde de locatie."<br><b>Zwak:</b> "De meeste klanten letten op prijs." Of: "67% van de klanten vindt prijs belangrijk."</div>
+<label class="done"><input type="checkbox" data-k="s3"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip g">4</span>Citaat bij elke conclusie<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat doe je</p>
+<ul><li>Kies bij elke conclusie één kort citaat dat laat horen wat je bedoelt, met respondentcode.</li><li>Kort: één of twee zinnen. Geen hele alinea's.</li><li>Kies een citaat dat typisch is, niet het meest spectaculaire.</li></ul>
+<p class="lbl">Voorbeeld</p>
+<div class="ex">"Prijs komt bij zes van de negen als eerste. R3: 'ik vergelijk altijd eerst online voordat ik hier binnenstap'."</div>
+<label class="done"><input type="checkbox" data-k="s4"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip m">5</span>Data, bron of aanname?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat doe je</p>
+<ul><li>Label elke bewering in je analyse: eigen data (met telling), externe bron (met verwijzing in APA), of aanname.</li><li>Aannames mogen, maar noem ze. "Ik neem aan dat dit ook geldt voor klanten die ik niet sprak" is eerlijk; het weglaten is niet eerlijk.</li></ul>
+<p class="lbl">Voorbeeld</p>
+<div class="ex"><b>Eigen data:</b> zes van de negen noemden prijs als eerste.<br><b>Externe bron:</b> landelijk oriënteert 80% van de consumenten online (bron in APA).<br><b>Aanname:</b> de negen respondenten zijn representatief voor de vaste klanten; dit heb ik niet getoetst.</div>
+<label class="done"><input type="checkbox" data-k="s5"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip p">6</span>Wat je onderzoek niet dekt<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat doe je</p>
+<ul><li>Schrijf op wie je niet sprak (bijvoorbeeld klanten die zijn afgehaakt, of nieuwe klanten).</li><li>Schrijf op wat je niet vroeg (bijvoorbeeld naar het budget).</li><li>Koppel er een gevolg aan: welke conclusie is daardoor voorlopig, en wat zou je nog kunnen doen.</li></ul>
+<p class="lbl">Voorbeeld</p>
+<div class="ex">"Ik sprak alleen bestaande klanten. Wat mensen tegenhoudt om klant te worden, weet ik dus niet. Het advies over prijs is daarom voorlopig; een korte enquête onder websitebezoekers kan dit aanvullen."</div>
+<label class="done"><input type="checkbox" data-k="s6"> Gedaan</label>
+</div></div>
+
+<h2>AI bij je eigen onderzoek</h2>
+<div class="card">
+<p><b>Uitbesteden mag:</b> interviews samenvatten (samenvatter). Maar controleer elke samenvatting tegen je eigen aantekeningen of het transcript. Een samenvatting die iets zegt wat je niet in de antwoorden kunt aanwijzen, gebruik je niet.</p>
+<p><b>Laat AI nooit patronen verzinnen.</b> Schrijf eerst je eigen hypothese op: wat zie jij in de antwoorden. Vraag dan pas aan AI, als feedbackgever, welke patronen je mogelijk hebt gemist. Elk patroon dat AI noemt, moet je zelf in de antwoorden kunnen terugvinden en tellen.</p>
+<p><b>Spelregel:</b> geen respondentgegevens, klantdata of vertrouwelijke opdrachtgeverinformatie in een AI-tool. Anonimiseren is niet genoeg. Verantwoord je AI-gebruik in je werkwijze in vijf regels.</p>
+</div>
+
+<h2>Sjabloon</h2>
+<p>Kopieer het sjabloon en vul in. De methode in drie zinnen komt in je analyse; de respondententabel komt in een bijlage.</p>
+<div class="out" id="tpl">Methode in drie zinnen
+1. Wie en hoeveel: ...
+2. Hoe geworven en wanneer: ...
+3. Welke vragen, en waar staat de leidraad: bijlage ...
+
+Respondententabel (één regel per respondent, geen namen)
+Code: R... / Kenmerk: ... / Datum: ...</div>
+<p><button class="secondary" onclick="cp()">Kopieer sjabloon</button> <span class="small" id="copied"></span></p>
+
+<h2>Meer weten</h2>
+<p class="small">Triangulatie: je eigen data naast externe cijfers leggen, zodat een conclusie op meer dan één soort bewijs rust. Zie de pagina Welke bron is dit? voor de bronnenhiërarchie en de pagina De tien-secondentest voor het tonen van je aantallen.</p>
+
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Criterium 1: methodes inzichtelijk maken en informatie zoeken en beoordelen; criterium 2: bronnen verbinden tot zakelijke inzichten.</div>
+</div>
+
+<script>
+function tg(b){b.parentNode.classList.toggle('open')}
+function cp(){var t=document.getElementById('tpl').textContent;var m=document.getElementById('copied');if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){m.textContent='Gekopieerd.'},function(){m.textContent='Selecteer de tekst en kopieer handmatig.'})}else{m.textContent='Selecteer de tekst en kopieer handmatig.'}}
+(function(){var key='im_eigen_onderzoek';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+document.querySelectorAll('.done input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
+document.querySelector('.acc').classList.add('open');})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI als leerpartner</title>
+<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
+header.top{background:var(--p);color:#fff;padding:22px 18px}
+header.top .wrap{padding:0}
+header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
+header.top p{margin:0;opacity:.9;font-size:15px}
+.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
+h2{color:var(--p);font-size:20px;margin:28px 0 8px}
+h3{color:var(--p);font-size:17px;margin:18px 0 6px}
+p{margin:8px 0}
+.lead{font-size:17px}
+.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
+.card.white{background:#fff;border:1.5px solid var(--line)}
+.card.accent{border-left:6px solid var(--m)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
+.tile b{display:block;font-size:22px;margin-bottom:2px}
+.tile strong{display:block;font-size:15px;margin-bottom:6px}
+.tile span{font-size:13.5px;opacity:.95}
+.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
+.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
+.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
+.row div{flex:1}
+button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
+button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
+button:disabled{opacity:.45;cursor:default}
+.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt:hover{border-color:var(--p)}
+.opt input{margin-right:8px}
+.opt.sel{border-color:var(--p);background:#faf6fa}
+textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
+textarea{min-height:64px;resize:vertical}
+.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
+.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
+.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
+.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
+.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
+.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
+.steps span.on{background:var(--p);color:#fff;font-weight:700}
+.steps span.done{background:var(--g);color:#fff}
+.step{display:none}.step.on{display:block}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
+.small{font-size:13.5px;color:var(--grey)}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.ab{grid-template-columns:1fr}}
+.ab .card{margin:0}
+.ab h4{margin:0 0 6px;font-size:15px}
+.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
+ul{padding-left:20px;margin:6px 0}
+li{margin:4px 0}
+.check{list-style:none;padding:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
+.check input{margin-top:5px}
+.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
+a{color:var(--p)}
+.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.links a b{color:var(--p)}
+.links a span{color:var(--grey);font-size:14px}
+
+.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
+.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
+.acc>button .chip{margin:0}
+.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
+.acc .body{display:none;padding:0 16px 16px 54px}
+.acc.open .body{display:block}
+.acc.open>button .arr{transform:rotate(180deg)}
+.body p{margin:6px 0}
+.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
+.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
+.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
+.reveal{display:none;margin-top:10px}
+.reveal.on{display:block}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<span class="tag">Informatiemanagement · naslag</span>
+<h1>AI als leerpartner</h1>
+<p>KIES in vier stappen, toegepast op je onderzoek, plus de leerpartner-prompt in vier varianten om te kopiëren.</p>
+</div></header>
+
+<div class="wrap">
+<div class="card accent">
+<b>Waarom dit ertoe doet.</b> AI mag bij alle vier de criteria van deze leeruitkomst. De vraag is niet óf je AI gebruikt, maar wat jij leert en of je het kunt uitleggen. In elk bewijs (bijvoorbeeld een bronnentabel, een analyse, een visualisatie, een advies met reflectie) verantwoord je je hulpmiddelen in de werkwijze in vijf regels. Deze pagina helpt je AI zo in te zetten dat er iets van jou overblijft.
+</div>
+
+<h2>Mens-AI-mens</h2>
+<div class="card">
+<p>Jij vraagt, AI levert grondstof, jij beoordeelt en maakt het eigen. AI staat in het midden, niet aan het begin en niet aan het eind. Wat je vooraf zelf hebt bedacht, kun je vergelijken. Wat je achteraf zelf hebt gecontroleerd en herschreven, kun je uitleggen. Een AI-tool is nooit zelf een bron.</p>
+<p>De vier zelf-momenten die je niet uitbesteedt: <b>verwachten</b> (wat denk ik zelf dat eruit komt), <b>kiezen</b> (welke bron, welke vorm, welk besluit), <b>oordelen en concluderen</b> (klopt dit, wat betekent het), <b>uitleggen</b> (kan ik dit in twee minuten toelichten aan mijn opdrachtgever of assessor).</p>
+</div>
+
+<h2>KIES in vier stappen</h2>
+<p>KIES is het denkraam van AI voor Docenten (Mutsaarts, 2026): Kiezen, Instrueren, Evalueren, Spelregels. Hieronder vertaald naar Informatiemanagement.</p>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip p">K</span>Kiezen: wat doe je zelf, samen, of besteed je uit?<span class="arr">▼</span></button>
+<div class="body">
+<p>Knip je taak in subtaken en kies per subtaak. Niet "AI voor mijn analyse", maar "AI als samenvatter voor mijn interviewnotities, zelf de conclusie".</p>
+<p class="lbl">Acht AI-rollen, met een voorbeeld uit je project</p>
+<p><b>Samenwerken</b> (jij blijft denken):</p>
+<ul>
+<li><b>Uitlegger:</b> "Leg het verschil uit tussen een nominale en een reële omzetgroei."</li>
+<li><b>Brainstormer:</b> "Welke zoektermen passen bij e-bikeverhuur in een middelgrote stad?"</li>
+<li><b>Feedbackgever:</b> "Hier is mijn argumentatie voor het advies. Waar zit de zwakste schakel?"</li>
+<li><b>Oefenmaatje:</b> "Speel mijn opdrachtgever en stel de drie lastigste vragen over mijn visualisatie."</li>
+</ul>
+<p><b>Uitbesteden</b> (AI voert uit, jij controleert):</p>
+<ul>
+<li><b>Schrijver:</b> een eerste opzet van een e-mail aan een respondent.</li>
+<li><b>Vertaler:</b> een Engelstalig branchecijfer of artikel toegankelijk maken.</li>
+<li><b>Verbeteraar:</b> je bronnentabel nakijken op spelling en consistente APA-vorm.</li>
+<li><b>Samenvatter:</b> vijf interviewtranscripten samenvatten, die je daarna tegen je aantekeningen legt.</li>
+</ul>
+<p class="lbl">De drie KIES-vragen bij elke keuze</p>
+<ul><li>Leer ik hiervan minder, gelijk of meer?</li><li>Gaat het langzamer of sneller?</li><li>Wordt het slechter of beter?</li></ul>
+<p>Gaat het sneller maar leer ik minder bij iets wat ik moet kunnen uitleggen? Dan doe je het zelf of samen.</p>
+<p class="lbl">Wat je gerust mag uitbesteden</p>
+<div class="ex">Opmaak, spelling, vertaling, een eerste samenvatting, zoektermen, een concept-e-mail, een eerste versie van een grafiek die jij daarna controleert.</div>
+<p class="lbl">Wat je zelf doet</p>
+<div class="ex">De vier zelf-momenten: verwachten, kiezen, oordelen en concluderen, uitleggen. Dit is precies waar het bewijs van je leeruitkomst uit bestaat.</div>
+<label class="done"><input type="checkbox" data-k="k"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip b">I</span>Instrueren: de vier promptdelen<span class="arr">▼</span></button>
+<div class="body">
+<p>Een goede prompt heeft vier delen: rol, context, instructies, voorbeeld.</p>
+<ul>
+<li><b>Rol:</b> "Je bent een marktonderzoeker met ervaring in de fietsbranche."</li>
+<li><b>Context:</b> "Ik doe onderzoek voor een fietsenwinkel die e-bikeverhuur overweegt. Ik heb negen klanten geïnterviewd en beschik over de verkoopcijfers van 2024 en 2025."</li>
+<li><b>Instructies:</b> "Stel me eerst drie vragen over mijn data voordat je iets concludeert. Noem bij elk cijfer dat je geeft van wie het is en van wanneer."</li>
+<li><b>Voorbeeld:</b> "Zo ziet een regel uit mijn bronnentabel eruit: Bron (APA): ... / Soort: ... / Gebruikt voor: ... Geef je antwoord in dezelfde vorm."</li>
+</ul>
+<p class="lbl">Tip</p>
+<p>Het voorbeeld vergeten studenten het vaakst. Juist een voorbeeld van de vorm die je wilt (een tabelregel, een citaat met respondentcode, een grafiektitel in gewone taal) levert de grootste verbetering op.</p>
+<label class="done"><input type="checkbox" data-k="i"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip t">E</span>Evalueren: de drie valkuilen en hoe je checkt<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Drie valkuilen</p>
+<ul>
+<li><b>Hallucinaties:</b> verzonnen feiten en bronnen. "De e-bikeverhuurmarkt groeit met 23% per jaar (Fietsersbond, 2024)." Het rapport bestaat niet, of het cijfer staat er niet in.</li>
+<li><b>Bias:</b> ongegronde aannames. AI beschrijft je doelgroep als "vitale 65-plussers die een e-bike huren voor recreatie", terwijl jouw interviews vooral forensen van 30 tot 45 laten zien.</li>
+<li><b>Sycophancy:</b> AI beaamt wat jij lijkt te willen horen. Je legt een zwak advies voor en krijgt terug: "Een uitstekend en goed onderbouwd plan." Dat zegt niets over de kwaliteit.</li>
+</ul>
+<p class="lbl">Hoe je een AI-antwoord checkt</p>
+<ul>
+<li>Bestaat de bron? Zoek hem zelf op (bibliotheek, Google Scholar, site van de organisatie).</li>
+<li>Staat erin wat AI zegt? Open de bron en lees de passage.</li>
+<li>Van hoeveel en van wie is het cijfer? Noemer, periode, afzender.</li>
+<li>Is dit mijn conclusie? Of neem ik een oordeel over dat ik niet zelf kan onderbouwen?</li>
+</ul>
+<p>Gebruik <a href="01-bron-controleren.html">Een bron controleren</a> voor elke bron die AI noemt.</p>
+<label class="done"><input type="checkbox" data-k="e"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip m">S</span>Spelregels: privacy, transparantie, duurzaamheid<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Privacy</p>
+<p>Geen klantdata, respondentgegevens of vertrouwelijke opdrachtgeverinformatie in een AI-tool. Anonimiseren is niet genoeg: een klantbestand zonder namen is nog steeds het klantbestand van je opdrachtgever. Werk met een samenvatting in eigen woorden, of met fictieve voorbeeldregels.</p>
+<p class="lbl">Transparantie</p>
+<p>De spelregel: AI mag, en je verantwoordt het in de werkwijze in vijf regels bij elk bewijsstuk. Een AI-tool is geen bron en staat dus niet in je bronnenlijst. De APA-richtlijn voor generatieve AI (Werkgroep APA, 2024, via SURF) zegt hetzelfde: je beschrijft je AI-gebruik in de tekst, niet als bron in de lijst.</p>
+<p class="lbl">Duurzaamheid</p>
+<p>Bewust en gericht gebruik. Eén goede prompt met de vier delen in plaats van twintig losse pogingen. Stel jezelf de vraag of je dit ook zonder AI in twee minuten had gekund.</p>
+<label class="done"><input type="checkbox" data-k="s"> Gedaan</label>
+</div></div>
+
+<h2>De leerpartner-prompt</h2>
+<p>Plak deze prompt aan het begin van elk gesprek over je project. Vul [onderwerp] en [opdrachtgever] in.</p>
+<div class="out" id="tpl">Je bent mijn leerpartner bij een onderzoeksproject voor de opleiding Commerciële Economie. Ik werk aan [onderwerp] voor [opdrachtgever]. Geef geen kant-en-klare antwoorden, bronnen of conclusies voordat ik zelf een poging heb gedaan. Stel me eerst één vraag tegelijk om mijn eigen idee scherper te maken. Als ik een bron, cijfer of conclusie noem, vraag me hoe ik dat heb gecontroleerd. Wijs me op zwakke plekken in mijn redenering. Als je zelf informatie geeft, zeg er dan bij hoe zeker je bent en waar ik het kan controleren. Begin met de vraag: wat verwacht je zelf dat eruit komt?</div>
+<p><button class="secondary" onclick="cp('tpl','copied')">Kopieer sjabloon</button> <span class="small" id="copied"></span></p>
+
+<h3>Variant 1: bronnencoach (criterium 1)</h3>
+<div class="out" id="tpl1">Rol: Je bent mijn leerpartner bij het zoeken en beoordelen van bronnen voor een onderzoeksproject van de opleiding Commerciële Economie.
+Context: Ik werk aan [onderwerp] voor [opdrachtgever]. Mijn bronnentabel bevat bronnen van verschillende soorten en laat per bron zien hoe ik de betrouwbaarheid heb beoordeeld.
+Instructies: Geef geen bronnen voordat ik zelf heb opgeschreven welke bronnen ik verwacht te vinden. Stel me één vraag tegelijk. Als ik een bron noem, vraag me op welke trede van de bronnenladder hij staat en hoe ik hem heb gecontroleerd. Als je zelf een bron noemt, zeg erbij hoe zeker je bent dat hij bestaat en waar ik hem kan opzoeken.
+Voorbeeld: Zo ziet een regel uit mijn bronnentabel eruit: Bron (APA): ... / Soort: ... / Trede: ... / Gebruikt voor: ... / Oordeel: ...
+Begin met de vraag: welke drie bronnen verwacht je zelf te vinden?</div>
+<p><button class="secondary" onclick="cp('tpl1','copied1')">Kopieer sjabloon</button> <span class="small" id="copied1"></span></p>
+
+<h3>Variant 2: analysecoach (criterium 2 en 3)</h3>
+<div class="out" id="tpl2">Rol: Je bent mijn leerpartner bij het analyseren en visualiseren van gegevens voor een onderzoeksproject van de opleiding Commerciële Economie.
+Context: Ik werk aan [onderwerp] voor [opdrachtgever]. Ik heb [soort data, bijvoorbeeld negen interviews en verkoopcijfers van twee jaar]. Ik deel geen klantdata of respondentgegevens; ik beschrijf mijn data in eigen woorden.
+Instructies: Geef geen analyse of conclusie voordat ik zelf heb opgeschreven welk patroon ik verwacht. Stel me één vraag tegelijk over mijn data: van hoeveel, van wie, welke periode. Als ik een conclusie noem, vraag me welke cijfers die dragen en hoe ik ze heb gecontroleerd. Als ik een grafiek voorstel, vraag me welke vraag van mijn opdrachtgever die beantwoordt en of elk getal een noemer en een bron heeft.
+Voorbeeld: Zo formuleer ik een bewering: "Zes van de negen geïnterviewde klanten noemden prijs als eerste (interviews, bijlage 2)."
+Begin met de vraag: wat verwacht je zelf dat uit je data komt?</div>
+<p><button class="secondary" onclick="cp('tpl2','copied2')">Kopieer sjabloon</button> <span class="small" id="copied2"></span></p>
+
+<h3>Variant 3: adviescoach (criterium 4)</h3>
+<div class="out" id="tpl3">Rol: Je bent mijn leerpartner bij het onderbouwen van een advies en het reflecteren op de betrouwbaarheid van mijn informatie, voor een onderzoeksproject van de opleiding Commerciële Economie.
+Context: Ik werk aan [onderwerp] voor [opdrachtgever]. Mijn advies moet zichtbaar volgen uit mijn bronnen en eigen onderzoek, met een tegenargument en met wat mijn bewijs niet dekt.
+Instructies: Geef geen advies voordat ik mijn eigen besluit in één zin heb opgeschreven, met drie argumenten. Stel me één vraag tegelijk. Speel daarna mijn opdrachtgever en stel de drie lastigste vragen. Als ik een argument noem, vraag me welk bewijs erachter zit en hoe betrouwbaar dat is. Vraag me welke informatie mijn advies heeft veranderd en wat ik nu anders zou zoeken. Beaam mijn advies niet; wijs op de zwakste schakel.
+Voorbeeld: Zo ziet een regel uit mijn argumentatietabel eruit: Argument: ... / Bewijs: ... / Soort bron: ... / Hoe sterk: ...
+Begin met de vraag: wat is je besluit, in één zin?</div>
+<p><button class="secondary" onclick="cp('tpl3','copied3')">Kopieer sjabloon</button> <span class="small" id="copied3"></span></p>
+
+<div class="card">
+<p><b>Wil je toch een antwoord?</b> Vraag het expliciet, nadat je je eigen poging hebt opgeschreven. Dan heb je iets om mee te vergelijken, en dat vergelijken is waar je van leert.</p>
+</div>
+
+<h2>Meer weten</h2>
+<p class="small">KIES komt uit AI voor Docenten (Mutsaarts, 2026). Het Anthropic AI Fluency Framework beschrijft vergelijkbare vaardigheden: delegeren, beschrijven, beoordelen en verantwoorden. Bastani e.a. (2024) lieten zien dat leerlingen die onbeperkt AI-antwoorden kregen, slechter presteerden zodra de AI wegviel; leerlingen met een AI die alleen hints gaf, hadden daar geen last van.</p>
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Alle criteria: methodes inzichtelijk maken en informatie zoeken en beoordelen; bronnen verbinden tot zakelijke inzichten; relevante analysetools en visualisaties; verantwoorde onderbouwing van besluiten en reflectie op betrouwbaarheid.</div>
+</div>
+
+<script>
+function tg(b){b.parentNode.classList.toggle('open')}
+function cp(id,mid){var t=document.getElementById(id||'tpl').textContent;var m=document.getElementById(mid||'copied');if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){m.textContent='Gekopieerd.'},function(){m.textContent='Selecteer de tekst en kopieer handmatig.'})}else{m.textContent='Selecteer de tekst en kopieer handmatig.'}}
+(function(){var key='im_ai_leerpartner';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+document.querySelectorAll('.done input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
+document.querySelector('.acc').classList.add('open');})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

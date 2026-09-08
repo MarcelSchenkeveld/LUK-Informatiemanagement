@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Je leercontract</title>
+<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
+header.top{background:var(--p);color:#fff;padding:22px 18px}
+header.top .wrap{padding:0}
+header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
+header.top p{margin:0;opacity:.9;font-size:15px}
+.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
+h2{color:var(--p);font-size:20px;margin:28px 0 8px}
+h3{color:var(--p);font-size:17px;margin:18px 0 6px}
+p{margin:8px 0}
+.lead{font-size:17px}
+.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
+.card.white{background:#fff;border:1.5px solid var(--line)}
+.card.accent{border-left:6px solid var(--m)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
+.tile b{display:block;font-size:22px;margin-bottom:2px}
+.tile strong{display:block;font-size:15px;margin-bottom:6px}
+.tile span{font-size:13.5px;opacity:.95}
+.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
+.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
+.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
+.row div{flex:1}
+button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
+button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
+button:disabled{opacity:.45;cursor:default}
+.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt:hover{border-color:var(--p)}
+.opt input{margin-right:8px}
+.opt.sel{border-color:var(--p);background:#faf6fa}
+textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
+textarea{min-height:64px;resize:vertical}
+.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
+.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
+.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
+.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
+.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
+.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
+.steps span.on{background:var(--p);color:#fff;font-weight:700}
+.steps span.done{background:var(--g);color:#fff}
+.step{display:none}.step.on{display:block}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
+.small{font-size:13.5px;color:var(--grey)}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.ab{grid-template-columns:1fr}}
+.ab .card{margin:0}
+.ab h4{margin:0 0 6px;font-size:15px}
+.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
+ul{padding-left:20px;margin:6px 0}
+li{margin:4px 0}
+.check{list-style:none;padding:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
+.check input{margin-top:5px}
+.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
+a{color:var(--p)}
+.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.links a b{color:var(--p)}
+.links a span{color:var(--grey);font-size:14px}
+
+.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
+.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
+.acc>button .chip{margin:0}
+.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
+.acc .body{display:none;padding:0 16px 16px 54px}
+.acc.open .body{display:block}
+.acc.open>button .arr{transform:rotate(180deg)}
+.body p{margin:6px 0}
+.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
+.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
+.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
+.reveal{display:none;margin-top:10px}
+.reveal.on{display:block}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<span class="tag">Informatiemanagement · invulhulp</span>
+<h1>Je leercontract</h1>
+<p>De vijf vragen van het leercontract, ingevuld voor deze leeruitkomst. Klik een vraag open, schrijf je antwoord, vink hem af.</p>
+</div></header>
+
+<div class="wrap">
+<div class="card accent">
+<b>Waarom dit ertoe doet.</b> Je leercontract is je plan voor het bewijs dat je per criterium levert: bijvoorbeeld een bronnentabel bij criterium 1, een analyse met datatabel bij criterium 2, een visualisatie bij criterium 3, en een advies met reflectie bij criterium 4. Zodra het contract staat, vraag je er feedback op. Daarna stuurt het je werk tot aan de formatieve en de summatieve portfolioshow. Op Canvas staat het voorbeeld-leercontract IM; gebruik het als referentie, niet als invuloefening. Het moet jouw plan zijn.
+</div>
+
+<p>De mijlpalen en deadlines staan in de strokenplanning en op Canvas. Plan je acties daarop, in de volgorde zoeken en beoordelen, analyseren en visualiseren, onderbouwen en reflecteren. Het tempo is aan jou; je coach denkt mee.</p>
+
+<h2>De vijf vragen</h2>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip p">1</span>Waar kom ik vandaan?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<ul><li>Activeer je voorkennis met een mindmap over informatie zoeken, beoordelen, analyseren en visualiseren. Bewaar versie 1; aan het eind van het semester leg je er versie 2 naast.</li><li>Ervaringen uit eerdere MBC's, werk of hobby's: waar heb je al bronnen beoordeeld, data verwerkt of een grafiek gemaakt?</li><li>Spiegel: leg je vorige MBC naast je kwaliteitskaart (pagina Kies A of B). Wat zou nu anders moeten?</li><li>Wees eerlijk over wat je aan AI overliet. Dat is geen bekentenis, maar je startpunt.</li></ul>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Goed:</b> "In MBC 2 heb ik acht bronnen gebruikt, vooral websites. Ik heb ze niet beoordeeld; ChatGPT gaf de eerste vijf en ik heb er twee gecontroleerd."<br><b>Te vaag:</b> "Ik heb al ervaring met onderzoek doen."</div>
+<p class="lbl">Valkuil</p>
+<p>Alleen opschrijven wat goed ging. Juist wat je oversloeg, is informatie voor vraag 3.</p>
+<label class="done"><input type="checkbox" data-k="v1"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip b">2</span>Waar sta ik nu?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<ul><li>Een 0-meting per criterium, in gewone taal. Geen cijfer, wel een beschrijving: wat kun je al, wat nog niet.</li><li>De subtakentabel uit de infosessie: welke subtaak doe ik zelf, welke samen met AI, welke besteed ik uit? Zet hem erbij.</li><li>Wat weet ik nog niet? Bijvoorbeeld: hoe zoek ik in de LibraryGuide CE, wat is een datatabel, hoe ziet een reflectie op betrouwbaarheid eruit.</li></ul>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Goed:</b> "Criterium 1: ik kan bronnen vinden, maar ik heb nog nooit opgeschreven waarom een bron betrouwbaar is. Criterium 3: ik maak grafieken in Excel, zonder bron eronder."<br><b>Te vaag:</b> "Ik sta op een 6."</div>
+<p class="lbl">Valkuil</p>
+<p>Jezelf te hoog of te laag inschatten zonder voorbeeld. Noem bij elke inschatting één ding dat je hebt gemaakt.</p>
+<label class="done"><input type="checkbox" data-k="v2"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip t">3</span>Waar wil ik naartoe?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<ul><li>Eén doel per succescriterium. Meetbaar: aantallen bronnen, soorten bronnen, onderdelen van een visualisatie, onderdelen van een advies.</li><li>Haalbaar tot aan de formatieve portfolioshow. Wat je daarna nog wilt, komt in een bijgesteld contract.</li><li>Denk in een groeipad: afwezig, aanwezig, onderbouwd, gewogen. Waar sta je nu, en welke stap is de volgende?</li></ul>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Goed:</b> "Criterium 1: een bronnentabel met minstens vijf bronnen van drie soorten, elk met een oordeel volgens de vijf vragen, en de werkwijze in vijf regels eronder."<br><b>Te vaag:</b> "Ik wil beter worden in bronnen zoeken."</div>
+<p class="lbl">Valkuil</p>
+<p>Een doel dat je niet kunt afvinken. Vraag bij elk doel: waaraan zie ik dat het gelukt is? Dat antwoord hoort bij vraag 5.</p>
+<label class="done"><input type="checkbox" data-k="v3"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip g">4</span>Hoe kom ik daar?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<ul><li>Een actietabel met de kolommen: nr, actie, bewijs, criterium, tools en AI-inzet in welke rol, start, deadline.</li><li>Je bewijs per criterium is de ruggengraat. Elke actie hoort bij één bewijs.</li><li>Bij elk bewijs één feedbackverzoek via Canvas, met een concrete vraag.</li><li>Een wekelijks vast moment waarop je aan deze leeruitkomst werkt.</li></ul>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Goed:</b> "3 | Zes bronnen zoeken via LibraryGuide CE en elk beoordelen met de vijf vragen | bronnentabel | criterium 1 | AI als brainstormer voor zoektermen, leerpartner-prompt | 10 sept | 18 sept." (voorbeeld van een student; kies je eigen data)<br><b>Te vaag:</b> "Bronnen zoeken en verwerken, ergens deze maand."</div>
+<p class="lbl">Valkuil</p>
+<p>Alles in de week voor de deadline plannen. En: AI-inzet niet benoemen. Schrijf op in welke rol je AI gebruikt, dan kun je het straks in de vijf regels verantwoorden.</p>
+<label class="done"><input type="checkbox" data-k="v4"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip m">5</span>Waaraan zie ik dat ik er ben?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<ul><li>Een checklist met afvinkbare eisen per bewijs: je eigen aantallen en soorten, onderdelen (datatabel, noemer, bron onder de grafiek, tegenargument, beperking).</li><li>De werkwijze in vijf regels bij elk bewijs waarin je AI of een ander hulpmiddel hebt gebruikt.</li><li>De uitlegtoets: kun je elk bewijs in twee minuten uitleggen aan iemand die het niet kent? Dat wordt gevraagd in het driehoeksgesprek en de portfolioshow.</li></ul>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Goed:</b> "Mijn visualisatie (criterium 3) is klaar als: de titel een vraag van de opdrachtgever beantwoordt, elk getal een noemer heeft, de bron eronder staat, en een teamgenoot de boodschap in tien seconden kan noemen."<br><b>Te vaag:</b> "Als de docent het goed vindt."</div>
+<p class="lbl">Valkuil</p>
+<p>De eisen laten afhangen van een ander. Jij bepaalt vooraf waaraan je het ziet; feedback scherpt dat bij.</p>
+<label class="done"><input type="checkbox" data-k="v5"> Gedaan</label>
+</div></div>
+
+<h2>Sjabloon</h2>
+<p>Kopieer de vijf kopjes en schrijf eronder. Onder vraag 4 staan de kolomkoppen van de actietabel.</p>
+<div class="out" id="tpl">Leercontract Informatiemanagement, [studentcode], versie 1, [datum]
+
+1 Waar kom ik vandaan?
+...
+
+2 Waar sta ik nu?
+Criterium 1: ... / Criterium 2: ... / Criterium 3: ... / Criterium 4: ...
+Subtakentabel: zelf ... / samen ... / uitbesteed ...
+
+3 Waar wil ik naartoe?
+Criterium 1: ... / Criterium 2: ... / Criterium 3: ... / Criterium 4: ...
+
+4 Hoe kom ik daar?
+Nr | Actie | Bewijs | Criterium | Tools en AI-inzet (rol) | Start | Deadline
+1 | ... | ... | ... | ... | ... | ...
+Feedbackverzoek per bewijs: ...
+Vast wekelijks moment: ...
+
+5 Waaraan zie ik dat ik er ben?
+Bewijs bij criterium 1 is klaar als: ...
+Bewijs bij criterium 2 is klaar als: ...
+Bewijs bij criterium 3 is klaar als: ...
+Bewijs bij criterium 4 is klaar als: ...
+Uitlegtoets: ...</div>
+<p><button class="secondary" onclick="cp()">Kopieer sjabloon</button> <span class="small" id="copied"></span></p>
+
+<h2>Bijstellen mag</h2>
+<div class="card">
+<p>Een leercontract is geen belofte in beton. Na feedback op je contract, na de Go/No-Go en na elk feedbackverzoek kan het veranderen. Noteer wat je veranderde en waarom, met datum. Dat is bewijs van monitoren: je laat zien dat je je eigen plan volgt en bijstuurt.</p>
+</div>
+
+<h2>Met AI aan je leercontract werken</h2>
+<div class="card">
+<p>Mag. Gebruik de leerpartner-prompt (pagina AI als leerpartner) en laat AI doorvragen op vage doelen, bijvoorbeeld: "Stel me drie vragen om mijn doel bij criterium 3 concreter te maken." Laat AI niet je contract schrijven. Het moet jouw plan zijn, dat je in het driehoeksgesprek kunt toelichten zonder erbij te kijken.</p>
+</div>
+
+<h2>Meer weten</h2>
+<p class="small">De vijf vragen volgen het SEAL-ontwikkelingspad (Cornelissen, Mevissen en Speetjens, 2019). Ze sluiten aan bij zelfregulerend leren (Zimmerman): vooraf plannen, tijdens het werk monitoren, achteraf reflecteren, en met dat inzicht opnieuw plannen.</p>
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Leercontract: de vijf vragen, gekoppeld aan de vier criteria en je bewijs daarbij.</div>
+</div>
+
+<script>
+function tg(b){b.parentNode.classList.toggle('open')}
+function cp(){var t=document.getElementById('tpl').textContent;var m=document.getElementById('copied');if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){m.textContent='Gekopieerd.'},function(){m.textContent='Selecteer de tekst en kopieer handmatig.'})}else{m.textContent='Selecteer de tekst en kopieer handmatig.'}}
+(function(){var key='im_leercontract';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+document.querySelectorAll('.done input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
+document.querySelector('.acc').classList.add('open');})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

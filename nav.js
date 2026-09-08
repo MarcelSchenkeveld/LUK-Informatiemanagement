@@ -1,4 +1,4 @@
-/* Navigatie naslag Informatiemanagement (CE, Fontys)
+/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.1 (8-9-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
    (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
@@ -8,19 +8,19 @@
     { file: '00-start-de-route.html', title: 'De route', desc: 'Hoe je aan deze leeruitkomst werkt, welk bewijs erbij past, waar het leren zit, en de drie afspraken. Lees dit eerst.', group: 'start', status: 'klaar' },
 
     { file: '01-bron-controleren.html', title: 'Een bron controleren', desc: 'Vijf vragen bij elke bron, met sterk/matig/zwak per vraag en een sjabloon voor je bronnentabel.', group: 'zoeken', status: 'klaar' },
-    { file: '02-welke-bron-is-dit.html', title: 'Welke bron is dit?', desc: 'Van oorspronkelijke auteur tot uitlegsite: wat weegt zwaar, wat niet.', group: 'zoeken', status: 'volgt' },
+    { file: '02-welke-bron-is-dit.html', title: 'Welke bron is dit?', desc: 'Van oorspronkelijke auteur tot uitlegsite: wat weegt zwaar, wat niet.', group: 'zoeken', status: 'klaar' },
 
-    { file: '03-ai-als-leerpartner.html', title: 'AI als leerpartner', desc: 'KIES in vier stappen en de leerpartner-prompt per criterium.', group: 'ai', status: 'volgt' },
-    { file: '04-voorspel-vraag-vergelijk.html', title: 'Voorspel, vraag, vergelijk', desc: 'Werkblad voor gewoonte 1: eerst zelf, dan AI, dan vergelijken.', group: 'ai', status: 'volgt' },
-    { file: '05-werkwijze-in-vijf-regels.html', title: 'Je werkwijze in vijf regels', desc: 'Invullen en plakken bij elk bewijs waarin je AI gebruikte.', group: 'ai', status: 'volgt' },
+    { file: '03-ai-als-leerpartner.html', title: 'AI als leerpartner', desc: 'KIES in vier stappen en de leerpartner-prompt per criterium.', group: 'ai', status: 'klaar' },
+    { file: '04-voorspel-vraag-vergelijk.html', title: 'Voorspel, vraag, vergelijk', desc: 'Werkblad voor gewoonte 1: eerst zelf, dan AI, dan vergelijken.', group: 'ai', status: 'klaar' },
+    { file: '05-werkwijze-in-vijf-regels.html', title: 'Je werkwijze in vijf regels', desc: 'Invullen en plakken bij elk bewijs waarin je AI gebruikte.', group: 'ai', status: 'klaar' },
 
-    { file: '06-eigen-onderzoek-controleerbaar.html', title: 'Eigen onderzoek controleerbaar maken', desc: 'Aantallen, respondenten, citaten, methode: zo kan een ander het nakijken.', group: 'analyse', status: 'volgt' },
-    { file: '07-tien-secondentest.html', title: 'De tien-secondentest', desc: 'Checklist voor je visualisatie: titel, eenheid, noemer, bron, en kun jij hem uitleggen.', group: 'analyse', status: 'volgt' },
+    { file: '06-eigen-onderzoek-controleerbaar.html', title: 'Eigen onderzoek controleerbaar maken', desc: 'Aantallen, respondenten, citaten, methode: zo kan een ander het nakijken.', group: 'analyse', status: 'klaar' },
+    { file: '07-tien-secondentest.html', title: 'De tien-secondentest', desc: 'Checklist voor je visualisatie: titel, eenheid, noemer, bron, en kun jij hem uitleggen.', group: 'analyse', status: 'klaar' },
 
-    { file: '08-advies-onderbouwen.html', title: 'Advies onderbouwen', desc: 'Argumentatietabel: advies in één zin, argumenten met bron, en wat je bewijs niet dekt.', group: 'advies', status: 'volgt' },
+    { file: '08-advies-onderbouwen.html', title: 'Advies onderbouwen', desc: 'Argumentatietabel: advies in één zin, argumenten met bron, en wat je bewijs niet dekt.', group: 'advies', status: 'klaar' },
 
-    { file: '09-kies-a-of-b.html', title: 'Kies A of B', desc: 'Vier contrasten uit bewerkt studentenwerk: waaraan zie je kwaliteit?', group: 'algemeen', status: 'volgt' },
-    { file: '10-je-leercontract.html', title: 'Je leercontract', desc: 'Invulhulp bij de vijf vragen, met een voorbeeld voor deze leeruitkomst.', group: 'algemeen', status: 'volgt' }
+    { file: '09-kies-a-of-b.html', title: 'Kies A of B', desc: 'Vier contrasten uit bewerkt studentenwerk: waaraan zie je kwaliteit?', group: 'algemeen', status: 'klaar' },
+    { file: '10-je-leercontract.html', title: 'Je leercontract', desc: 'Invulhulp bij de vijf vragen, met een voorbeeld voor deze leeruitkomst.', group: 'algemeen', status: 'klaar' }
   ];
 
   var GROUPS = [

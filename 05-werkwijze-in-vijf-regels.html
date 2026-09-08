@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Je werkwijze in vijf regels</title>
+<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
+header.top{background:var(--p);color:#fff;padding:22px 18px}
+header.top .wrap{padding:0}
+header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
+header.top p{margin:0;opacity:.9;font-size:15px}
+.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
+h2{color:var(--p);font-size:20px;margin:28px 0 8px}
+h3{color:var(--p);font-size:17px;margin:18px 0 6px}
+p{margin:8px 0}
+.lead{font-size:17px}
+.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
+.card.white{background:#fff;border:1.5px solid var(--line)}
+.card.accent{border-left:6px solid var(--m)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
+.tile b{display:block;font-size:22px;margin-bottom:2px}
+.tile strong{display:block;font-size:15px;margin-bottom:6px}
+.tile span{font-size:13.5px;opacity:.95}
+.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
+.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
+.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
+.row div{flex:1}
+button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
+button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
+button:disabled{opacity:.45;cursor:default}
+.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt:hover{border-color:var(--p)}
+.opt input{margin-right:8px}
+.opt.sel{border-color:var(--p);background:#faf6fa}
+textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
+textarea{min-height:64px;resize:vertical}
+.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
+.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
+.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
+.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
+.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
+.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
+.steps span.on{background:var(--p);color:#fff;font-weight:700}
+.steps span.done{background:var(--g);color:#fff}
+.step{display:none}.step.on{display:block}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
+.small{font-size:13.5px;color:var(--grey)}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.ab{grid-template-columns:1fr}}
+.ab .card{margin:0}
+.ab h4{margin:0 0 6px;font-size:15px}
+.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
+ul{padding-left:20px;margin:6px 0}
+li{margin:4px 0}
+.check{list-style:none;padding:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
+.check input{margin-top:5px}
+.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
+a{color:var(--p)}
+.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.links a b{color:var(--p)}
+.links a span{color:var(--grey);font-size:14px}
+
+.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
+.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
+.acc>button .chip{margin:0}
+.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
+.acc .body{display:none;padding:0 16px 16px 54px}
+.acc.open .body{display:block}
+.acc.open>button .arr{transform:rotate(180deg)}
+.body p{margin:6px 0}
+.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
+.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
+.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
+.reveal{display:none;margin-top:10px}
+.reveal.on{display:block}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<span class="tag">Informatiemanagement · sjabloon</span>
+<h1>Je werkwijze in vijf regels</h1>
+<p>Vijf korte regels onder elk bewijsstuk waarin je AI of een ander hulpmiddel hebt gebruikt. Klik een regel open, schrijf hem, vink hem af.</p>
+</div></header>
+
+<div class="wrap">
+<div class="card accent">
+<b>Waarom dit ertoe doet.</b> Dit is geen extra eis. Criterium 1 vraagt dat je de wijze waarop je methodes hebt toegepast inzichtelijk maakt, en criterium 4 vraagt om reflectie op de betrouwbaarheid van je informatie. De vijf regels zijn precies die methodeverantwoording en die reflectie, in het kort. Ze horen bij elk bewijs dat je inlevert: bijvoorbeeld een bronnentabel bij criterium 1, een analyse met datatabel bij criterium 2, een visualisatie bij criterium 3, en een advies met reflectie bij criterium 4. AI mag; de vraag is wat jij hebt gedaan en of je het kunt uitleggen.
+</div>
+
+<h2>Eerst kijken: wat is het verschil?</h2>
+<div class="ab">
+  <div class="card a"><h4>Fragment A</h4><p class="small">"Ik heb ChatGPT gebruikt voor dit hoofdstuk."</p></div>
+  <div class="card bb"><h4>Fragment B</h4><p class="small">"1. AI gebruikt om bronnen aan te dragen voor de bronnentabel. 2. Alle acht bronnen zelf opgezocht in de bibliotheek en Google Scholar; twee bestonden niet, één zei iets anders dan AI beweerde. 3. Vijf bronnen overgenomen, drie afgewezen. 4. Het jaartal van één bron gecorrigeerd. 5. Geleerd dat AI bronnen verzint die plausibel klinken; voortaan check ik eerst de DOI."</p></div>
+</div>
+<p><button class="secondary" onclick="document.getElementById('rv').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
+<div class="reveal" id="rv"><div class="feedback good" style="display:block"><b>B.</b> Een assessor die vraagt "hoe kom je hieraan?" heeft het antwoord al voor zich: waarvoor AI is gebruikt, wat is gecontroleerd, wat de student zelf heeft besloten, wat niet klopte en wat ervan is geleerd. A zegt alleen dat er AI is gebruikt; de lezer weet niet wat de student zelf heeft gedaan en kan niets controleren.</div></div>
+
+<h2>De vijf regels</h2>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip p">1</span>Waarvoor heb ik welke hulpmiddelen gebruikt?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<p>Welk hulpmiddel, voor welke subtaak, in welke rol (samenwerken: uitlegger, brainstormer, feedbackgever, oefenmaatje; uitbesteden: schrijver, vertaler, verbeteraar, samenvatter). Eén zin per hulpmiddel is genoeg.</p>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Bronnen:</b> "AI (Consensus) als brainstormer gebruikt om zoektermen en mogelijke bronnen over klantloyaliteit te vinden; de Fontys bibliotheek om de bronnen zelf te openen."<br><b>Visualisatie:</b> "Excel gebruikt voor de datatabel; AI als brainstormer om drie grafiekvormen voor te stellen."</div>
+<p class="lbl">Wat er niet in hoort</p>
+<p>Geen chatrestanten en geen prompt-dump. Hooguit één zin over de rol van AI.</p>
+<label class="done"><input type="checkbox" data-k="r1"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip b">2</span>Wat heb ik gecontroleerd, en hoe?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<p>Wat je hebt nagekeken en op welke manier: bron zelf geopend, cijfer vergeleken met de datatabel, aantal respondenten geteld. Noem aantallen: hoeveel gecontroleerd, hoeveel klopte.</p>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Bronnen:</b> "Alle acht aangedragen bronnen opgezocht via Google Scholar en de LibraryGuide CE; zes bestonden, twee niet."<br><b>Visualisatie:</b> "Elk getal in de grafiek vergeleken met de datatabel in bijlage 2; de som van de staven klopt met het totaal van 100 leads."</div>
+<p class="lbl">Wat er niet in hoort</p>
+<p>Niet "ik heb alles gecontroleerd" zonder te zeggen hoe. Een AI-tool is nooit zelf een bron, dus "gecontroleerd met ChatGPT" telt niet als controle.</p>
+<label class="done"><input type="checkbox" data-k="r2"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip t">3</span>Wat heb ik zelf gekozen of besloten?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<p>De keuzes die van jou zijn: welke bronnen je hebt overgenomen of afgewezen, welke grafiekvorm je hebt gekozen, welke conclusie je trekt. Dit zijn de zelf-momenten: verwachten, kiezen, oordelen en concluderen, uitleggen.</p>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Bronnen:</b> "Vijf bronnen overgenomen; het whitepaper van een softwareleverancier afgewezen vanwege commercieel belang."<br><b>Visualisatie:</b> "Gekozen voor een trechter in plaats van de voorgestelde cirkel, omdat de boodschap 'van veel naar weinig' is."</div>
+<p class="lbl">Wat er niet in hoort</p>
+<p>Geen opsomming van wat AI heeft voorgesteld. Het gaat om jouw besluit en waarom.</p>
+<label class="done"><input type="checkbox" data-k="r3"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip g">4</span>Wat klopte niet, en wat heb ik veranderd?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<p>Concreet wat fout of zwak was en wat je hebt aangepast. Denk aan de drie valkuilen: bias (ongegronde aannames), hallucinaties (verzonnen feiten en bronnen), sycophancy (AI beaamt wat jij lijkt te willen horen).</p>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Bronnen:</b> "Eén bron had jaartal 2021 in plaats van 2023; gecorrigeerd. Twee verzonnen bronnen verwijderd."<br><b>Visualisatie:</b> "De eerste versie toonde percentages zonder noemer; vervangen door aantallen met 'van 100 leads' in de titel."</div>
+<p class="lbl">Wat er niet in hoort</p>
+<p>Niet "er klopte niets van" of "alles klopte". Als er echt niets fout was: zeg wat je hebt nagekeken om dat vast te stellen.</p>
+<label class="done"><input type="checkbox" data-k="r4"> Gedaan</label>
+</div></div>
+
+<div class="acc"><button onclick="tg(this)"><span class="chip m">5</span>Wat heb ik hiervan geleerd, over het onderwerp en over werken met AI?<span class="arr">▼</span></button>
+<div class="body">
+<p class="lbl">Wat erin hoort</p>
+<p>Twee dingen: iets over het onderwerp (wat weet je nu over je vraagstuk dat je eerst niet wist) en iets over werken met AI of je andere hulpmiddel (wat doe je voortaan anders). Dit is je reflectie op betrouwbaarheid, in twee zinnen.</p>
+<p class="lbl">Voorbeeldzinnen</p>
+<div class="ex"><b>Bronnen:</b> "Geleerd dat er meer recent onderzoek over klantloyaliteit in de retail is dan ik dacht. Over AI: bronnen klinken plausibel maar bestaan soms niet; voortaan check ik eerst de DOI."<br><b>Visualisatie:</b> "Geleerd dat mijn opdrachtgever vooral wil weten hoeveel leads overblijven, niet welk percentage. Over AI: een voorgestelde vorm is een startpunt, niet een keuze."</div>
+<p class="lbl">Wat er niet in hoort</p>
+<p>Niet "het ging goed" of "ik heb veel geleerd". Noem wat je geleerd hebt.</p>
+<label class="done"><input type="checkbox" data-k="r5"> Gedaan</label>
+</div></div>
+
+<h2>Het sjabloon</h2>
+<p>Kopieer het sjabloon en zet het onder je bewijsstuk. Korte zinnen; vijf regels is vijf regels.</p>
+<div class="out" id="tpl">Werkwijze in vijf regels
+1. Waarvoor heb ik welke hulpmiddelen gebruikt: ...
+2. Wat heb ik gecontroleerd, en hoe: ...
+3. Wat heb ik zelf gekozen of besloten: ...
+4. Wat klopte niet, en wat heb ik veranderd: ...
+5. Wat heb ik hiervan geleerd, over het onderwerp en over werken met AI: ...</div>
+<p><button class="secondary" onclick="cp()">Kopieer sjabloon</button> <span class="small" id="copied"></span></p>
+
+<h2>Waar zet je het</h2>
+<div class="card">
+<ul>
+<li><b>Onder het bewijsstuk</b>, of in de toelichting bij het bewijsstuk in je portfolio.</li>
+<li><b>In je beschouwing</b>, samengevat: welke regels kwamen bij elk bewijsstuk terug, wat zie je als patroon.</li>
+<li><b>In je feedbackverzoek</b> kun je ernaar verwijzen: "zie de vijf regels onder bijlage 2".</li>
+</ul>
+</div>
+
+<h2>En als je geen AI hebt gebruikt</h2>
+<div class="card">
+<p>Dan gaan de vijf regels over je andere hulpmiddelen: de bibliotheek, Excel, je interviewleidraad, een collega-student die meelas. Regel 2 (wat heb ik gecontroleerd, en hoe) en regel 5 (wat heb ik geleerd) blijven altijd nuttig, met of zonder AI.</p>
+</div>
+
+<h2>Meer weten</h2>
+<p class="small">Werkgroep APA (2024), <i>De APA-richtlijnen uitgelegd: generatieve AI</i>, versie 1.0 (SURF): AI-gebruik verantwoord je in de tekst, niet als bron in de bronnenlijst. De vijf regels zijn die verantwoording. Zie ook de pagina AI als leerpartner voor KIES: Kiezen, Instrueren, Evalueren, Spelregels.</p>
+
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Criterium 1: de wijze waarop passende, betrouwbare methodes zijn toegepast inzichtelijk maken; criterium 4: verantwoorde onderbouwing van besluiten en reflectie op betrouwbaarheid.</div>
+</div>
+
+<script>
+function tg(b){b.parentNode.classList.toggle('open')}
+function cp(){var t=document.getElementById('tpl').textContent;var m=document.getElementById('copied');if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){m.textContent='Gekopieerd.'},function(){m.textContent='Selecteer de tekst en kopieer handmatig.'})}else{m.textContent='Selecteer de tekst en kopieer handmatig.'}}
+(function(){var key='im_vijf_regels';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+document.querySelectorAll('.done input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
+document.querySelector('.acc').classList.add('open');})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
