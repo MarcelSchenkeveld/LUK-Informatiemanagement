@@ -2,6 +2,8 @@
 
 Online naslag voor studenten bij de leeruitkomst Informatiemanagement.
 
+Deze map is de werkkopie; de gepubliceerde versie staat in de repo. De pagina's worden niet als bestand in Canvas gezet: vanuit Canvas en Teams link je naar het adres hieronder.
+
 Gepubliceerd via GitHub Pages vanuit de repo `MarcelSchenkeveld/LUK-Informatiemanagement` (branch main, hoofdmap).
 Adres: https://marcelschenkeveld.github.io/LUK-Informatiemanagement/
 
@@ -24,6 +26,6 @@ Adres: https://marcelschenkeveld.github.io/LUK-Informatiemanagement/
 
 ## Bijwerken en versies
 
-Bestandsnamen blijven stabiel zodat links in Canvas en Teams blijven werken. Elke pagina draagt haar versienummer in de voettekst; `stijl.css` en `nav.js` in de eerste regel. De wijzigingen worden bijgehouden in VERSIES.md in de projectmap. Bij een wijziging: bestand in de repo vervangen (zelfde naam) en committen.
+Bestandsnamen blijven stabiel zodat de links vanuit Canvas en Teams blijven werken. Elke pagina draagt haar versienummer in de voettekst; `stijl.css` en `nav.js` in de eerste regel. De wijzigingen worden bijgehouden in VERSIES.md in de projectmap. Bij een wijziging: bestand in de repo vervangen (zelfde naam) en committen.
 
 Voortgangsvinkjes worden alleen in de browser van de student bewaard (localStorage), per pagina; er wordt niets verzonden of op een server opgeslagen.
