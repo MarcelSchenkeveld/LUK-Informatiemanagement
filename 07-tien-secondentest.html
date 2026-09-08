@@ -4,203 +4,110 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>De tien-secondentest</title>
-<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
-.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
-header.top{background:var(--p);color:#fff;padding:22px 18px}
-header.top .wrap{padding:0}
-header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
-header.top p{margin:0;opacity:.9;font-size:15px}
-.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
-h2{color:var(--p);font-size:20px;margin:28px 0 8px}
-h3{color:var(--p);font-size:17px;margin:18px 0 6px}
-p{margin:8px 0}
-.lead{font-size:17px}
-.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
-.card.white{background:#fff;border:1.5px solid var(--line)}
-.card.accent{border-left:6px solid var(--m)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
-.tile b{display:block;font-size:22px;margin-bottom:2px}
-.tile strong{display:block;font-size:15px;margin-bottom:6px}
-.tile span{font-size:13.5px;opacity:.95}
-.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
-.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
-.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
-.row div{flex:1}
-button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
-button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
-button:disabled{opacity:.45;cursor:default}
-.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
-.opt:hover{border-color:var(--p)}
-.opt input{margin-right:8px}
-.opt.sel{border-color:var(--p);background:#faf6fa}
-textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
-textarea{min-height:64px;resize:vertical}
-.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
-.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
-.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
-.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
-.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
-.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
-.steps span.on{background:var(--p);color:#fff;font-weight:700}
-.steps span.done{background:var(--g);color:#fff}
-.step{display:none}.step.on{display:block}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
-.small{font-size:13.5px;color:var(--grey)}
-.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:640px){.ab{grid-template-columns:1fr}}
-.ab .card{margin:0}
-.ab h4{margin:0 0 6px;font-size:15px}
-.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
-ul{padding-left:20px;margin:6px 0}
-li{margin:4px 0}
-.check{list-style:none;padding:0}
-.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
-.check input{margin-top:5px}
-.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
-a{color:var(--p)}
-.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
-.links a b{color:var(--p)}
-.links a span{color:var(--grey);font-size:14px}
-
-.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
-.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
-.acc>button .chip{margin:0}
-.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
-.acc .body{display:none;padding:0 16px 16px 54px}
-.acc.open .body{display:block}
-.acc.open>button .arr{transform:rotate(180deg)}
-.body p{margin:6px 0}
-.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
-.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
-.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
-.reveal{display:none;margin-top:10px}
-.reveal.on{display:block}
-</style>
+<link rel="stylesheet" href="stijl.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
-<span class="tag">Informatiemanagement · checklist</span>
+<span class="tag">Informatiemanagement · stappenplan</span>
 <h1>De tien-secondentest</h1>
-<p>Een visualisatie die je opdrachtgever in tien seconden begrijpt en die jij kunt uitleggen. Klik een stap open, doe hem, vink hem af.</p>
+<p>Je opdrachtgever kijkt tien seconden naar je grafiek. Wat blijft er hangen, en klopt dat?</p>
 </div></header>
 
 <div class="wrap">
 <div class="card accent">
-<b>Waarom dit ertoe doet.</b> Criterium 3 vraagt om relevante analysetools en visualisaties. Relevant betekent: de grafiek helpt je opdrachtgever een beslissing nemen, en elk getal erin is terug te vinden. Dit hoort bij je bewijs bij criterium 3: een visualisatie. Een mooie grafiek die niemand kan uitleggen is geen bewijs; een eenvoudige grafiek die jij in het driehoeksgesprek stap voor stap kunt toelichten wel.
+<b>Waarom dit ertoe doet.</b> Criterium 3 vraagt dat je analysetools en visualisaties relevant zijn: het beeld moet ergens toe dienen. Een grafiek is geen versiering en ook geen bewijs op zichzelf. Hij beantwoordt een vraag van je opdrachtgever, met getallen die herleidbaar zijn. En je moet hem kunnen uitleggen, ook als je hem met AI hebt gemaakt.
 </div>
 
 <h2>Eerst kijken: wat is het verschil?</h2>
 <div class="ab">
-  <div class="card a"><h4>Infographic A</h4><p class="small">Titel: "Strategische groei: prioritering van kansen". Door AI gemaakt. Veel iconen, een cirkel met 52% en los daarvan het getal 15. Geen bron, geen noemer.</p></div>
-  <div class="card bb"><h4>Grafiek B</h4><p class="small">Titel: "Van 100 leads naar 15 prioriteiten". Een trechter: 100 leads, 48 uitgesloten op drie criteria, 52 gekwalificeerd, waarvan 15 hoog en 37 medium. Onderaan: bron: eigen prospectanalyse, bijlage 2.</p></div>
+  <div class="card a"><h4>Beeld A</h4><p class="small">Een gekleurde infographic met de kop "52% kiest voor duurzaam". Geen aantal respondenten, geen jaartal, geen bron. In de tekst eronder: "Zoals te zien in figuur 3."</p></div>
+  <div class="card bb"><h4>Beeld B</h4><p class="small">Een staafdiagram met de kop "Reserveringsgemak weegt zwaarder dan prijs bij bezoekers". Onder elke staaf het aantal (n=7 interviews, juni 2026), en een bronregel: eigen interviews, zie bijlage 2. In de tekst: wat dit betekent voor de keuze van de opdrachtgever.</p></div>
 </div>
-<p><button class="secondary" onclick="document.getElementById('rv').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
-<div class="reveal" id="rv"><div class="feedback good" style="display:block"><b>B.</b> Elk getal is terug te vinden, er is één boodschap, en de student kan elke stap uitleggen. A is mooi, maar beantwoordt de vraag van de opdrachtgever niet: 52 procent waarvan? Wat is die 15? Waar komt het vandaan?</div></div>
+<p><button class="secondary" data-toon="rv">Waarom is B bruikbaar?</button></p>
+<div class="reveal" id="rv"><div class="feedback good" style="display:block"><b>B.</b> De titel van B is de boodschap, niet het onderwerp: je weet na tien seconden wat er staat. De getallen zijn herleidbaar (aantal, periode, bron) en de tekst gebruikt het beeld om iets te beweren. A ziet er professioneler uit, maar 52 procent van wie, van hoeveel, gemeten wanneer? Zonder noemer is het een plaatje, geen bewijs. "Zoals te zien in figuur 3" doet bovendien niets: het beeld draagt daar geen conclusie.</div></div>
 
 <h2>Het stappenplan</h2>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip p">1</span>Begin bij de vraag van de stakeholder<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip p">1</span>Welke vraag beantwoordt dit beeld?<span class="arr">▼</span></button>
 <div class="body">
 <p class="lbl">Wat doe je</p>
-<ul><li>Vraag je af: welke beslissing moet deze grafiek helpen nemen? Voor wie?</li><li>Schrijf die vraag, of het antwoord erop, boven je grafiek als titel in gewone taal.</li></ul>
-<p class="lbl">Sterk, zwak</p>
-<div class="ex"><b>Sterk:</b> "Van 100 leads naar 15 prioriteiten" of "Hoeveel leads verdienen opvolging?"<br><b>Zwak:</b> "Figuur 3: leadanalyse" of "Strategische groei".</div>
+<ul><li>Schrijf eerst de vraag van je opdrachtgever op waar dit beeld antwoord op geeft. Eén zin.</li><li>Kun je die vraag niet opschrijven, maak de grafiek dan niet. Je hebt hem niet nodig.</li></ul>
+<p class="lbl">Let op</p>
+<p>Andersom geldt ook: staat er ergens in je rapport een vergelijking of een verloop in de tijd die je nu in vijf zinnen tekst uitlegt, dan is dat waarschijnlijk juist wél een grafiek waard.</p>
 <label class="done"><input type="checkbox" data-k="s1"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip b">2</span>Kies de vorm bij de boodschap<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip b">2</span>Kies de vorm bij je vraag<span class="arr">▼</span></button>
 <div class="body">
 <p class="lbl">Vuistregels</p>
-<ul>
-<li>Vergelijken tussen groepen: staafdiagram.</li>
-<li>Verloop in de tijd: lijndiagram.</li>
-<li>Verdeling van een geheel: gestapelde staaf, of hooguit één cirkel met weinig delen.</li>
-<li>Van veel naar weinig: trechter.</li>
-<li>Twee variabelen tegen elkaar: spreidingsdiagram.</li>
-<li>Tabel als de precieze getallen ertoe doen.</li>
-</ul>
+<div class="ex"><b>Vergelijken tussen groepen:</b> staafdiagram.<br><b>Verloop in de tijd:</b> lijndiagram.<br><b>Samenstelling van een geheel:</b> gestapelde staaf; een taartdiagram alleen bij weinig categorieën.<br><b>Stappen waarin mensen afvallen:</b> trechter.<br><b>Verband tussen twee grootheden:</b> spreidingsdiagram.<br><b>Weinig getallen, veel nuance:</b> gewoon een tabel. Een tabel is ook een visualisatie.</div>
 <p class="lbl">Let op</p>
-<p>Eén boodschap per grafiek. Wil je twee dingen laten zien, maak dan twee grafieken.</p>
+<p>Je moet je keuze kunnen verantwoorden: waarom deze vorm bij deze vraag. Dat is precies wat criterium 3 met "relevant" bedoelt. Kies dus zelf, ook als een tool iets anders voorstelt.</p>
 <label class="done"><input type="checkbox" data-k="s2"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip t">3</span>Elk getal met noemer, eenheid en periode<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip t">3</span>Maak de titel de boodschap<span class="arr">▼</span></button>
 <div class="body">
 <p class="lbl">Wat doe je</p>
-<ul><li>Noemer: 15 van de 100 leads, niet "15%".</li><li>Eenheid: euro's, aantallen, respondenten.</li><li>Periode: gemeten wanneer, over welke maanden.</li></ul>
-<p class="lbl">Voorbeeld</p>
-<div class="ex">"52 van de 100 leads gekwalificeerd (prospectanalyse derde kwartaal 2026)" zegt alles. "52%" zegt niets zolang de lezer niet weet waarvan.</div>
+<p>Zet in de titel wat je wilt dat de lezer onthoudt, niet waar de grafiek over gaat.</p>
+<div class="ex"><b>Wel:</b> "Reserveringsgemak weegt zwaarder dan prijs bij bezoekers"<br><b>Niet:</b> "Resultaten interviews doelgroep"</div>
+<p class="lbl">Let op</p>
+<p>Kun je geen boodschap formuleren, dan zegt je grafiek niets. Terug naar stap 1.</p>
 <label class="done"><input type="checkbox" data-k="s3"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip g">4</span>Bron onder de grafiek<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip g">4</span>Zorg dat elk getal herleidbaar is<span class="arr">▼</span></button>
 <div class="body">
-<p class="lbl">Wat doe je</p>
-<ul><li>Eigen onderzoek: "Bron: eigen prospectanalyse, bijlage 2." De datatabel staat in die bijlage.</li><li>Externe bron: verwijzing in APA, in de tekst en in de bronnenlijst.</li></ul>
+<p class="lbl">Wat hoort erbij</p>
+<ul><li><b>Noemer:</b> van hoeveel. Zet het aantal erbij, ook als je percentages toont.</li><li><b>Eenheid:</b> euro's, aantallen, procenten, per week.</li><li><b>Periode:</b> wanneer gemeten.</li><li><b>Bron:</b> een regel onder het beeld: waar komen deze getallen vandaan.</li></ul>
 <p class="lbl">Onthoud</p>
-<p>Een AI-tool is nooit zelf een bron. "Bron: ChatGPT" onder een grafiek betekent: er is geen bron.</p>
+<p>Bij kleine aantallen geen percentages. "Zes van de zeven" is eerlijker en overtuigender dan "86 procent".</p>
 <label class="done"><input type="checkbox" data-k="s4"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip m">5</span>Weg met wat niet helpt<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip m">5</span>Doe de tien-secondentest<span class="arr">▼</span></button>
 <div class="body">
-<p class="lbl">Haal weg</p>
-<ul><li>Iconen en plaatjes die geen data zijn.</li><li>3D-effecten en schaduwen.</li><li>Logo's in de grafiek zelf.</li><li>Meer dan vier kleuren.</li><li>Een legenda als je de labels ook direct bij de staven of lijnen kunt zetten.</li></ul>
-<p class="lbl">Vuistregel</p>
-<p>Alles wat je weghaalt zonder dat de boodschap verandert, mocht weg.</p>
+<p class="lbl">Wat doe je</p>
+<p>Laat je beeld tien seconden aan iemand zien die je project niet kent (een teamgenoot uit een ander team, je coach, iemand thuis). Vraag daarna:</p>
+<ul><li>Wat is de boodschap?</li><li>Waar komen deze getallen vandaan?</li><li>Wat zou je nu doen als je de ondernemer was?</li></ul>
+<p>Komt er iets anders uit dan je bedoelde, pas dan het beeld aan, niet de uitleg eromheen.</p>
 <label class="done"><input type="checkbox" data-k="s5"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip p">6</span>De test<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip p">6</span>Kun je hem uitleggen?<span class="arr">▼</span></button>
 <div class="body">
 <p class="lbl">Wat doe je</p>
-<ul><li>Laat iemand tien seconden naar de grafiek kijken. Een medestudent, een huisgenoot, je opdrachtgever.</li><li>Vraag: wat is de boodschap?</li><li>Klopt het antwoord niet met wat jij bedoelde? Dan pas je de grafiek aan, niet je uitleg.</li></ul>
+<ul><li>Leg in twee minuten uit: waar de data vandaan komen, wat je hebt weggelaten, waarom deze vorm, en wat de lezer moet concluderen.</li><li>Heb je AI gebruikt bij het maken? Dan controleer je elk getal tegen je eigen data en schrijf je je werkwijze in vijf regels eronder.</li></ul>
+<p class="lbl">Onthoud</p>
+<p>Een visualisatie die je niet kunt uitleggen, is geen bewijs voor criterium 3. Hoe mooi hij ook is.</p>
 <label class="done"><input type="checkbox" data-k="s6"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip b">7</span>Kun je hem uitleggen?<span class="arr">▼</span></button>
-<div class="body">
-<p class="lbl">Wat doe je</p>
-<ul><li>Leg voor jezelf uit hoe je aan elk getal komt: uit welke tabel, welke telling, welke bron.</li><li>Oefen het hardop in twee minuten. Dit wordt gevraagd in het driehoeksgesprek en in de portfolioshow.</li></ul>
-<p class="lbl">Onthoud</p>
-<p>Kun je een getal niet uitleggen, dan hoort het niet in de grafiek.</p>
-<label class="done"><input type="checkbox" data-k="s7"> Gedaan</label>
-</div></div>
-
-<h2>AI bij je visualisatie</h2>
-<div class="card">
-<p>AI mag een eerste versie maken (schrijver) of vormen voorstellen (brainstormer). Maar jij kiest de vorm, jij controleert elk getal tegen je datatabel, en jij zet de bron erbij. Verzonnen getallen en verkeerde noemers zijn de bekendste fouten in AI-grafieken. Zet je werkwijze in vijf regels bij de visualisatie: waarvoor AI, wat gecontroleerd, wat zelf gekozen, wat veranderd, wat geleerd.</p>
+<h2>Checklist bij je visualisatie</h2>
+<div class="card white">
+<ul class="check">
+  <li><input type="checkbox" data-k="c1"><div>De vraag van mijn opdrachtgever waar dit beeld antwoord op geeft, kan ik in één zin opschrijven</div></li>
+  <li><input type="checkbox" data-k="c2"><div>De titel is de boodschap, niet het onderwerp</div></li>
+  <li><input type="checkbox" data-k="c3"><div>Noemer, eenheid en periode staan erbij</div></li>
+  <li><input type="checkbox" data-k="c4"><div>Er staat een bronregel onder</div></li>
+  <li><input type="checkbox" data-k="c5"><div>Ik kan uitleggen waarom ik deze vorm koos</div></li>
+  <li><input type="checkbox" data-k="c6"><div>In de tekst gebruik ik het beeld om iets te beweren, niet alleen om ernaar te verwijzen</div></li>
+  <li><input type="checkbox" data-k="c7"><div>Iemand anders haalde er in tien seconden de bedoelde boodschap uit</div></li>
+</ul>
 </div>
 
-<h2>Checklist</h2>
-<p>Loop de zeven punten na voordat je de visualisatie in je portfolio zet. De vinkjes worden lokaal onthouden.</p>
-<ul class="check">
-<li><input type="checkbox" data-k="c1"><span>De titel beantwoordt een vraag van de stakeholder, in gewone taal.</span></li>
-<li><input type="checkbox" data-k="c2"><span>De vorm past bij de boodschap, en er is één boodschap.</span></li>
-<li><input type="checkbox" data-k="c3"><span>Elk getal heeft een noemer, een eenheid en een periode.</span></li>
-<li><input type="checkbox" data-k="c4"><span>De bron staat onder de grafiek, met bijlage of in APA.</span></li>
-<li><input type="checkbox" data-k="c5"><span>Geen iconen, 3D, logo's, meer dan vier kleuren of overbodige legenda.</span></li>
-<li><input type="checkbox" data-k="c6"><span>Iemand anders heeft de boodschap in tien seconden goed benoemd.</span></li>
-<li><input type="checkbox" data-k="c7"><span>Ik kan elk getal uitleggen, en de werkwijze in vijf regels staat erbij.</span></li>
-</ul>
+<h2>Sjabloon: bijschrift en bronregel</h2>
+<div class="out" id="tpl">Figuur ...: [de boodschap in één zin]
+Eenheid: ...  |  n = ...  |  Periode: ...
+Bron: ... (eigen interviews, bijlage ... / CBS, jaar / bedrijfsdata opdrachtgever, export d.d. ...)
+Gemaakt met: ...  |  Wat ik heb gecontroleerd: ...</div>
+<p><button class="secondary" data-kopieer="tpl">Kopieer sjabloon</button> <span class="small kopie-melding"></span></p>
 
 <h2>Meer weten</h2>
-<p class="small">Wie meer wil lezen over eenvoudig en eerlijk visualiseren, kan terecht bij het werk van Stephen Few en Cole Nussbaumer Knaflic (Storytelling with Data). Zie ook de pagina Eigen onderzoek controleerbaar maken voor de datatabel achter je grafiek.</p>
+<p class="small">Zorg dat de gegevens áchter je beeld controleerbaar zijn: <a href="06-eigen-onderzoek-controleerbaar.html">Eigen onderzoek controleerbaar maken</a>. Wat je met het beeld beweert, hoort thuis in <a href="08-advies-onderbouwen.html">Advies onderbouwen</a>.</p>
 
-<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Criterium 3: relevante analysetools en visualisaties.</div>
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Criterium 3: gekozen analysetools en visualisaties zijn relevant; voortgangsformulier: complexe informatie helder communiceren aan stakeholders.</div>
 </div>
-
-<script>
-function tg(b){b.parentNode.classList.toggle('open')}
-function cp(){var t=document.getElementById('tpl').textContent;var m=document.getElementById('copied');if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){m.textContent='Gekopieerd.'},function(){m.textContent='Selecteer de tekst en kopieer handmatig.'})}else{m.textContent='Selecteer de tekst en kopieer handmatig.'}}
-(function(){var key='im_tien_seconden';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
-document.querySelectorAll('.done input,.check input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
-document.querySelector('.acc').classList.add('open');})();
-</script>
 <script src="nav.js"></script>
 </body>
 </html>

@@ -4,228 +4,109 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Welke bron is dit?</title>
-<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
-.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
-header.top{background:var(--p);color:#fff;padding:22px 18px}
-header.top .wrap{padding:0}
-header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
-header.top p{margin:0;opacity:.9;font-size:15px}
-.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
-h2{color:var(--p);font-size:20px;margin:28px 0 8px}
-h3{color:var(--p);font-size:17px;margin:18px 0 6px}
-p{margin:8px 0}
-.lead{font-size:17px}
-.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
-.card.white{background:#fff;border:1.5px solid var(--line)}
-.card.accent{border-left:6px solid var(--m)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
-.tile b{display:block;font-size:22px;margin-bottom:2px}
-.tile strong{display:block;font-size:15px;margin-bottom:6px}
-.tile span{font-size:13.5px;opacity:.95}
-.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
-.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
-.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
-.row div{flex:1}
-button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
-button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
-button:disabled{opacity:.45;cursor:default}
-.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
-.opt:hover{border-color:var(--p)}
-.opt input{margin-right:8px}
-.opt.sel{border-color:var(--p);background:#faf6fa}
-textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
-textarea{min-height:64px;resize:vertical}
-.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
-.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
-.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
-.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
-.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
-.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
-.steps span.on{background:var(--p);color:#fff;font-weight:700}
-.steps span.done{background:var(--g);color:#fff}
-.step{display:none}.step.on{display:block}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
-.small{font-size:13.5px;color:var(--grey)}
-.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:640px){.ab{grid-template-columns:1fr}}
-.ab .card{margin:0}
-.ab h4{margin:0 0 6px;font-size:15px}
-.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
-ul{padding-left:20px;margin:6px 0}
-li{margin:4px 0}
-.check{list-style:none;padding:0}
-.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
-.check input{margin-top:5px}
-.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
-a{color:var(--p)}
-.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
-.links a b{color:var(--p)}
-.links a span{color:var(--grey);font-size:14px}
-
-.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
-.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
-.acc>button .chip{margin:0}
-.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
-.acc .body{display:none;padding:0 16px 16px 54px}
-.acc.open .body{display:block}
-.acc.open>button .arr{transform:rotate(180deg)}
-.body p{margin:6px 0}
-.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
-.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
-.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
-.reveal{display:none;margin-top:10px}
-.reveal.on{display:block}
-</style>
+<link rel="stylesheet" href="stijl.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
 <span class="tag">Informatiemanagement · stappenplan</span>
 <h1>Welke bron is dit?</h1>
-<p>De bronnenladder: zeven treden van sterk naar zwak. Klik een trede open, kijk waar jouw bron staat, vink af.</p>
+<p>Niet elke bron weegt even zwaar. Zo bepaal je wat je in handen hebt en waarvoor je het mag gebruiken.</p>
 </div></header>
 
 <div class="wrap">
 <div class="card accent">
-<b>Waarom dit ertoe doet.</b> Criterium 1 vraagt dat je informatie zoekt én beoordeelt. Niet elke bron is even sterk, en niet elke bron is geschikt voor hetzelfde doel. Een uitlegsite helpt je een model te begrijpen; het handboek is de bron die je citeert. In je bewijs bij criterium 1, bijvoorbeeld een bronnentabel, laat je zien dat je dat verschil kent. Wie weet op welke trede een bron staat, kiest bewuster en zoekt gerichter.
+<b>Waarom dit ertoe doet.</b> De meest gemaakte fout bij deze leeruitkomst is een bron gebruiken die het onderwerp alleen nóemt: een uitlegsite, een blog, een tutorial. Zo'n bron vertelt je wat een model is, maar hij is niet de bron van dat model. Criterium 1 vraagt om passende bronnen, en criterium 2 vraagt dat je informatie uit verschillende soorten bronnen verbindt. Daarvoor moet je weten wat je in handen hebt.
 </div>
 
 <h2>Eerst kijken: wat is het verschil?</h2>
 <div class="ab">
-  <div class="card a"><h4>Fragment A</h4><p class="small">"Het DESTEP-model brengt de macro-omgeving in kaart (Toolshero, 2023)." In de bronnenlijst staat de uitlegsite; het handboek ontbreekt.</p></div>
-  <div class="card bb"><h4>Fragment B</h4><p class="small">"Het DESTEP-model brengt de macro-omgeving in kaart (Alsem, 2021)." [student] las eerst de uitleg op Toolshero om het model te snappen, zocht daarna het handboek op in de bibliotheek en citeert dat.</p></div>
+  <div class="card a"><h4>Fragment A</h4><p class="small">"Volgens het 7S-model van McKinsey moet een organisatie op zeven punten in balans zijn (Toolshero, z.j.)." De bronnenlijst bevat drie uitlegsites en een blog van een adviesbureau.</p></div>
+  <div class="card bb"><h4>Fragment B</h4><p class="small">"Het 7S-model beschrijft zeven samenhangende elementen (Peters &amp; Waterman, 1982). In een dienstverlenende mkb-organisatie blijkt vooral het element Staff bepalend (Van Dijk, 2024, vakblad Management &amp; Organisatie)." De lijst bevat het handboek, een vakblad, branchecijfers en eigen interviewdata.</p></div>
 </div>
-<p><button class="secondary" onclick="document.getElementById('rv').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
-<div class="reveal" id="rv"><div class="feedback good" style="display:block"><b>B.</b> Een uitlegsite is geen bron voor het model. De site vat samen wat iemand anders heeft bedacht en beschreven. Wil je het model gebruiken, dan citeer je de oorspronkelijke auteur of een erkend handboek. De uitlegsite mag je gerust gebruiken om het te begrijpen; hij hoort alleen niet in je bronnenlijst.</div></div>
+<p><button class="secondary" data-toon="rv">Welke is beter, en waaraan zie je dat?</button></p>
+<div class="reveal" id="rv"><div class="feedback good" style="display:block"><b>B.</b> B gebruikt de oorspronkelijke auteurs voor het model en zet daar een vakbron en eigen data naast. A leunt op afgeleide bronnen die het model navertellen; die kun je gebruiken om iets te snappen, maar niet om iets te onderbouwen. Bovendien laat B variatie zien in soorten bronnen, en dat is precies wat criterium 2 vraagt.</div></div>
 
-<h2>De bronnenladder</h2>
-<p>Van sterk naar zwak. Per trede: wat het is, waarvoor je het wel en niet gebruikt, en hoe je een trede hoger komt.</p>
+<h2>Zes soorten bronnen</h2>
+<div class="scroll">
+<table class="t2">
+<tr><th>Soort</th><th>Voorbeeld</th><th>Waarvoor sterk</th><th>Let op</th></tr>
+<tr><td><b>Wetenschappelijk of vakhandboek</b></td><td>studieboek, artikel in een vaktijdschrift, oorspronkelijke publicatie van een model</td><td>theorie, modellen, begrippen</td><td>kan ouder zijn; dat mag, als het model nog gangbaar is</td></tr>
+<tr><td><b>Onderzoeksrapport of statistiek</b></td><td>CBS, sectoronderzoek, rapport van een kennisinstituut</td><td>marktcijfers, omvang, trends</td><td>kijk naar meetjaar, methode en definitie</td></tr>
+<tr><td><b>Branche- of vakbron</b></td><td>brancheorganisatie, vakblad, trendrapport</td><td>actuele ontwikkelingen in de sector</td><td>eigen belang van de branche</td></tr>
+<tr><td><b>Bron van de organisatie zelf</b></td><td>verkoopcijfers, website, jaarverslag, gesprek met je opdrachtgever</td><td>de situatie van dit bedrijf</td><td>is geen theorie en geen marktfeit</td></tr>
+<tr><td><b>Eigen onderzoek</b></td><td>je interviews, enquête, observatie, eigen data-analyse</td><td>antwoorden die nergens anders staan</td><td>alleen bruikbaar als het controleerbaar is</td></tr>
+<tr><td><b>Uitleg- of commerciële bron</b></td><td>uitlegsite, blog, whitepaper van een leverancier, AI-antwoord</td><td>oriëntatie, snel begrijpen</td><td>geen onderbouwing; zoek de bron erachter</td></tr>
+</table>
+</div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip p">1</span>Oorspronkelijke auteur of onderzoek<span class="arr">▼</span></button>
+<h2>Het stappenplan</h2>
+
+<div class="acc"><button><span class="chip p">1</span>Bepaal het soort<span class="arr">▼</span></button>
 <div class="body">
-<p>Wetenschappelijk artikel, onderzoeksrapport met beschreven methode, overheidsstatistiek zoals CBS.</p>
-<p class="lbl">Wel</p>
-<p>Theorie en modellen citeren, harde cijfers onderbouwen, een conclusie dragen. Dit is de sterkste trede.</p>
-<p class="lbl">Niet</p>
-<p>Klakkeloos overnemen. Ook hier kijk je naar jaartal, methode en aantallen (zie <a href="01-bron-controleren.html">Een bron controleren</a>).</p>
-<p class="lbl">Vinden</p>
-<p>Fontys bibliotheek (LibraryGuide CE), Google Scholar, cbs.nl. Zoek op de naam van de auteur die in een handboek wordt genoemd.</p>
+<p class="lbl">Wat doe je</p>
+<ul><li>Zoek in de tabel hierboven het soort dat past bij wat je open hebt staan.</li><li>Twijfel je tussen twee soorten? Kijk naar wie het gemaakt heeft en waarom.</li></ul>
+<p class="lbl">Let op</p>
+<p>Een gesprek met je opdrachtgever is een bron van de organisatie, geen theorie en geen marktcijfer. Het is prima bewijs voor "wat speelt er hier", maar niet voor "zo werkt het in deze markt".</p>
 <label class="done"><input type="checkbox" data-k="s1"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip p">2</span>Erkend handboek of studieboek<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip b">2</span>Oorspronkelijk of afgeleid?<span class="arr">▼</span></button>
 <div class="body">
-<p>De boeken in Edumundo en in de bibliotheek. Geschreven door vakmensen, nagekeken door een uitgever, gebruikt in het onderwijs.</p>
-<p class="lbl">Wel</p>
-<p>Modellen en theorie citeren. Voor de meeste modellen in je MBC is dit de norm.</p>
-<p class="lbl">Niet</p>
-<p>Actuele marktcijfers halen uit een handboek van vijf jaar oud.</p>
-<p class="lbl">Een trede hoger</p>
-<p>Kijk in de literatuurlijst van het hoofdstuk. Daar staat de oorspronkelijke auteur van het model. Vaak is het handboek al sterk genoeg; voor een centraal model in je onderzoek loont het om de bron erachter te lezen.</p>
+<p class="lbl">Wat doe je</p>
+<ul><li>Vraag je af: heeft deze bron het zelf bedacht of onderzocht, of vertelt hij iets na?</li><li>Vertelt hij iets na, zoek dan de bron waar het vandaan komt en open die.</li><li>Kun je die niet vinden of niet openen, gebruik de claim dan niet.</li></ul>
+<p class="lbl">Voorbeeld</p>
+<div class="ex">Een uitlegsite beschrijft de klantreis en verwijst naar een handboek. Je zoekt dat handboek in de Fontys bibliotheek, leest het hoofdstuk en verwijst daarnaar. De uitlegsite verdwijnt uit je bronnenlijst; die was alleen je opstapje.</div>
 <label class="done"><input type="checkbox" data-k="s2"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip b">3</span>Brancheorganisatie, vakblad, adviesbureau<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip t">3</span>Waarvoor mag ik hem gebruiken?<span class="arr">▼</span></button>
 <div class="body">
-<p>Branchecijfers, trendrapporten, whitepapers, artikelen in vakbladen.</p>
-<p class="lbl">Wel</p>
-<p>Marktcijfers, trends en ontwikkelingen in de branche van je opdrachtgever. Vaak actueel en specifiek.</p>
-<p class="lbl">Niet</p>
-<p>Als enige onderbouwing, zonder het belang te benoemen. Een brancheorganisatie wil de branche goed neerzetten; een adviesbureau wil opdrachten. Schrijf dat erbij: "Trendrapport van adviesbureau X (2025), commercieel belang, gebruikt naast CBS-cijfers."</p>
-<p class="lbl">Een trede hoger</p>
-<p>Zoek in het rapport naar de bron van de cijfers. Vaak is dat CBS, een universiteit of eigen onderzoek met methode. Ga daarheen.</p>
+<p class="lbl">Wat doe je</p>
+<p>Koppel de bron aan de uitspraak die je ermee wilt onderbouwen. Voor elke soort uitspraak past een ander soort bron.</p>
+<div class="ex"><b>Theorie of model</b> vraagt om een handboek of de oorspronkelijke publicatie.<br><b>Marktomvang, trend of gedrag</b> vraagt om onderzoek of statistiek.<br><b>Wat er in deze sector speelt</b> mag uit een vakbron, liefst met een tweede bron ernaast.<br><b>Wat er bij deze opdrachtgever speelt</b> komt uit de organisatie zelf of uit je eigen onderzoek.</div>
+<p class="lbl">Let op</p>
+<p>De klassieke fout is een bedrijfscijfer onderbouwen met theorie, of een theoretische bewering onderbouwen met wat je opdrachtgever zei. Leg de uitspraak en de bron naast elkaar en check of ze bij elkaar horen.</p>
 <label class="done"><input type="checkbox" data-k="s3"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip b">4</span>Bedrijfsdata en documenten van je opdrachtgever<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip g">4</span>Kijk naar je lijst als geheel<span class="arr">▼</span></button>
 <div class="body">
-<p>Verkoopcijfers, klantbestand, website-statistieken, beleidsstukken, eerdere onderzoeken van het bedrijf.</p>
-<p class="lbl">Wel</p>
-<p>De situatie van je opdrachtgever in kaart brengen. Intern, waardevol en vaak nergens anders te vinden. Hoort in vrijwel elke bronnentabel thuis.</p>
-<p class="lbl">Niet</p>
-<p>Als theorie. Een intern document zegt iets over dit bedrijf, niet over hoe een model werkt of hoe de markt beweegt. Noteer altijd waar de cijfers vandaan komen en van welke periode ze zijn.</p>
-<p class="lbl">Een trede hoger</p>
-<p>Leg de interne cijfers naast externe cijfers (trede 1 of 3). Dat heet triangulatie en maakt je inzicht sterker.</p>
+<p class="lbl">Wat doe je</p>
+<ul><li>Deel je bronnenlijst in per soort (gebruik het sjabloon hieronder).</li><li>Kijk waar de gaten zitten: alles uit één hoek is een zwakke lijst, ook als elke bron los prima is.</li><li>Kijk of elke belangrijke conclusie in je product op meer dan één soort bron rust.</li></ul>
+<p class="lbl">Waarom</p>
+<p>Criterium 2 gaat over verbinden: informatie uit verschillende bronnen samenbrengen tot een inzicht. Dat kan alleen als je bronnen ook echt verschillen. Variatie is bovendien een van de dingen waarop je portfolio wordt bekeken.</p>
 <label class="done"><input type="checkbox" data-k="s4"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip t">5</span>Nieuwsmedia en kwaliteitskranten<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip m">5</span>Wat doe je met een zwakke bron?<span class="arr">▼</span></button>
 <div class="body">
-<p>NRC, FD, Volkskrant, NOS, regionale kranten.</p>
-<p class="lbl">Wel</p>
-<p>Actualiteit: een nieuwe wet, een overname, een ontwikkeling van deze maand.</p>
-<p class="lbl">Niet</p>
-<p>Theorie of onderzoeksresultaten. Een krant schrijft over een onderzoek; het onderzoek zelf is de bron.</p>
-<p class="lbl">Een trede hoger</p>
-<p>Zoek het rapport of de instantie die in het artikel wordt genoemd en citeer die.</p>
+<p class="lbl">Drie mogelijkheden</p>
+<ul><li><b>Vervangen.</b> Zoek de bron erachter of een sterkere bron voor dezelfde uitspraak. Eerste keus.</li><li><b>Houden met uitleg.</b> Gebruik hem naast een sterkere bron en schrijf in je tekst waarom je hem toch gebruikt (bijvoorbeeld: dit is de enige partij die deze cijfers publiceert).</li><li><b>Weglaten.</b> Als de uitspraak niet cruciaal is, schrap hem. Een kortere, sterkere onderbouwing is beter dan een lange zwakke.</li></ul>
+<p class="lbl">Onthoud</p>
+<p>Een AI-tool hoort nooit in je bronnenlijst. Wat erin hoort is de bron die je zelf hebt opgezocht en gelezen. Hoe je AI gebruikte, leg je uit in je werkwijze.</p>
 <label class="done"><input type="checkbox" data-k="s5"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip t">6</span>Uitlegsites, blogs, tutorials, Wikipedia<span class="arr">▼</span></button>
-<div class="body">
-<p>Toolshero, Scribbr, marketingblogs, YouTube-uitleg, Wikipedia.</p>
-<p class="lbl">Wel</p>
-<p>Begrijpen. Een model snel snappen, een begrip opzoeken, een eerste overzicht krijgen.</p>
-<p class="lbl">Niet</p>
-<p>Citeren. Een uitlegsite is geen bron voor het model, en meestal ook niet voor cijfers.</p>
-<p class="lbl">Een trede hoger</p>
-<p>Kijk in de bronnenlijst van de uitlegsite en ga naar de oorspronkelijke bron. Wikipedia heeft onderaan een lijst met verwijzingen; die lijst is bruikbaarder dan het artikel zelf.</p>
-<label class="done"><input type="checkbox" data-k="s6"> Gedaan</label>
-</div></div>
+<h2>Deel je bronnenlijst in</h2>
+<p>Zet dit boven je bronnenlijst of in je bronnentabel. Je ziet meteen waar je basis smal is.</p>
+<div class="out" id="tpl">Indeling van mijn bronnen
 
-<div class="acc"><button onclick="tg(this)"><span class="chip m">7</span>AI-chatbots<span class="arr">▼</span></button>
-<div class="body">
-<p>ChatGPT, Copilot, Claude, Gemini, Perplexity en vergelijkbare tools.</p>
-<p class="lbl">Wel</p>
-<p>Een startpunt. Vraag naar auteurs, rapporten en zoektermen bij je onderwerp, en zoek die daarna zelf op.</p>
-<p class="lbl">Niet</p>
-<p>Nooit een bron. Niet in je bronnenlijst, niet als verwijzing in je tekst. Een chatbot verzint regelmatig bronnen die niet bestaan of iets anders zeggen.</p>
-<p class="lbl">Een trede hoger</p>
-<p>Elke bron die AI noemt zoek je zelf op en controleer je met <a href="01-bron-controleren.html">Een bron controleren</a>. Bestaat hij en staat erin wat AI zegt? Dan komt de bron zelf in je tabel, met de herkomst "aangedragen door AI en zelf gecontroleerd".</p>
-<label class="done"><input type="checkbox" data-k="s7"> Gedaan</label>
-</div></div>
+Wetenschappelijk of vakhandboek: ...
+Onderzoeksrapport of statistiek: ...
+Branche- of vakbron: ...
+Bron van de organisatie zelf: ...
+Eigen onderzoek: ...
+Uitleg- of commerciële bron (en waarom ik hem toch gebruik): ...
 
-<div class="acc"><button onclick="tg(this)"><span class="chip g">!</span>Het gesprek met je opdrachtgever is geen theorie<span class="arr">▼</span></button>
-<div class="body">
-<p>Een veelgemaakte fout: het intakegesprek, je eigen interviews of je eigen enquête opvoeren als theoretische onderbouwing. Dat is eigen onderzoek, en dat is waardevol. Maar het is trede 4, geen trede 1 of 2.</p>
-<p class="lbl">Zo doe je het wel</p>
-<ul><li>Wat de opdrachtgever zegt over het bedrijf: eigen data, met datum en functie van de gesprekspartner (geen naam).</li><li>Wat je over de markt of een model wilt zeggen: externe bron, trede 1 tot 3.</li><li>Leg de twee naast elkaar. Daar ontstaat het inzicht dat criterium 2 vraagt.</li></ul>
-<label class="done"><input type="checkbox" data-k="s8"> Gedaan</label>
-</div></div>
-
-<h2>Drie soorten in je bronnentabel</h2>
-<div class="card">
-<p>Hoeveel bronnen genoeg is, hangt af van de kwaliteit ervan en van je project. Variatie in soorten maakt je onderbouwing sterker; drie soorten is een goed streven. Die afweging maak je zelf en onderbouw je in je leercontract. Sterk zijn combinaties die elkaar aanvullen:</p>
-<ul>
-<li><b>Handboek + branchecijfers + interne data.</b> Theorie, markt en het bedrijf zelf. De meest gangbare basis voor een MBC.</li>
-<li><b>Onderzoeksrapport + CBS + eigen interviews.</b> Twee externe cijferbronnen naast je eigen onderzoek: sterke triangulatie.</li>
-<li><b>Handboek + vakblad + kwaliteitskrant.</b> Theorie plus actualiteit, bruikbaar als het vraagstuk over een recente ontwikkeling gaat.</li>
-</ul>
-<p>Zwak: alle bronnen van dezelfde trede, of alleen bronnen van trede 5, 6 en 7.</p>
-</div>
-
-<h2>Zet het in je bronnentabel</h2>
-<p>Voeg per bron één regel toe met de trede. Kopieer het sjabloon en vul in.</p>
-<div class="out" id="tpl">Soort: studieboek / onderzoeksrapport / branchecijfers / interne data / vakblad / nieuwsmedium / uitlegsite
-Trede: 1 t/m 7
-Gebruikt voor: theorie / marktcijfers / situatie opdrachtgever / actualiteit / begrijpen (niet geciteerd)</div>
-<p><button class="secondary" onclick="cp()">Kopieer sjabloon</button> <span class="small" id="copied"></span></p>
+Wat mist er nog, gezien mijn deelvragen: ...
+Welke conclusie rust nu op één soort bron: ...</div>
+<p><button class="secondary" data-kopieer="tpl">Kopieer sjabloon</button> <span class="small kopie-melding"></span></p>
 
 <h2>Meer weten</h2>
-<p class="small">De Zoekwijzer op Canvas laat stap voor stap zien hoe je zoekt in de databanken. De LibraryGuide CE bundelt de databanken en handboeken voor jouw opleiding. Alles staat op fontys.nl/bibliotheek.</p>
-<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Criterium 1: methodes inzichtelijk maken en informatie zoeken en beoordelen.</div>
-</div>
+<p class="small">Zoeken doe je in de Fontys bibliotheek (LibraryGuide CE) en met de Zoekwijzer op Canvas. Het onderscheid tussen een oorspronkelijke bron en een afgeleide heet in de literatuur primaire versus secundaire bron. Per bron controleer je daarnaast de betrouwbaarheid: zie <a href="01-bron-controleren.html">Een bron controleren</a>.</p>
 
-<script>
-function tg(b){b.parentNode.classList.toggle('open')}
-function cp(){var t=document.getElementById('tpl').textContent;var m=document.getElementById('copied');if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){m.textContent='Gekopieerd.'},function(){m.textContent='Selecteer de tekst en kopieer handmatig.'})}else{m.textContent='Selecteer de tekst en kopieer handmatig.'}}
-(function(){var key='im_welke_bron';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
-document.querySelectorAll('.done input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
-document.querySelector('.acc').classList.add('open');})();
-</script>
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Criterium 1 (passende, betrouwbare methodes) en criterium 2 (informatie uit verschillende bronnen verbinden).</div>
+</div>
 <script src="nav.js"></script>
 </body>
 </html>

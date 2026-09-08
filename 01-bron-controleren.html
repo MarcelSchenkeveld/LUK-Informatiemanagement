@@ -4,82 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Een bron controleren</title>
-<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
-.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
-header.top{background:var(--p);color:#fff;padding:22px 18px}
-header.top .wrap{padding:0}
-header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
-header.top p{margin:0;opacity:.9;font-size:15px}
-.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
-h2{color:var(--p);font-size:20px;margin:28px 0 8px}
-h3{color:var(--p);font-size:17px;margin:18px 0 6px}
-p{margin:8px 0}
-.lead{font-size:17px}
-.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
-.card.white{background:#fff;border:1.5px solid var(--line)}
-.card.accent{border-left:6px solid var(--m)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
-.tile b{display:block;font-size:22px;margin-bottom:2px}
-.tile strong{display:block;font-size:15px;margin-bottom:6px}
-.tile span{font-size:13.5px;opacity:.95}
-.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
-.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
-.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
-.row div{flex:1}
-button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
-button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
-button:disabled{opacity:.45;cursor:default}
-.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
-.opt:hover{border-color:var(--p)}
-.opt input{margin-right:8px}
-.opt.sel{border-color:var(--p);background:#faf6fa}
-textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
-textarea{min-height:64px;resize:vertical}
-.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
-.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
-.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
-.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
-.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
-.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
-.steps span.on{background:var(--p);color:#fff;font-weight:700}
-.steps span.done{background:var(--g);color:#fff}
-.step{display:none}.step.on{display:block}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
-.small{font-size:13.5px;color:var(--grey)}
-.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:640px){.ab{grid-template-columns:1fr}}
-.ab .card{margin:0}
-.ab h4{margin:0 0 6px;font-size:15px}
-.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
-ul{padding-left:20px;margin:6px 0}
-li{margin:4px 0}
-.check{list-style:none;padding:0}
-.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
-.check input{margin-top:5px}
-.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
-a{color:var(--p)}
-.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
-.links a b{color:var(--p)}
-.links a span{color:var(--grey);font-size:14px}
-
-.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
-.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
-.acc>button .chip{margin:0}
-.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
-.acc .body{display:none;padding:0 16px 16px 54px}
-.acc.open .body{display:block}
-.acc.open>button .arr{transform:rotate(180deg)}
-.body p{margin:6px 0}
-.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
-.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
-.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
-.reveal{display:none;margin-top:10px}
-.reveal.on{display:block}
-</style>
+<link rel="stylesheet" href="stijl.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -98,12 +23,12 @@ a{color:var(--p)}
   <div class="card a"><h4>Fragment A</h4><p class="small">"Voor dit onderzoek heb ik gebruikgemaakt van betrouwbare bronnen. Ik heb gezocht op Google en de websites van een aantal leveranciers bekeken. De bronnen zijn actueel en relevant." Bronnenlijst: vijf websites zonder jaartal, geen enkele in de tekst genoemd.</p></div>
   <div class="card bb"><h4>Fragment B</h4><p class="small">"Ik heb zestien bronnen beoordeeld op vijf criteria, afgeleid van de CRAAP-test (Blakeslee, 2004). Commerciële bronnen van softwareleveranciers scoren lager op objectiviteit en zijn daarom alleen gebruikt in combinatie met een studieboek."</p></div>
 </div>
-<p><button class="secondary" onclick="document.getElementById('rv').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
+<p><button class="secondary" data-toon="rv">Welke is beter, en waaraan zie je dat?</button></p>
 <div class="reveal" id="rv"><div class="feedback good" style="display:block"><b>B.</b> B laat zien <i>hoe</i> de bronnen zijn beoordeeld: met criteria, met een model, en met een gevolg voor zwakke bronnen. A zegt dat de bronnen betrouwbaar zijn, maar laat nergens zien hoe dat is vastgesteld; de lezer kan niets controleren. Precies dat verschil maak je met het stappenplan hieronder.</div></div>
 
 <h2>Het stappenplan</h2>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip p">0</span>Komt de bron uit AI? Zoek hem dan eerst zelf op<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip p">0</span>Komt de bron uit AI? Zoek hem dan eerst zelf op<span class="arr">▼</span></button>
 <div class="body">
 <p>AI-chatbots noemen regelmatig bronnen die niet bestaan, of die iets anders zeggen dan de chatbot beweert. Daarom: voordat je ook maar iets met een AI-bron doet, zoek je hem zelf op.</p>
 <p class="lbl">Wat doe je</p>
@@ -113,7 +38,7 @@ a{color:var(--p)}
 <label class="done"><input type="checkbox" data-k="s0"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip p">1</span>Wie? Wie is de auteur of organisatie, en welk belang heeft die?<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip p">1</span>Wie? Wie is de auteur of organisatie, en welk belang heeft die?<span class="arr">▼</span></button>
 <div class="body">
 <p class="lbl">Wat doe je</p>
 <ul><li>Zoek de auteur of organisatie op. Geen naam te vinden? Dan is dat al een antwoord.</li><li>Vraag je af: wat heeft deze partij erbij te winnen dat ik dit geloof?</li></ul>
@@ -124,7 +49,7 @@ a{color:var(--p)}
 <label class="done"><input type="checkbox" data-k="s1"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip b">2</span>Waarom? Met welk doel is dit gemaakt?<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip b">2</span>Waarom? Met welk doel is dit gemaakt?<span class="arr">▼</span></button>
 <div class="body">
 <p class="lbl">Wat doe je</p>
 <ul><li>Bepaal of de bron wil informeren, uitleggen, overtuigen of verkopen.</li><li>Kijk naar de vorm: onderzoeksrapport, artikel, whitepaper, reclame, opiniestuk.</li></ul>
@@ -135,7 +60,7 @@ a{color:var(--p)}
 <label class="done"><input type="checkbox" data-k="s2"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip t">3</span>Wanneer? Hoe actueel is het, en doet dat ertoe?<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip t">3</span>Wanneer? Hoe actueel is het, en doet dat ertoe?<span class="arr">▼</span></button>
 <div class="body">
 <p class="lbl">Wat doe je</p>
 <ul><li>Zoek het jaartal. Geen jaartal? Zwak.</li><li>Vraag je af of het onderwerp snel verandert. Consumentengedrag, online kanalen en prijzen wel; een model of theorie meestal niet.</li></ul>
@@ -144,7 +69,7 @@ a{color:var(--p)}
 <label class="done"><input type="checkbox" data-k="s3"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip g">4</span>Waarop is het gebaseerd? Methode, aantallen, data?<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip g">4</span>Waarop is het gebaseerd? Methode, aantallen, data?<span class="arr">▼</span></button>
 <div class="body">
 <p class="lbl">Wat doe je</p>
 <ul><li>Zoek in de bron naar de basis: eigen onderzoek met methode en aantal respondenten, verwijzingen naar andere bronnen, of alleen beweringen.</li><li>Bij een cijfer: staat erbij van hoeveel, van wie, wanneer gemeten?</li></ul>
@@ -153,7 +78,7 @@ a{color:var(--p)}
 <label class="done"><input type="checkbox" data-k="s4"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip m">5</span>Waar? Kan een ander het terugvinden?<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip m">5</span>Waar? Kan een ander het terugvinden?<span class="arr">▼</span></button>
 <div class="body">
 <p class="lbl">Wat doe je</p>
 <ul><li>Noteer auteur, jaar, titel en vindplaats, in APA. Ontbreekt er iets? Dan is de bron minder bruikbaar.</li><li>Zet de verwijzing meteen op de plek in je tekst waar je de informatie gebruikt, én in de bronnenlijst. In één keer.</li></ul>
@@ -180,21 +105,14 @@ Gebruikt voor: ...
 Herkomst: zelf gevonden / aangedragen door AI en zelf gecontroleerd
 Wie, waarom, wanneer, waarop, waar: (kort per vraag, bijv. "CBS, informeren, 2025, eigen onderzoek n=..., zelf geopend")
 Oordeel: kernbron / met voorbehoud / niet gebruiken, en waarom in één zin</div>
-<p><button class="secondary" onclick="cp()">Kopieer sjabloon</button> <span class="small" id="copied"></span></p>
+<p><button class="secondary" data-kopieer="tpl">Kopieer sjabloon</button> <span class="small kopie-melding"></span></p>
 
 <h2>Meer weten</h2>
 <p class="small">De vijf vragen zijn een vereenvoudiging van de CRAAP-test (Blakeslee, 2004: Currency, Relevance, Authority, Accuracy, Purpose). Een bron beoordelen door ernáást te kijken (wie zit erachter, wat zeggen anderen) heet lateral reading (Wineburg &amp; McGrew, 2019). Zoeken doe je in de Fontys bibliotheek (LibraryGuide CE) en met de Zoekwijzer op Canvas.</p>
 
-<div class="foot">v1.3 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Criterium 1: de wijze waarop passende, betrouwbare methodes zijn toegepast inzichtelijk maken; voortgangsformulier: betrouwbaarheid en relevantie beoordelen.</div>
+<div class="foot">v1.4 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Criterium 1: de wijze waarop passende, betrouwbare methodes zijn toegepast inzichtelijk maken; voortgangsformulier: betrouwbaarheid en relevantie beoordelen.</div>
 </div>
 
-<script>
-function tg(b){b.parentNode.classList.toggle('open')}
-function cp(){var t=document.getElementById('tpl').textContent;var m=document.getElementById('copied');if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){m.textContent='Gekopieerd.'},function(){m.textContent='Selecteer de tekst en kopieer handmatig.'})}else{m.textContent='Selecteer de tekst en kopieer handmatig.'}}
-(function(){var key='im_bron_stappen';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
-document.querySelectorAll('.done input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
-document.querySelector('.acc').classList.add('open');})();
-</script>
 <script src="nav.js"></script>
 </body>
 </html>

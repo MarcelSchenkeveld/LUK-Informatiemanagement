@@ -1,4 +1,4 @@
-/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.1 (8-9-2026)
+/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.2 (8-9-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
    (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
@@ -8,9 +8,10 @@
     { file: '00-start-de-route.html', title: 'De route', desc: 'Hoe je aan deze leeruitkomst werkt, welk bewijs erbij past, waar het leren zit, en de drie afspraken. Lees dit eerst.', group: 'start', status: 'klaar' },
 
     { file: '01-bron-controleren.html', title: 'Een bron controleren', desc: 'Vijf vragen bij elke bron, met sterk/matig/zwak per vraag en een sjabloon voor je bronnentabel.', group: 'zoeken', status: 'klaar' },
-    { file: '02-welke-bron-is-dit.html', title: 'Welke bron is dit?', desc: 'Van oorspronkelijke auteur tot uitlegsite: wat weegt zwaar, wat niet.', group: 'zoeken', status: 'klaar' },
+    { file: '02-welke-bron-is-dit.html', title: 'Welke bron is dit?', desc: 'Van oorspronkelijke auteur tot uitlegsite: wat weegt zwaar, wat niet, en hoe je je bronnenlijst indeelt.', group: 'zoeken', status: 'klaar' },
 
     { file: '03-ai-als-leerpartner.html', title: 'AI als leerpartner', desc: 'KIES in vier stappen en de leerpartner-prompt per criterium.', group: 'ai', status: 'klaar' },
+    { file: '11-de-kies-methode.html', title: 'De KIES-methode', desc: 'Wat KIES is, waar het vandaan komt en hoe je het bij deze leeruitkomst gebruikt: kiezen, instrueren, evalueren, spelregels.', group: 'ai', status: 'klaar' },
     { file: '04-voorspel-vraag-vergelijk.html', title: 'Voorspel, vraag, vergelijk', desc: 'Werkblad voor gewoonte 1: eerst zelf, dan AI, dan vergelijken.', group: 'ai', status: 'klaar' },
     { file: '05-werkwijze-in-vijf-regels.html', title: 'Je werkwijze in vijf regels', desc: 'Invullen en plakken bij elk bewijs waarin je AI gebruikte.', group: 'ai', status: 'klaar' },
 
@@ -155,5 +156,47 @@
     return '<div class="soon">' + num + '<div><b>' + esc(p.title) + '</b><span>' + esc(p.desc) + '</span></div><span class="tag2">VOLGT</span></div>';
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+  /* Gedrag dat op elke pagina hetzelfde is: stappen uitklappen, vinkjes onthouden,
+     onthullen (knop met data-toon) en sjablonen kopiëren (knop met data-kopieer). */
+  function gedrag() {
+    var key = 'im_' + currentFile().replace(/\.html$/, '');
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) {}
+
+    document.querySelectorAll('.acc > button').forEach(function (b) {
+      b.addEventListener('click', function () { b.parentNode.classList.toggle('open'); });
+    });
+    var eerste = document.querySelector('.acc');
+    if (eerste) eerste.classList.add('open');
+
+    document.querySelectorAll('input[type=checkbox][data-k]').forEach(function (c) {
+      if (saved[c.dataset.k]) c.checked = true;
+      c.addEventListener('change', function () {
+        saved[c.dataset.k] = c.checked;
+        try { localStorage.setItem(key, JSON.stringify(saved)); } catch (e) {}
+      });
+    });
+
+    document.querySelectorAll('[data-toon]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var el = document.getElementById(b.dataset.toon);
+        if (el) el.classList.toggle('on');
+      });
+    });
+
+    document.querySelectorAll('[data-kopieer]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var el = document.getElementById(b.dataset.kopieer);
+        var melding = b.nextElementSibling && b.nextElementSibling.classList.contains('kopie-melding') ? b.nextElementSibling : null;
+        function zeg(t) { if (melding) melding.textContent = t; }
+        if (el && navigator.clipboard) {
+          navigator.clipboard.writeText(el.textContent).then(function () { zeg('Gekopieerd.'); },
+            function () { zeg('Selecteer de tekst en kopieer handmatig.'); });
+        } else { zeg('Selecteer de tekst en kopieer handmatig.'); }
+      });
+    });
+  }
+
+  function start() { build(); gedrag(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();

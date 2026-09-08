@@ -4,185 +4,99 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Voorspel, vraag, vergelijk</title>
-<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
-.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
-header.top{background:var(--p);color:#fff;padding:22px 18px}
-header.top .wrap{padding:0}
-header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
-header.top p{margin:0;opacity:.9;font-size:15px}
-.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
-h2{color:var(--p);font-size:20px;margin:28px 0 8px}
-h3{color:var(--p);font-size:17px;margin:18px 0 6px}
-p{margin:8px 0}
-.lead{font-size:17px}
-.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
-.card.white{background:#fff;border:1.5px solid var(--line)}
-.card.accent{border-left:6px solid var(--m)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
-.tile b{display:block;font-size:22px;margin-bottom:2px}
-.tile strong{display:block;font-size:15px;margin-bottom:6px}
-.tile span{font-size:13.5px;opacity:.95}
-.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
-.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
-.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
-.row div{flex:1}
-button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
-button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
-button:disabled{opacity:.45;cursor:default}
-.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
-.opt:hover{border-color:var(--p)}
-.opt input{margin-right:8px}
-.opt.sel{border-color:var(--p);background:#faf6fa}
-textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
-textarea{min-height:64px;resize:vertical}
-.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
-.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
-.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
-.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
-.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
-.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
-.steps span.on{background:var(--p);color:#fff;font-weight:700}
-.steps span.done{background:var(--g);color:#fff}
-.step{display:none}.step.on{display:block}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
-.small{font-size:13.5px;color:var(--grey)}
-.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:640px){.ab{grid-template-columns:1fr}}
-.ab .card{margin:0}
-.ab h4{margin:0 0 6px;font-size:15px}
-.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
-ul{padding-left:20px;margin:6px 0}
-li{margin:4px 0}
-.check{list-style:none;padding:0}
-.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
-.check input{margin-top:5px}
-.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
-a{color:var(--p)}
-.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
-.links a b{color:var(--p)}
-.links a span{color:var(--grey);font-size:14px}
-
-.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
-.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
-.acc>button .chip{margin:0}
-.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
-.acc .body{display:none;padding:0 16px 16px 54px}
-.acc.open .body{display:block}
-.acc.open>button .arr{transform:rotate(180deg)}
-.body p{margin:6px 0}
-.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
-.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
-.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
-.reveal{display:none;margin-top:10px}
-.reveal.on{display:block}
-</style>
+<link rel="stylesheet" href="stijl.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
 <span class="tag">Informatiemanagement · werkblad</span>
 <h1>Voorspel, vraag, vergelijk</h1>
-<p>Vijf stappen die je bij elke AI-vraag over je project doet. Eerst zelf, dan AI, dan vergelijken. Klik open, doe, vink af.</p>
+<p>Drie regels opschrijven vóórdat je AI vraagt. De kleinste gewoonte met het grootste effect.</p>
 </div></header>
 
 <div class="wrap">
 <div class="card accent">
-<b>Waarom dit ertoe doet.</b> Gewoonte 1 is: voorspel eerst. Zonder eigen versie heb je niets om het AI-antwoord mee te vergelijken, en dan leer je niets. Met een eigen versie zie je meteen wat je al wist, wat nieuw is en wat je moet controleren. Dat is precies het zoeken en beoordelen van criterium 1 en het verbinden van bronnen van criterium 2. Wat je hier noteert, is direct bruikbaar voor je werkwijze in vijf regels bij je bronnentabel en je analyse.
+<b>Waarom dit ertoe doet.</b> Als je meteen vraagt, weet je nooit wat je zelf al wist. Je leest het antwoord, het klinkt logisch, en je hebt het gevoel dat je het snapt. Dat gevoel is onbetrouwbaar. Schrijf je eerst op wat je verwacht, dan heb je iets om mee te vergelijken: je ziet wat je goed had, wat je miste, en waar je je vergiste. Dat verschil is je leerwinst, en het is precies het materiaal waarmee je later je werkwijze en je reflectie schrijft.
 </div>
 
 <h2>Eerst kijken: wat is het verschil?</h2>
 <div class="ab">
-  <div class="card a"><h4>Aanpak A</h4><p class="small">[student] opent een chatbot en typt: "Geef vijf bronnen over e-bikeverhuur in Nederland." De vijf bronnen gaan rechtstreeks de bronnentabel in.</p></div>
-  <div class="card bb"><h4>Aanpak B</h4><p class="small">[student] schrijft eerst in drie regels op welke bronnen of bevindingen hij verwacht. Daarna de leerpartner-prompt, dan de vraag. Hij vergelijkt het antwoord met zijn eigen lijst en zoekt alles wat nieuw is zelf op.</p></div>
+  <div class="card a"><h4>Zonder voorspelling</h4><p class="small">Student vraagt AI: "Welke factoren bepalen of iemand een e-bike huurt?" Krijgt zeven factoren, neemt er vier over in de analyse. In het driehoeksgesprek: "Waarom deze vier?" Antwoord: "Die kwamen eruit."</p></div>
+  <div class="card bb"><h4>Met voorspelling</h4><p class="small">Student schrijft eerst op: prijs, weer, afstand tot fietsroutes. Vraagt daarna. AI noemt ook actieradius en gedoe met reserveren. Student: "Reserveren had ik niet bedacht, en dat is bij deze opdrachtgever juist het probleem." Neemt vijf factoren mee, met uitleg waarom.</p></div>
 </div>
-<p><button class="secondary" onclick="document.getElementById('rv').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
-<div class="reveal" id="rv"><div class="feedback good" style="display:block"><b>B.</b> A heeft niets om van te leren: er is geen eigen versie om het AI-antwoord mee te vergelijken, en de bronnen zijn niet gecontroleerd. B weet na afloop wat hij al wist, wat AI toevoegde en wat niet klopte. Dat verschil is het bewijs dat een assessor wil zien.</div></div>
+<p><button class="secondary" data-toon="rv">Wat levert de tweede student op?</button></p>
+<div class="reveal" id="rv"><div class="feedback good" style="display:block">Twee dingen. Ten eerste een betere analyse: de student ziet welke factoren nieuw zijn en kan uitleggen waarom die ertoe doen bij déze opdrachtgever. Ten tweede een verhaal dat klopt in het gesprek: de keuze is van de student, niet van de chatbot. Precies dat vraagt criterium 4 en de reflectie op je informatiegebruik.</div></div>
 
-<h2>De vijf stappen</h2>
+<h2>Het stappenplan</h2>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip p">1</span>Voorspel: schrijf eerst op wat je verwacht<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip p">1</span>Voorspel: schrijf drie regels op<span class="arr">▼</span></button>
 <div class="body">
-<p>Twee minuten, nog zonder AI. Schrijf in drie regels op wat je verwacht: welke bronnen, welk antwoord, welk cijfer.</p>
-<p class="lbl">Voorbeeld</p>
-<div class="ex">Bronnen: CBS over fietsbezit, een rapport van de fietsbranche, het handboek voor de marktanalyse.<br>Antwoord: verhuur loont vooral in de zomer en bij toeristen.<br>Cijfer: ongeveer een kwart van de nieuwe fietsen is een e-bike.</div>
-<p class="lbl">Onthoud</p>
-<p>Fout mag. Een verwachting die niet uitkomt is juist waardevol: dan heb je iets geleerd en kun je dat opschrijven.</p>
+<p class="lbl">Wat doe je</p>
+<ul><li>Formuleer je vraag eerst in één zin, zodat je weet wat je wilt weten.</li><li>Schrijf in maximaal drie regels op wat je verwacht: welke uitkomst, welke factoren, welk cijfer, welke bronnen.</li><li>Zet erbij hoe zeker je bent: gok, onderbouwd vermoeden, of ik weet dit vrij zeker.</li></ul>
+<p class="lbl">Let op</p>
+<p>Het hoeft niet goed te zijn. Een mis geschoten voorspelling is waardevoller dan geen voorspelling: dan weet je precies waar je beeld niet klopte.</p>
 <label class="done"><input type="checkbox" data-k="s1"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip b">2</span>Vraag: leerpartner-prompt erin, dan je vraag<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip b">2</span>Vraag: en laat je voorspelling weg<span class="arr">▼</span></button>
 <div class="body">
-<p>Plak eerst de leerpartner-prompt (zie <a href="03-ai-als-leerpartner.html">AI als leerpartner</a>), vul onderwerp en opdrachtgever in, en stel daarna je vraag. Laat AI eerst vragen stellen; beantwoord die kort en eerlijk.</p>
-<p class="lbl">Voorbeeld</p>
-<div class="ex">Na de prompt: "Ik zoek bronnen over de markt voor e-bikeverhuur in Nederland. Mijn verwachting staat hierboven. Stel me eerst je vragen."</div>
-<p class="lbl">Let op</p>
-<p>Wil je toch direct een antwoord? Vraag het expliciet, maar pas nadat je stap 1 hebt opgeschreven.</p>
+<p class="lbl">Wat doe je</p>
+<ul><li>Stel je vraag zonder je eigen antwoord erbij te zetten. Anders praat AI je na en verlies je juist de vergelijking.</li><li>Vraag om denkstappen of criteria, niet alleen om een uitkomst: "hoe zou je dit uitzoeken", "welke informatie heb ik hiervoor nodig".</li><li>Werk je met de leerpartner-prompt, dan krijg je vanzelf eerst vragen terug. Zie <a href="03-ai-als-leerpartner.html">AI als leerpartner</a>.</li></ul>
 <label class="done"><input type="checkbox" data-k="s2"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip t">3</span>Vergelijk: wat had je al, wat is nieuw, wat botst?<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip t">3</span>Vergelijk: drie vakjes<span class="arr">▼</span></button>
 <div class="body">
-<p>Leg het AI-antwoord naast je verwachting uit stap 1 en verdeel het in drie stapels:</p>
-<ul>
-<li><b>Had ik al.</b> Bevestigt je verwachting. Fijn, maar niet nieuw.</li>
-<li><b>Nieuw.</b> Bronnen, cijfers of ideeën die je niet had. Dit is de winst, mits het klopt.</li>
-<li><b>Spreekt elkaar tegen.</b> AI zegt iets anders dan jij dacht. Hier zit de interessante vraag: wie heeft gelijk, en hoe kom je daarachter?</li>
-</ul>
+<p class="lbl">Wat doe je</p>
+<p>Zet het antwoord naast je voorspelling en verdeel het in drie:</p>
+<div class="ex"><b>Dit had ik ook.</b> Bevestiging. Fijn, maar hier leer je weinig van.<br><b>Dit miste ik.</b> Nieuw voor jou. Hier zit je leerwinst, mits het klopt.<br><b>Dit klopt volgens mij niet.</b> Iets dat botst met wat je weet, of met je opdrachtgever. Hier zit je scherpte.</div>
 <label class="done"><input type="checkbox" data-k="s3"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip g">4</span>Controleer: elke nieuwe bron en elk nieuw cijfer opzoeken<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip g">4</span>Controleer wat je meeneemt<span class="arr">▼</span></button>
 <div class="body">
-<p>Alles uit de stapels "nieuw" en "spreekt elkaar tegen" zoek je zelf op bij de bron. Bestaat de bron? Staat erin wat AI zegt? Van hoeveel en van wie is het cijfer? Gebruik <a href="01-bron-controleren.html">Een bron controleren</a>.</p>
-<p class="lbl">Onthoud</p>
-<p>Een bron die je niet zelf hebt geopend, komt niet in je bronnentabel. Een cijfer zonder vindplaats gebruik je niet.</p>
+<p class="lbl">Wat doe je</p>
+<ul><li>Alles uit vakje 2 en 3 dat je wilt gebruiken, zoek je zelf op bij een echte bron.</li><li>Bij een cijfer: van hoeveel, van wie, wanneer gemeten? Zonder noemer neem je het niet over.</li><li>Klopt iets niet, schrijf dan op wat er niet klopte. Dat is regel 4 van je werkwijze.</li></ul>
 <label class="done"><input type="checkbox" data-k="s4"> Gedaan</label>
 </div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip m">5</span>Noteer: wat klopte niet, wat neem je over, wat leerde je?<span class="arr">▼</span></button>
+<div class="acc"><button><span class="chip m">5</span>Noteer je conclusie in eigen woorden<span class="arr">▼</span></button>
 <div class="body">
-<p>Drie korte regels. Dit zijn meteen regel 2, 3, 4 en 5 van je werkwijze in vijf regels: wat heb ik gecontroleerd en hoe; wat heb ik zelf gekozen; wat klopte niet en wat heb ik veranderd; wat heb ik geleerd over het onderwerp en over werken met AI.</p>
-<p class="lbl">Voorbeeld</p>
-<div class="ex">Klopte niet: één rapport bestond niet. Overgenomen: CBS-cijfer, zelf geopend. Geleerd: AI verzint plausibele titels; voortaan eerst de vindplaats checken.</div>
+<p class="lbl">Wat doe je</p>
+<ul><li>Schrijf in twee of drie zinnen wat je nu denkt, en waarom dat anders of scherper is dan aan het begin.</li><li>Bewaar het werkblad. Bij je bewijs heb je het nodig voor je werkwijze in vijf regels, en aan het eind voor je beschouwing.</li></ul>
+<p class="lbl">Onthoud</p>
+<p>De conclusie schrijf je altijd zelf. Een conclusie die je niet in eigen woorden kunt opschrijven, kun je ook niet uitleggen in het driehoeksgesprek.</p>
 <label class="done"><input type="checkbox" data-k="s5"> Gedaan</label>
 </div></div>
 
-<h2>Het werkblad</h2>
-<p>Kopieer de vijf kopjes en vul ze in bij elke AI-vraag over je project. Bewaar de ingevulde werkbladen: ze zijn de basis voor je werkwijze in vijf regels.</p>
-<div class="out" id="tpl">Voorspel-vraag-vergelijk
-Vraag: ...
-1 Voorspel (nog zonder AI): welke bronnen, welk antwoord, welk cijfer verwacht ik?
-2 Vraag: leerpartner-prompt gebruikt, mijn vraag was ...; AI vroeg mij ...
-3 Vergelijk: had ik al ... / nieuw ... / spreekt elkaar tegen ...
-4 Controleer: bron of cijfer ... opgezocht bij ...; klopt wel/niet omdat ...
-5 Noteer: klopte niet ... / overgenomen ... / geleerd ...</div>
-<p><button class="secondary" onclick="cp()">Kopieer sjabloon</button> <span class="small" id="copied"></span></p>
+<h2>Werkblad</h2>
+<p>Kopieer dit naar je notities. Eén invulling per keer dat je iets uitzoekt; je hoeft het niet in te leveren, maar het is goud waard bij je reflectie.</p>
+<div class="out" id="tpl">Voorspel, vraag, vergelijk
 
-<h2>Ingevuld voorbeeld</h2>
-<div class="card">
-<p><b>Vraagstuk:</b> een fietsenwinkel in een middelgrote stad overweegt e-bikeverhuur. [student] wil weten hoe groot de markt is.</p>
-<p><b>1 Voorspel:</b> CBS heeft cijfers over fietsbezit; de fietsbranche publiceert jaarcijfers; verhuur loont vooral bij toeristen; ongeveer een kwart van de nieuwe fietsen is een e-bike.</p>
-<p><b>2 Vraag:</b> leerpartner-prompt, daarna de vraag naar marktcijfers. AI vroeg eerst: gaat het om verhuur aan toeristen of aan inwoners, en over welke periode?</p>
-<p><b>3 Vergelijk:</b> had ik al: CBS en branchecijfers. Nieuw: een rapport "E-bikeverhuur in Nederland 2024" van een adviesbureau, en het idee dat forensen een grotere groep zijn dan toeristen. Spreekt elkaar tegen: AI noemde een aandeel e-bikes van bijna de helft van de verkoop, ik dacht een kwart.</p>
-<p><b>4 Controleer:</b> het adviesrapport bestond niet; geen vindplaats, geen organisatie met die naam. Het verkoopaandeel van e-bikes vond [student] terug in de jaarcijfers van de branche: hoger dan zijn verwachting, dus AI zat dichter bij de waarheid dan hij. De forensengroep bleek onderbouwd met een CBS-tabel over woon-werkverkeer.</p>
-<p><b>5 Noteer:</b> klopte niet: het adviesrapport. Overgenomen: branchecijfer verkoopaandeel en CBS-tabel woon-werkverkeer, beide zelf geopend. Geleerd: mijn beeld van de markt was verouderd; AI verzint plausibele rapporten; forensen worden een tweede doelgroep in mijn analyse.</p>
+Datum en onderwerp: ...
+Mijn vraag in één zin: ...
+
+1. Mijn voorspelling (max. drie regels): ...
+   Hoe zeker ben ik: gok / onderbouwd vermoeden / vrij zeker
+
+2. Wat ik vroeg (kort, of de prompt): ...
+
+3. Vergelijking
+   Dit had ik ook: ...
+   Dit miste ik: ...
+   Dit klopt volgens mij niet: ...
+
+4. Gecontroleerd bij de bron
+   Wat: ...  Waar gecontroleerd: ...  Klopte het: ja / nee, want ...
+
+5. Mijn conclusie in eigen woorden: ...
+   Wat dit betekent voor mijn opdrachtgever: ...</div>
+<p><button class="secondary" data-kopieer="tpl">Kopieer werkblad</button> <span class="small kopie-melding"></span></p>
+
+<h2>Wanneer gebruik je dit?</h2>
+<p class="small">Niet bij alles, dan wordt het een ritueel. Wel bij de momenten die ertoe doen: als je een deelvraag gaat uitzoeken, als je een analyse interpreteert, als je een conclusie trekt, en als je AI iets laat beoordelen wat je zelf gemaakt hebt.</p>
+
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Hoort bij gewoonte 1: voorspel eerst. Levert materiaal voor je werkwijze in vijf regels en je beschouwing.</div>
 </div>
-
-<h2>Meer weten</h2>
-<p class="small">Eerst zelf proberen en dan pas het antwoord zien, onthoud je beter: dat heet het generation effect. Bastani e.a. (2024) lieten zien dat onbeperkte AI-antwoorden het leren ondermijnen, terwijl een AI die alleen hints en vragen geeft dat niet doet.</p>
-<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Criterium 1: methodes inzichtelijk maken en informatie zoeken en beoordelen; criterium 2: bronnen verbinden tot zakelijke inzichten.</div>
-</div>
-
-<script>
-function tg(b){b.parentNode.classList.toggle('open')}
-function cp(){var t=document.getElementById('tpl').textContent;var m=document.getElementById('copied');if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){m.textContent='Gekopieerd.'},function(){m.textContent='Selecteer de tekst en kopieer handmatig.'})}else{m.textContent='Selecteer de tekst en kopieer handmatig.'}}
-(function(){var key='im_voorspel';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
-document.querySelectorAll('.done input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
-document.querySelector('.acc').classList.add('open');})();
-</script>
 <script src="nav.js"></script>
 </body>
 </html>

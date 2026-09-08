@@ -4,181 +4,86 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kies A of B</title>
-<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
-.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
-header.top{background:var(--p);color:#fff;padding:22px 18px}
-header.top .wrap{padding:0}
-header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
-header.top p{margin:0;opacity:.9;font-size:15px}
-.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
-h2{color:var(--p);font-size:20px;margin:28px 0 8px}
-h3{color:var(--p);font-size:17px;margin:18px 0 6px}
-p{margin:8px 0}
-.lead{font-size:17px}
-.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
-.card.white{background:#fff;border:1.5px solid var(--line)}
-.card.accent{border-left:6px solid var(--m)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
-.tile b{display:block;font-size:22px;margin-bottom:2px}
-.tile strong{display:block;font-size:15px;margin-bottom:6px}
-.tile span{font-size:13.5px;opacity:.95}
-.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
-.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
-.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
-.row div{flex:1}
-button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
-button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
-button:disabled{opacity:.45;cursor:default}
-.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
-.opt:hover{border-color:var(--p)}
-.opt input{margin-right:8px}
-.opt.sel{border-color:var(--p);background:#faf6fa}
-textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
-textarea{min-height:64px;resize:vertical}
-.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
-.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
-.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
-.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
-.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
-.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
-.steps span.on{background:var(--p);color:#fff;font-weight:700}
-.steps span.done{background:var(--g);color:#fff}
-.step{display:none}.step.on{display:block}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
-.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
-.small{font-size:13.5px;color:var(--grey)}
-.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:640px){.ab{grid-template-columns:1fr}}
-.ab .card{margin:0}
-.ab h4{margin:0 0 6px;font-size:15px}
-.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
-ul{padding-left:20px;margin:6px 0}
-li{margin:4px 0}
-.check{list-style:none;padding:0}
-.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
-.check input{margin-top:5px}
-.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
-a{color:var(--p)}
-.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
-.links a b{color:var(--p)}
-.links a span{color:var(--grey);font-size:14px}
-
-.acc{border:1.5px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
-.acc>button{width:100%;text-align:left;background:#fff;color:var(--dark);border:0;padding:14px 16px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:12px;border-radius:8px}
-.acc>button .chip{margin:0}
-.acc>button .arr{margin-left:auto;color:var(--grey);font-weight:400;font-size:14px}
-.acc .body{display:none;padding:0 16px 16px 54px}
-.acc.open .body{display:block}
-.acc.open>button .arr{transform:rotate(180deg)}
-.body p{margin:6px 0}
-.lbl{font-size:12.5px;font-weight:700;color:var(--grey);letter-spacing:.4px;text-transform:uppercase;margin-top:12px}
-.ex{background:var(--light);border-radius:6px;padding:10px 12px;font-size:14.5px}
-.done{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14.5px;color:var(--p);font-weight:700}
-.reveal{display:none;margin-top:10px}
-.reveal.on{display:block}
-</style>
+<link rel="stylesheet" href="stijl.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
-<span class="tag">Informatiemanagement · oefening</span>
+<span class="tag">Informatiemanagement · kwaliteit zien</span>
 <h1>Kies A of B</h1>
-<p>Vier contrasten uit studentenwerk. Lees A en B, kies, en kijk dan pas naar de onthulling.</p>
+<p>Vier keer twee fragmenten. Kies eerst zelf welke beter is en waaraan je dat ziet, klik daarna open.</p>
 </div></header>
 
 <div class="wrap">
 <div class="card accent">
-<b>Waarom dit ertoe doet.</b> Het voortgangsformulier beschrijft per criterium alleen "op niveau". Wat dat concreet betekent, zie je het snelst in contrast: twee fragmenten naast elkaar, één is beter, en jij benoemt waaraan je dat ziet. De vier contrasten volgen de vier criteria en het bewijs dat je daarbij levert. De fragmenten komen uit geanonimiseerd en bewerkt studentenwerk; namen, organisaties en cijfers zijn veranderd of illustratief. Wat je hier leert zien, gebruik je straks bij elk feedbackverzoek: op je eigen werk.
+<b>Waarom dit ertoe doet.</b> Criteria lezen maakt je nog geen goede beoordelaar van je eigen werk. Kwaliteit ga je zien door te vergelijken: twee stukken naast elkaar, en dan in eigen woorden benoemen wat het verschil maakt. Dat is ook precies wat je in de sessie doet, en wat je nodig hebt om je eigen bewijs te beoordelen voordat je het inlevert. De fragmenten hieronder zijn gebaseerd op eerder studentenwerk, geanonimiseerd en bewerkt.
 </div>
 
-<h2>De vier contrasten</h2>
-
-<div class="acc"><button onclick="tg(this)"><span class="chip p">1</span>Zoeken en beoordelen (criterium 1)<span class="arr">▼</span></button>
-<div class="body">
+<h2>Contrast 1: zoeken en beoordelen</h2>
 <div class="ab">
-  <div class="card a"><h4>Fragment A</h4><p class="small">"Voor dit onderzoek heb ik gebruikgemaakt van betrouwbare bronnen. Ik heb gezocht op Google en de websites van een aantal leveranciers bekeken. De bronnen zijn actueel en relevant voor het vraagstuk." Bronnenlijst: vijf websites zonder jaartal, geen enkele in de tekst genoemd.</p></div>
-  <div class="card bb"><h4>Fragment B</h4><p class="small">"Ik heb zestien bronnen beoordeeld op vijf criteria, afgeleid van de CRAAP-test (Blakeslee, 2004): actualiteit, relevantie, betrouwbaarheid, objectiviteit en bruikbaarheid. Per bron maximaal 25 punten; vanaf 22 punten geldt een bron als kernbron, onder 18 alleen als aanvulling. Commerciële bronnen van softwareleveranciers scoren lager op objectiviteit en zijn daarom alleen gebruikt in combinatie met een studieboek."</p></div>
+  <div class="card a"><h4>A</h4><p class="small">"Voor dit onderzoek heb ik gebruikgemaakt van betrouwbare bronnen. Ik heb gezocht op Google en de websites van een aantal leveranciers bekeken. De bronnen zijn actueel en relevant." De bronnenlijst bevat vijf websites zonder jaartal, geen enkele wordt in de tekst genoemd.</p></div>
+  <div class="card bb"><h4>B</h4><p class="small">"Ik heb mijn bronnen beoordeeld op vijf punten: wie, waarom, wanneer, waarop gebaseerd en waar terug te vinden. Commerciële bronnen van softwareleveranciers scoren laag op objectiviteit; die gebruik ik alleen naast een studieboek. Twee bronnen heb ik laten vallen omdat ik de onderliggende cijfers niet kon vinden."</p></div>
 </div>
-<p><button class="secondary" onclick="document.getElementById('rv1').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
-<div class="reveal" id="rv1"><div class="feedback good" style="display:block"><b>B.</b> Waaraan zie je dat:
-<ul><li>Je kunt zien hoe er gezocht en beoordeeld is.</li><li>Er is een criterium of model, en het staat erbij waar het vandaan komt.</li><li>Elke bron heeft een oordeel en een gevolg: kernbron, aanvulling, of alleen in combinatie.</li><li>Bronnen worden in de tekst gebruikt, niet alleen in de lijst gezet.</li></ul>
-A zegt dat de bronnen betrouwbaar zijn; B laat het zien.</div></div>
-<label class="done"><input type="checkbox" data-k="c1"> Gedaan</label>
-</div></div>
+<p><button class="secondary" data-toon="r1">Wat maakt het verschil?</button></p>
+<div class="reveal" id="r1"><div class="feedback good" style="display:block"><b>B.</b> B laat zien <i>hoe</i> er beoordeeld is: met criteria, met een gevolg voor zwakke bronnen, en met een besluit dat je kunt navolgen. A doet een bewering over zichzelf die de lezer niet kan controleren. Kernwoord: <b>navolgbaar</b>. Zie <a href="01-bron-controleren.html">Een bron controleren</a>.</div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip b">2</span>Bronnen verbinden (criterium 2)<span class="arr">▼</span></button>
-<div class="body">
+<h2>Contrast 2: bronnen verbinden</h2>
 <div class="ab">
-  <div class="card a"><h4>Fragment A</h4><p class="small">"De doelgroep van de trouwlocatie bestaat uit stellen tussen de 28 en 38 jaar met een budget tussen de 10.000 en 20.000 euro. Ze kiezen steeds vaker voor een informele bruiloft op één locatie. De locatie sluit hier goed op aan." Geen bron in de tekst; een CBS-pagina staat wel in de bronnenlijst, maar wordt niet gebruikt.</p></div>
-  <div class="card bb"><h4>Fragment B</h4><p class="small">"De kern van de doelgroep ligt tussen 30 en 35 jaar. Dat sluit aan bij landelijke cijfers: de gemiddelde leeftijd bij een eerste huwelijk was in 2024 33 jaar voor mannen en 31 voor vrouwen (CBS, 2025). In de interviews komt dit terug: respondent 4 was 32, respondent 7 en zijn partner 29 en 31. Drie van de negen stellen noemden de ligging als doorslaggevend, wat de branchecijfers over landelijke locaties (Trouwbranche NL, 2025) bevestigt."</p></div>
+  <div class="card a"><h4>A</h4><p class="small">"De doelgroep bestaat vooral uit jonge gezinnen met een modaal inkomen die hechten aan gemak. Zij kiezen steeds vaker voor duurzame producten en zijn actief op social media."</p></div>
+  <div class="card bb"><h4>B</h4><p class="small">"In deze gemeente is het aandeel huishoudens met kinderen hoger dan het landelijk gemiddelde (CBS, 2025). Dat sluit aan bij wat de eigenaar ziet: doordeweeks vooral gezinnen. In vier van de zeven interviews werd gemak als eerste reden genoemd, prijs pas na doorvragen. Samen maakt dat aannemelijk dat gemak zwaarder weegt dan prijs, al is mijn interviewgroep klein."</p></div>
 </div>
-<p><button class="secondary" onclick="document.getElementById('rv2').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
-<div class="reveal" id="rv2"><div class="feedback good" style="display:block"><b>B.</b> Waaraan zie je dat:
-<ul><li>Elk hard cijfer heeft een bron in de tekst.</li><li>Externe data en eigen onderzoek staan naast elkaar en bevestigen elkaar.</li><li>De conclusie volgt uit de combinatie, niet uit één van de twee.</li></ul>
-A beweert cijfers zonder herkomst; de lezer weet niet of de student ze heeft gevonden, geschat of verzonnen.</div></div>
-<label class="done"><input type="checkbox" data-k="c2"> Gedaan</label>
-</div></div>
+<p><button class="secondary" data-toon="r2">Wat maakt het verschil?</button></p>
+<div class="reveal" id="r2"><div class="feedback good" style="display:block"><b>B.</b> A klinkt vlot maar is nergens op gebaseerd: het zijn aannames in de vorm van feiten. B verbindt drie verschillende soorten informatie (statistiek, waarneming van de opdrachtgever, eigen onderzoek) tot één inzicht, en zegt erbij hoe hard dat inzicht is. Kernwoorden: <b>aannemelijk versus aantoonbaar</b>, en verbinden in plaats van opsommen. Zie <a href="02-welke-bron-is-dit.html">Welke bron is dit?</a></div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip t">3</span>Visualiseren (criterium 3)<span class="arr">▼</span></button>
-<div class="body">
+<h2>Contrast 3: visualiseren</h2>
 <div class="ab">
-  <div class="card a"><h4>Infographic A</h4><p class="small">Titel: "Strategische groei: prioritering van kansen". Gemaakt met een AI-tool. Veel iconen, een cirkel met 52% en los daarvan het getal 15. Geen bron, geen noemer. De opdrachtgever vraagt: "52 procent waarvan?"</p></div>
-  <div class="card bb"><h4>Infographic B</h4><p class="small">Titel: "Van 100 leads naar 15 prioriteiten". Een trechter: 100 leads, 48 uitgesloten op drie criteria, 52 gekwalificeerd, waarvan 15 hoog en 37 medium. Onder de grafiek: bron: eigen prospectanalyse, bijlage 2.</p></div>
+  <div class="card a"><h4>A</h4><p class="small">Een gekleurde infographic met "52% kiest voor duurzaam" in grote letters. Geen aantal, geen periode, geen bron. In de tekst: "Zie figuur 3."</p></div>
+  <div class="card bb"><h4>B</h4><p class="small">Een trechter van bezoekers naar reserveringen naar verhuringen, met bij elke stap het aantal en waar dat getal vandaan komt (websitestatistieken, boekingssysteem, periode erbij). Titel: "De meeste bezoekers haken af vóór het reserveren."</p></div>
 </div>
-<p><button class="secondary" onclick="document.getElementById('rv3').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
-<div class="reveal" id="rv3"><div class="feedback good" style="display:block"><b>B.</b> Waaraan zie je dat:
-<ul><li>Hij beantwoordt een vraag van een stakeholder: welke leads pakken we eerst op?</li><li>Elk getal heeft een noemer en een bron.</li><li>De student kan elke stap uitleggen, van 100 naar 15.</li><li>De vorm past bij de boodschap: van veel naar weinig is een trechter.</li></ul>
-A is mooi, maar beantwoordt de vraag van de opdrachtgever niet. Meer hierover op de pagina De tien-secondentest.</div></div>
-<label class="done"><input type="checkbox" data-k="c3"> Gedaan</label>
-</div></div>
+<p><button class="secondary" data-toon="r3">Wat maakt het verschil?</button></p>
+<div class="reveal" id="r3"><div class="feedback good" style="display:block"><b>B.</b> Elk getal in B is te herleiden en de titel zegt wat de lezer moet onthouden. In A weet je niet van hoeveel mensen die 52 procent is, wanneer het gemeten is en wie het gemeten heeft; het beeld draagt dus geen conclusie. Kernwoord: <b>herleidbaar</b>. Zie <a href="07-tien-secondentest.html">De tien-secondentest</a>.</div></div>
 
-<div class="acc"><button onclick="tg(this)"><span class="chip g">4</span>Onderbouwen en reflecteren (criterium 4)<span class="arr">▼</span></button>
-<div class="body">
+<h2>Contrast 4: onderbouwen en reflecteren</h2>
 <div class="ab">
-  <div class="card a"><h4>Fragment A</h4><p class="small">"Op basis van het onderzoek adviseer ik in te zetten op Instagram, omdat de doelgroep daar actief is. De bronnen waren betrouwbaar omdat ze van bekende websites komen. Het onderzoek is goed verlopen."</p></div>
-  <div class="card bb"><h4>Fragment B</h4><p class="small">"Ik adviseer de online zichtbaarheid te versterken: zeven van de negen geïnterviewde stellen vonden de locatie via Instagram of Google, en branchecijfers (Trouwbranche NL, 2025) laten zien dat 80% van de stellen online oriënteert. Kanttekening: ik sprak alleen stellen die al geboekt hadden; stellen die afhaakten ontbreken. Het advies is daarom voorlopig; ik toets het met een korte enquête onder aanvragers die niet boekten." (cijfers illustratief)</p></div>
+  <div class="card a"><h4>A</h4><p class="small">"Er zijn verschillende mogelijkheden, elk met voor- en nadelen. Al met al liggen er kansen. Terugkijkend op het proces ben ik tevreden: de samenwerking verliep goed en ik heb veel geleerd over onderzoek doen."</p></div>
+  <div class="card bb"><h4>B</h4><p class="small">"Ik adviseer te starten via een platform en pas te investeren in een eigen systeem boven de tien verhuringen per week. Tegenargument is de marge; die weegt bij dit volume nog niet op tegen de opzetkosten. Mijn advies veranderde toen bleek dat bezoekers eerder afhaken op reserveren dan op prijs; dat wist ik uit het boekingssysteem, dat betrouwbaarder is dan mijn interviews."</p></div>
 </div>
-<p><button class="secondary" onclick="document.getElementById('rv4').classList.toggle('on')">Welke is beter, en waaraan zie je dat?</button></p>
-<div class="reveal" id="rv4"><div class="feedback good" style="display:block"><b>B.</b> Waaraan zie je dat:
-<ul><li>Het besluit volgt zichtbaar uit de informatie: twee soorten bewijs, met aantallen en bron.</li><li>Er staat wat het bewijs niet dekt, en wat de student daaraan doet.</li><li>De reflectie gaat over betrouwbaarheid en gebruik van informatie, niet over het proces in het algemeen.</li></ul>
-"Het onderzoek is goed verlopen" is geen reflectie op betrouwbaarheid. Meer hierover op de pagina Advies onderbouwen.</div></div>
-<label class="done"><input type="checkbox" data-k="c4"> Gedaan</label>
-</div></div>
+<p><button class="secondary" data-toon="r4">Wat maakt het verschil?</button></p>
+<div class="reveal" id="r4"><div class="feedback good" style="display:block"><b>B.</b> A beschrijft en kiest niet, en de reflectie gaat over samenwerken in plaats van over informatie. B kiest, weegt het tegenargument, geeft een meetpunt, en reflecteert op wat de informatie met het advies deed en hoe betrouwbaar die was. Kernwoorden: <b>gesteld versus beargumenteerd</b>. Zie <a href="08-advies-onderbouwen.html">Advies onderbouwen</a>.</div></div>
 
-<h2>Jouw kwaliteitskaart</h2>
-<div class="card">
-<p>Je hebt nu vier keer benoemd waaraan je kwaliteit ziet. Schrijf die indicatoren in je eigen woorden op, per rij van het voortgangsformulier. Dat is je kwaliteitskaart. Leg hem naast elk bewijsstuk voordat je een feedbackverzoek indient, en noem in je verzoek op welke indicator je feedback wilt.</p>
-<p>Een indicator in eigen woorden onthoud je beter dan een zin uit de rubric. En je kunt hem straks in het driehoeksgesprek en de portfolioshow uitleggen.</p>
-</div>
-<div class="out" id="tpl">Mijn kwaliteitskaart Informatiemanagement
-
-Informatie zoeken en beoordelen
-Ik zie kwaliteit aan: ...
-
-Data-analyse en interpretatie
-Ik zie kwaliteit aan: ...
-
-Visualisatie en presentatie van data
-Ik zie kwaliteit aan: ...
-
-Reflectie op informatiegebruik en betrouwbaarheid
-Ik zie kwaliteit aan: ...</div>
-<p><button class="secondary" onclick="cp()">Kopieer sjabloon</button> <span class="small" id="copied"></span></p>
-
-<h2>Meer weten</h2>
-<p class="small">Kwaliteit zie je in contrast: wie voorbeelden vergelijkt en zelf benoemt wat het verschil maakt, ontwikkelt een eigen kwaliteitsbesef dat een rubric alleen niet geeft (Sadler; Nicol). Precies daarom is dit een oefening en geen antwoordmodel.</p>
-<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Alle vier de criteria: methodes inzichtelijk maken en informatie zoeken en beoordelen; bronnen verbinden tot zakelijke inzichten; relevante analysetools en visualisaties; verantwoorde onderbouwing van besluiten en reflectie op betrouwbaarheid.</div>
+<h2>De kwaliteitskaart</h2>
+<p>Vier woorden die in alle contrasten terugkomen. Gebruik ze als je naar je eigen bewijs kijkt, en gebruik ze in je feedbackverzoek.</p>
+<div class="grid">
+  <div class="tile p"><strong>Navolgbaar</strong><span>Een ander kan zien hoe je te werk bent gegaan, niet alleen dat je het gedaan hebt.</span></div>
+  <div class="tile b"><strong>Herleidbaar</strong><span>Elk getal en elke claim is terug te voeren op een bron of op je eigen data.</span></div>
+  <div class="tile t"><strong>Beargumenteerd</strong><span>Je zegt niet alleen wat je vindt, maar op grond waarvan, en wat ertegen pleit.</span></div>
+  <div class="tile m"><strong>Eerlijk begrensd</strong><span>Je zegt wat je bewijs niet kan dragen, en wat dat betekent voor je advies.</span></div>
 </div>
 
-<script>
-function tg(b){b.parentNode.classList.toggle('open')}
-function cp(){var t=document.getElementById('tpl').textContent;var m=document.getElementById('copied');if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){m.textContent='Gekopieerd.'},function(){m.textContent='Selecteer de tekst en kopieer handmatig.'})}else{m.textContent='Selecteer de tekst en kopieer handmatig.'}}
-(function(){var key='im_kies_ab';var s={};try{s=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
-document.querySelectorAll('.done input').forEach(function(c){if(s[c.dataset.k])c.checked=true;c.addEventListener('change',function(){s[c.dataset.k]=c.checked;try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}})});
-document.querySelector('.acc').classList.add('open');})();
-</script>
+<h2>Nu je eigen werk</h2>
+<div class="card white">
+<p>Pak één stuk van je lopende project en loop de vier woorden langs.</p>
+<ul class="check">
+  <li><input type="checkbox" data-k="e1"><div>Kan een ander zien <b>hoe</b> ik dit heb aangepakt?</div></li>
+  <li><input type="checkbox" data-k="e2"><div>Is elk getal en elke claim <b>terug te vinden</b> bij een bron of in mijn data?</div></li>
+  <li><input type="checkbox" data-k="e3"><div>Staat er <b>op grond waarvan</b> ik dit vind, inclusief wat ertegen pleit?</div></li>
+  <li><input type="checkbox" data-k="e4"><div>Heb ik opgeschreven wat mijn bewijs <b>niet</b> dekt?</div></li>
+  <li><input type="checkbox" data-k="e5"><div>Ik weet welk van de vier bij mij het zwakst is, en dat zet ik in mijn feedbackverzoek</div></li>
+</ul>
+</div>
+
+<h2>Sjabloon: feedbackverzoek</h2>
+<p>Een feedbackverzoek levert meer op als je zelf al een oordeel hebt. Gebruik de woorden hierboven.</p>
+<div class="out" id="tpl">Feedbackverzoek
+
+Waar gaat het over: ... (welk onderdeel van mijn project, welke versie)
+Wat ik zelf al vind: ... (waar ben ik tevreden over, en waarom)
+Waar ik twijfel: ... (welk van de vier: navolgbaar, herleidbaar, beargumenteerd, eerlijk begrensd)
+Mijn concrete vraag: ...
+Wat ik met de vorige feedback heb gedaan: ...</div>
+<p><button class="secondary" data-kopieer="tpl">Kopieer sjabloon</button> <span class="small kopie-melding"></span></p>
+
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys. Fragmenten zijn gebaseerd op eerder studentenwerk, geanonimiseerd en bewerkt; namen en organisaties zijn verzonnen.</div>
+</div>
 <script src="nav.js"></script>
 </body>
 </html>
