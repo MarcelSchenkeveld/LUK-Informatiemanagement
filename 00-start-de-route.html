@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Informatiemanagement: de route</title>
+<style>:root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Roboto,Arial,Helvetica,sans-serif;color:var(--dark);background:#fff;line-height:1.5;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;padding:20px 18px 60px}
+header.top{background:var(--p);color:#fff;padding:22px 18px}
+header.top .wrap{padding:0}
+header.top h1{margin:0 0 4px;font-size:26px;line-height:1.2}
+header.top p{margin:0;opacity:.9;font-size:15px}
+.tag{display:inline-block;background:var(--m);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;letter-spacing:.3px}
+h2{color:var(--p);font-size:20px;margin:28px 0 8px}
+h3{color:var(--p);font-size:17px;margin:18px 0 6px}
+p{margin:8px 0}
+.lead{font-size:17px}
+.card{background:var(--light);border-radius:8px;padding:16px 18px;margin:12px 0}
+.card.white{background:#fff;border:1.5px solid var(--line)}
+.card.accent{border-left:6px solid var(--m)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.tile{border-radius:8px;padding:14px;color:#fff;min-height:120px}
+.tile b{display:block;font-size:22px;margin-bottom:2px}
+.tile strong{display:block;font-size:15px;margin-bottom:6px}
+.tile span{font-size:13.5px;opacity:.95}
+.p{background:var(--p)}.m{background:var(--m)}.b{background:var(--b)}.t{background:var(--t)}.g{background:var(--g)}
+.chip{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:700;font-size:14px;margin-right:10px;flex:none}
+.row{display:flex;align-items:flex-start;gap:6px;margin:10px 0}
+.row div{flex:1}
+button,.btn{font:inherit;font-weight:700;background:var(--p);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}
+button.secondary,.btn.secondary{background:#fff;color:var(--p);border:1.5px solid var(--p)}
+button:disabled{opacity:.45;cursor:default}
+.opt{display:block;background:#fff;border:1.5px solid var(--line);border-radius:6px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt:hover{border-color:var(--p)}
+.opt input{margin-right:8px}
+.opt.sel{border-color:var(--p);background:#faf6fa}
+textarea,input[type=text]{width:100%;font:inherit;padding:8px 10px;border:1.5px solid var(--line);border-radius:6px;margin-top:6px}
+textarea{min-height:64px;resize:vertical}
+.feedback{margin-top:10px;padding:10px 12px;border-radius:6px;font-size:15px;display:none}
+.feedback.good{background:#e6f5ea;border-left:5px solid var(--g);display:block}
+.feedback.warn{background:#fff4e0;border-left:5px solid #ff9900;display:block}
+.feedback.bad{background:#fde7ef;border-left:5px solid var(--m);display:block}
+.steps{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
+.steps span{flex:1;min-width:60px;text-align:center;font-size:12.5px;padding:6px 4px;border-radius:6px;background:var(--light);color:var(--grey)}
+.steps span.on{background:var(--p);color:#fff;font-weight:700}
+.steps span.done{background:var(--g);color:#fff}
+.step{display:none}.step.on{display:block}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.out{background:#fff;border:1.5px dashed var(--p);border-radius:6px;padding:12px;white-space:pre-wrap;font-size:14.5px}
+.small{font-size:13.5px;color:var(--grey)}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.ab{grid-template-columns:1fr}}
+.ab .card{margin:0}
+.ab h4{margin:0 0 6px;font-size:15px}
+.ab .a h4{color:var(--p)}.ab .bb h4{color:var(--m)}
+ul{padding-left:20px;margin:6px 0}
+li{margin:4px 0}
+.check{list-style:none;padding:0}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
+.check input{margin-top:5px}
+.foot{margin-top:40px;font-size:13px;color:var(--grey);border-top:1px solid var(--line);padding-top:10px}
+a{color:var(--p)}
+.links a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.links a b{color:var(--p)}
+.links a span{color:var(--grey);font-size:14px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<span class="tag">Informatiemanagement · naslag</span>
+<h1>De route: zo werk je aan deze leeruitkomst</h1>
+<p>Wat je minimaal doet en inlevert, hoe je AI slim gebruikt, en waar je stap voor stap hulp vindt.</p>
+</div></header>
+
+<div class="wrap">
+<p class="lead">Je zoekt informatie, je checkt of die klopt, je haalt er een inzicht uit, je laat dat zien, en je onderbouwt daarmee een besluit voor je opdrachtgever. Dat deed je in eerdere MBC's al. Nu doe je het bewust, en je laat het zien. AI gebruiken mag; de vraag is wat jíj dan nog leert.</p>
+
+<h2>Vier bewijsstukken uit je lopende project</h2>
+<div class="grid">
+  <div class="tile p"><b>1</b><strong>Bronnentabel</strong><span>vijf bronnen, drie soorten, gecontroleerd, met waarom betrouwbaar en waarvoor gebruikt · klaar voor OW4</span></div>
+  <div class="tile b"><b>2</b><strong>Analyse met datatabel</strong><span>één eigen analyse; eigen hypothese eerst; elke conclusie met noemer of cijfer · klaar voor OW7</span></div>
+  <div class="tile t"><b>3</b><strong>Eén visualisatie</strong><span>vorm zelf gekozen; titel, eenheid, noemer en bron; jij kunt hem uitleggen · klaar voor OW7</span></div>
+  <div class="tile m"><b>4</b><strong>Advies en reflectie</strong><span>advies in één zin, drie argumenten met bron, wat je bewijs niet dekt · klaar voor OW10</span></div>
+</div>
+<p class="small">Plus wat altijd hoort bij een leeruitkomst: leercontract, feedbackverzoeken via Canvas, voortgangsformulier en één beschouwing. Bij elk bewijsstuk vraag je één keer feedback voordat je het vastzet.</p>
+
+<h2>Mijn voortgang</h2>
+<div class="card white">
+<ul class="check" id="progress">
+  <li><input type="checkbox" data-k="lc"><div><b>Leercontract</b> ingeleverd en feedback gevraagd (voor OW4)</div></li>
+  <li><input type="checkbox" data-k="b1"><div><b>Bewijsstuk 1</b> bronnentabel klaar (OW4)</div></li>
+  <li><input type="checkbox" data-k="b2"><div><b>Bewijsstuk 2</b> analyse met datatabel klaar (OW7)</div></li>
+  <li><input type="checkbox" data-k="b3"><div><b>Bewijsstuk 3</b> visualisatie klaar (OW7)</div></li>
+  <li><input type="checkbox" data-k="b4"><div><b>Bewijsstuk 4</b> advies en reflectie klaar (OW10)</div></li>
+  <li><input type="checkbox" data-k="fb"><div>Bij elk bewijsstuk <b>één feedbackverzoek</b> gedaan</div></li>
+</ul>
+<p class="small">Wordt alleen op dit apparaat onthouden.</p>
+</div>
+
+<h2>Waar zit het leren? De vier zelf-momenten</h2>
+<p>Uitbesteden aan AI is niet fout. Het wordt een probleem als je precies de stappen uitbesteedt waar het leren zit. Deze vier doe je zelf, hoe klein ook.</p>
+<div class="row"><span class="chip p">1</span><div><b>Verwachten.</b> Wat denk ik dat eruit komt, vóórdat ik AI vraag?</div></div>
+<div class="row"><span class="chip b">2</span><div><b>Kiezen.</b> Welke bronnen, welke vorm, welke data neem ik over, en waarom?</div></div>
+<div class="row"><span class="chip t">3</span><div><b>Oordelen en concluderen.</b> Klopt het, en wat betekent het voor mijn opdrachtgever? De conclusie schrijf ik zelf.</div></div>
+<div class="row"><span class="chip m">4</span><div><b>Uitleggen.</b> Kan ik in twee minuten vertellen hoe ik hieraan kom? In het driehoeksgesprek en de portfolioshow wordt dat gevraagd.</div></div>
+<p class="small">Mag je gerust uitbesteden: samenvatten, transcriberen, tabellen opmaken, berekeningen, een eerste grafiek, taal en structuur, zoeken naar waar iets staat.</p>
+
+<h2>Vier gewoontes</h2>
+<div class="card"><b>1. Voorspel eerst.</b> Schrijf in drie regels op wat je verwacht, vóórdat je AI vraagt. Vergelijk daarna.</div>
+<div class="card"><b>2. Laat AI vragen stellen.</b> Gebruik de leerpartner-prompt (zie de pagina AI als leerpartner). AI stelt vragen en geeft geen antwoord voordat jij een poging hebt gedaan.</div>
+<div class="card"><b>3. Controleer wat je overneemt.</b> Elke bron, elk cijfer en elke grafiek uit AI check je bij de bron zelf. Een AI-tool is nooit zelf een bron.</div>
+<div class="card"><b>4. Leg het uit.</b> Wat je niet kunt uitleggen, is geen bewijs.</div>
+
+<h2>Drie afspraken</h2>
+<div class="card accent"><b>Nieuw bewijs uit je lopende project.</b> Je vorige MBC's gebruik je om te zien wat beter kan. Het bewijs zelf maak je nieuw, in dit project.</div>
+<div class="card accent"><b>AI mag, maar je verantwoordt het.</b> Bij elk bewijsstuk waarin je AI gebruikte: je werkwijze in vijf regels (waarvoor, wat gecontroleerd, wat zelf besloten, wat klopte niet, wat geleerd). Geen extra eis: dit is de methodeverantwoording die criterium 1 al vraagt.</div>
+<div class="card accent"><b>Bron in de tekst én in de lijst, in één keer.</b> Zet de verwijzing meteen op de plek waar je de informatie gebruikt.</div>
+
+<h2>Stap-voor-stap-hulp</h2>
+<p>Open de pagina op het moment dat je het nodig hebt.</p>
+<div class="links">
+  <a href="01-bron-controleren.html"><b>Een bron controleren</b> <span>· vijf vragen, en je krijgt een regel voor je bronnentabel terug</span></a>
+  <a href="#"><b>Welke bron is dit?</b> <span>· van oorspronkelijke auteur tot uitlegsite: wat weegt zwaar, wat niet (volgt)</span></a>
+  <a href="#"><b>AI als leerpartner</b> <span>· KIES in vier stappen en de leerpartner-prompt per criterium (volgt)</span></a>
+  <a href="#"><b>Voorspel, vraag, vergelijk</b> <span>· werkblad voor gewoonte 1 (volgt)</span></a>
+  <a href="#"><b>Je werkwijze in vijf regels</b> <span>· invullen en plakken bij je bewijsstuk (volgt)</span></a>
+  <a href="#"><b>Eigen onderzoek controleerbaar maken</b> <span>· aantallen, respondenten, citaten, methode (volgt)</span></a>
+  <a href="#"><b>De tien-secondentest</b> <span>· checklist voor je visualisatie (volgt)</span></a>
+  <a href="#"><b>Advies onderbouwen</b> <span>· argumentatietabel en wat je bewijs niet dekt (volgt)</span></a>
+  <a href="#"><b>Kies A of B</b> <span>· vier contrasten uit echt studentenwerk: waaraan zie je kwaliteit? (volgt)</span></a>
+  <a href="#"><b>Je leercontract</b> <span>· invulhulp bij de vijf vragen (volgt)</span></a>
+</div>
+
+<div class="foot">v1.0 (8-9-2026) · Leeruitkomst IM Informatiemanagement · Commerciële Economie, Fontys · hoofdfase 2026-2027. De criteria vragen geen AI en belonen geen AI, maar gelden voor alles wat je met AI maakt.</div>
+</div>
+
+<script>
+(function(){
+  var key='im_route_progress';
+  var boxes=document.querySelectorAll('#progress input');
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(key)||'{}');}catch(e){}
+  boxes.forEach(function(b){ if(saved[b.dataset.k]) b.checked=true;
+    b.addEventListener('change',function(){ saved[b.dataset.k]=b.checked; try{localStorage.setItem(key,JSON.stringify(saved));}catch(e){} });
+  });
+})();
+</script>
+</body>
+</html>
