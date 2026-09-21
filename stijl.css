@@ -1,4 +1,4 @@
-/* Stijl naslag Informatiemanagement (CE, Fontys) - v1.4 (9-9-2026)
+/* Stijl naslag Informatiemanagement (CE, Fontys) - v1.6 (21-9-2026)
    Eén stijlbestand voor alle naslagpagina's. De navigatie brengt zijn eigen stijl mee (nav.js). */
 :root{--p:#663366;--m:#e6007e;--b:#0076e0;--t:#008386;--g:#39b549;--dark:#1a1a1a;--grey:#6b6b6b;--light:#f3eef3;--line:#dddddd;--white:#fff}
 *{box-sizing:border-box}
@@ -128,3 +128,17 @@ svg.vb{display:block;width:100%;height:auto;border:1px solid var(--line);border-
 .doc th:first-child,.doc td:first-child{width:36%}
 .doc th:nth-child(2),.doc td:nth-child(2){width:18%}
 .doc th:nth-child(3),.doc td:nth-child(3){width:21%}
+
+/* v1.5 (21-9-2026): KIES-iconen (map iconen/) */
+.kico{width:26px;height:26px;vertical-align:middle;margin-right:6px;flex:none}
+.acc>button .kico{width:24px;height:24px;margin-right:8px}
+.t2 td .kico{width:22px;height:22px;margin-right:5px}
+.kies-legenda{display:flex;flex-wrap:wrap;gap:10px 22px;margin:10px 0 4px}
+.kies-legenda span{display:inline-flex;align-items:center;gap:6px;font-size:14px}
+.kies-legenda img{width:34px;height:34px}
+.kchip{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--p);margin-right:10px;flex:none;vertical-align:middle}
+.kchip img{width:20px;height:20px}
+.kchip.b{border-color:var(--b)} .kchip.t{border-color:var(--t)} .kchip.m{border-color:var(--m)}
+.kies-legenda span{flex-direction:column;gap:3px;font-size:12.5px;color:var(--grey)}
+.kies-legenda .kchip{width:44px;height:44px;margin:0} .kies-legenda .kchip img{width:30px;height:30px}
+.kw{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}

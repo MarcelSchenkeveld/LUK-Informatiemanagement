@@ -11,8 +11,10 @@ Adres: https://marcelschenkeveld.github.io/LUK-Informatiemanagement/
 
 - `index.html`: hoofdpagina (overzicht). Alle pagina's gegroepeerd per criterium, plus links naar bibliotheek, LibraryGuides en Zoekwijzer. Dit is de link voor Canvas en Teams.
 - `00-start-de-route.html`: de route (hoe je aan de leeruitkomst werkt, welk bewijs erbij past, zelf-momenten, gewoontes, afspraken).
-- `01` tot en met `10`: stap-voor-stap-pagina's, alle volgens hetzelfde model: waarom dit ertoe doet, een contrast A/B om te onthullen, uitklapbare stappen met een afvinkje, en een kopieerbaar sjabloon.
+- `01` tot en met `11`: stap-voor-stap-pagina's, alle volgens hetzelfde model: waarom dit ertoe doet, een contrast A/B om te onthullen, uitklapbare stappen met een afvinkje, en een kopieerbaar sjabloon. De nummering volgt de keten van de leeruitkomst (hernummerd op 21-9-2026): 01-02 zoeken en beoordelen, 03-05 analyseren en visualiseren, 06 onderbouwen, 07-08 kwaliteit en leercontract, 09-11 werken met AI.
+- `kies-beslisboom.html` en `kies-beslisboom.pdf`: de interactieve KIES-beslisboom (eigen opmaak, geen stijl.css of nav.js) en de printversie; gelinkt vanaf De KIES-methode en De route.
 - `kies-methode.html`: achtergrondpagina over de KIES-methode zelf. Geen stap in het traject, dus geen nummer; staat achteraan in het overzicht, met een verwijzing eronder bij de groep Werken met AI.
+- `iconen/`: de vier KIES-iconen (kiezen, instrueren, evalueren, spelregels; 256 px, transparant), gebruikt op De KIES-methode en AI als leerpartner via de klasse `.kico`. Moet als map in de repo staan.
 - `stijl.css`: de opmaak van alle pagina's. Eén plek voor kleuren, kaarten, stappen en sjablonen.
 - `werkblad-taak-ontleder.docx`: het invulbare Word-werkblad bij de pagina De KIES-methode (Fontys-huisstijl, liggend A4). Staat als bestand in de repo; die pagina linkt ernaar met een downloadknop. Nieuwe versie: bestand vervangen onder dezelfde naam, dan blijft de link werken.
 - `nav.js`: de navigatie en het gedrag. Bevat de paginalijst (PAGES) en de groepen, zet op elke pagina de bovenbalk en de knoppen vorige / overzicht / volgende, vult de overzichtslijsten, en regelt het uitklappen, de vinkjes (lokaal in de browser), het onthullen en het kopiëren.
