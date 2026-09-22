@@ -1,4 +1,4 @@
-/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.8 (21-9-2026)
+/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.9 (21-9-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
    (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
@@ -22,6 +22,7 @@
     { file: '09-ai-als-leerpartner.html', title: 'AI als leerpartner', desc: 'KIES in vier stappen en de leerpartner-prompt per criterium.', group: 'ai', status: 'klaar' },
     { file: '10-voorspel-vraag-vergelijk.html', title: 'Voorspel, vraag, vergelijk', desc: 'Werkblad voor gewoonte 1: eerst zelf, dan AI, dan vergelijken.', group: 'ai', status: 'klaar' },
     { file: '11-werkwijze-in-vijf-regels.html', title: 'Je werkwijze in vijf regels', desc: 'Invullen en plakken bij elk bewijs waarin je AI gebruikte.', group: 'ai', status: 'klaar' },
+    { file: '12-de-acht-ai-rollen.html', title: 'De acht AI-rollen als prompt', desc: 'Per KIES-rol een prompt om te kopiëren, met wat jij blijft doen en wat je daarna controleert.', group: 'ai', status: 'klaar' },
 
     { file: 'kies-methode.html', title: 'De KIES-methode', desc: 'De methode zelf: mens-AI-mens, de vier letters, drie vragen, drie manieren, acht rollen en de taak-ontleder met werkblad.', group: 'achtergrond', status: 'klaar' },
     { file: 'kies-beslisboom.html', title: 'De KIES-beslisboom', desc: 'Per stap van je taak: zelf doen, samen met AI of uitbesteden? Klik op een vraag of keuze voor een voorbeeld.', group: 'achtergrond', status: 'klaar' }
@@ -54,7 +55,7 @@
     { id: 'advies', title: 'Onderbouwen en reflecteren', sub: 'Criterium 4, bijvoorbeeld een onderbouwd advies met reflectie' },
     { id: 'algemeen', title: 'Kwaliteit en leercontract', sub: 'Voor het hele traject' },
     { id: 'ai', title: 'Werken met AI', sub: 'Zo blijft het jouw leerproces',
-      noot: 'De methode achter deze drie pagina\u2019s staat beschreven bij <a href="kies-methode.html">De KIES-methode</a>.' },
+      noot: 'De methode achter deze vier pagina\u2019s staat beschreven bij <a href="kies-methode.html">De KIES-methode</a>.' },
     { id: 'achtergrond', title: 'Achtergrond', sub: 'Geen stap in je project, wel handig om terug te zoeken' }
   ];
 
