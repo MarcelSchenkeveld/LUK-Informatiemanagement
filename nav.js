@@ -1,4 +1,4 @@
-/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.12 (23-11-2026)
+/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.13 (23-11-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
    (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
@@ -19,6 +19,7 @@
 
     { file: '07-kies-a-of-b.html', title: 'Kies A of B', desc: 'Vier contrasten uit bewerkt studentenwerk: waaraan zie je kwaliteit?', group: 'algemeen', status: 'klaar' },
     { file: '08-je-leercontract.html', title: 'Je leercontract', desc: 'Invulhulp bij de vijf vragen, met een voorbeeld voor deze leeruitkomst.', group: 'algemeen', status: 'klaar' },
+    { file: 'veelgemaakte-fouten.html', title: 'Veelgemaakte fouten', desc: 'Wat we dit semester het vaakst zagen in feedbackverzoeken, en hoe je het zelf voorkomt. Check dit voordat je feedback vraagt.', group: 'algemeen', status: 'klaar' },
 
     { file: '09-ai-als-leerpartner.html', title: 'AI als leerpartner', desc: 'oKIES in vijf stappen en de leerpartner-prompt per criterium.', group: 'ai', status: 'klaar' },
     { file: '10-voorspel-vraag-vergelijk.html', title: 'Voorspel, vraag, vergelijk', desc: 'Werkblad voor gewoonte 1: eerst zelf, dan AI, dan vergelijken.', group: 'ai', status: 'klaar' },
