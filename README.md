@@ -23,13 +23,15 @@ Adres: https://marcelschenkeveld.github.io/LUK-Informatiemanagement/
 
 ## Nieuwe pagina toevoegen
 
-1. Kopieer een bestaande pagina als model. In de `<head>` staat `<link rel="stylesheet" href="stijl.css">`, onderaan vlak voor `</body>` staat `<script src="nav.js"></script>`. Verder heeft de pagina geen eigen stijl of script nodig.
+1. Kopieer een bestaande pagina als model. In de `<head>` staat `<link rel="stylesheet" href="stijl.css">`, onderaan vlak voor `</body>` staat `<script src="nav.js?v=1.13"></script>` (met het actuele versienummer van nav.js, zie hieronder). Verder heeft de pagina geen eigen stijl of script nodig.
 2. Gebruik de vaste bouwstenen: `.card.accent` voor "waarom dit ertoe doet", `.ab` met twee `.card` voor het contrast, een knop met `data-toon="id"` bij een `.reveal` met dat id, `.acc` blokken voor de stappen, `input type="checkbox" data-k="..."` voor afvinkjes, en `.out` met een knop `data-kopieer="id"` plus een `<span class="small kopie-melding"></span>` voor een sjabloon.
 3. Zet de pagina in `nav.js` in `PAGES` met bestandsnaam, titel, korte omschrijving, groep en `status: 'klaar'`. Pagina's met `status: 'volgt'` staan grijs in het overzicht en tellen niet mee in vorige/volgende.
 4. Zet de pagina ook in de vaste linklijst in `index.html` (in `<div id="naslag-overzicht">`) en in `00-start-de-route.html` (in `<div id="naslag-links">`). Die lijst ziet alleen wie de pagina zonder JavaScript leest (automatisch uitlezen, sommige previews); in de browser vervangt `nav.js` hem door het overzicht.
 5. Upload de nieuwe pagina, `index.html`, `00-start-de-route.html` en `nav.js` naar de repo (Add file > Upload files, zelfde naam) en commit. Binnen een minuut staat het online.
 
 ## Bijwerken en versies
+
+**Nieuwe versie van nav.js: ook het nummer achter de scriptlink ophogen.** Elke pagina laadt `nav.js?v=1.13`. GitHub Pages laat browsers bestanden tien minuten bewaren; zonder nieuw nummer ziet een student na een wijziging de nieuwe pagina met het oude overzicht (zo verdween Veelgemaakte fouten op 23-11-2026 uit het overzicht). Bij een nieuwe nav.js-versie in alle pagina's `nav.js?v=...` aanpassen, bijvoorbeeld met: `sed -i '' 's|nav.js?v=1.13|nav.js?v=1.14|' *.html`.
 
 Bestandsnamen blijven stabiel zodat de links vanuit Canvas en Teams blijven werken. Elke pagina draagt haar versienummer in de voettekst; `stijl.css` en `nav.js` in de eerste regel. De wijzigingen worden bijgehouden in VERSIES.md in de projectmap. Bij een wijziging: bestand in de repo vervangen (zelfde naam) en committen.
 

@@ -1,6 +1,6 @@
 /* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.13 (23-11-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
-   (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
+   (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js?v=1.13"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
 (function () {
   var PAGES = [
