@@ -1,4 +1,4 @@
-/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.10 (23-9-2026)
+/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.11 (23-11-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
    (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
@@ -6,6 +6,7 @@
   var PAGES = [
     { file: 'index.html', title: 'Overzicht', desc: 'Alle pagina’s van de naslag op één plek.', group: 'start', status: 'klaar', hide: true },
     { file: '00-start-de-route.html', title: 'De route', desc: 'Hoe je aan deze leeruitkomst werkt, welk bewijs erbij past, waar het leren zit, en de drie afspraken. Lees dit eerst.', group: 'start', status: 'klaar' },
+    { file: 'kern.html', title: 'Alleen de leeruitkomst', desc: 'Korte versie op één pagina: per criterium wat je moet kunnen, de stappen, het sjabloon en het bewijs. Zonder de AI-onderdelen.', group: 'start', status: 'klaar', hide: true },
 
     { file: '01-bron-controleren.html', title: 'Een bron controleren', desc: 'Vijf vragen bij elke bron, met sterk/matig/zwak per vraag en een sjabloon voor je bronnentabel.', group: 'zoeken', status: 'klaar' },
     { file: '02-welke-bron-is-dit.html', title: 'Welke bron is dit?', desc: 'Van oorspronkelijke auteur tot uitlegsite: wat weegt zwaar, wat niet, en hoe je je bronnenlijst indeelt.', group: 'zoeken', status: 'klaar' },
@@ -40,7 +41,7 @@
       vf: 'De student past onder begeleiding geschikte analysetechnieken toe om ruwe data om te zetten in betekenisvolle inzichten voor de organisatie.' },
     { n: 3, naam: 'Visualisatie en presentatie van data',
       sc: 'Gekozen analysetools en visualisaties zijn relevant.',
-      vf: 'De student cre\u00eeert onder begeleiding effectieve grafische weergaven en schema\u2019s om complexe informatie helder te communiceren aan verschillende stakeholders.' },
+      vf: 'De student cre\u00ebert onder begeleiding effectieve grafische weergaven en schema\u2019s om complexe informatie helder te communiceren aan verschillende stakeholders.' },
     { n: 4, naam: 'Reflectie op informatiegebruik en betrouwbaarheid',
       sc: 'Formuleert een verantwoorde onderbouwing van besluiten op basis van verkregen informatie.',
       vf: 'De student reflecteert op de betrouwbaarheid van de verzamelde informatie en de manier waarop deze is gebruikt in besluitvorming.' }
@@ -119,14 +120,14 @@
     var top = document.createElement('div');
     top.className = 'nb';
     var html = '<div class="in"><a class="brand" href="index.html">Naslag Informatiemanagement</a>';
-    if (isIndex) {
-      html += '<a class="cur" href="index.html">Overzicht</a><a href="00-start-de-route.html">De route</a>';
-    } else if (cur === '00-start-de-route.html') {
-      html += '<a href="index.html">Overzicht</a><a class="cur" href="00-start-de-route.html">De route</a>';
-    } else {
-      html += '<a href="index.html">Overzicht</a><a href="00-start-de-route.html">De route</a>';
-      if (curPage) html += '<span class="crumb">&rsaquo; <b>' + esc(curPage.title) + '</b></span>';
-    }
+    var vast = [['index.html', 'Overzicht'], ['00-start-de-route.html', 'De route'], ['kern.html', 'Alleen de leeruitkomst']];
+    var inVast = false;
+    vast.forEach(function (v) {
+      var c = v[0] === cur;
+      if (c) inVast = true;
+      html += '<a' + (c ? ' class="cur"' : '') + ' href="' + v[0] + '">' + v[1] + '</a>';
+    });
+    if (!inVast && curPage) html += '<span class="crumb">&rsaquo; <b>' + esc(curPage.title) + '</b></span>';
     html += '</div>';
     top.innerHTML = html;
     var header = document.querySelector('header.top');
@@ -253,6 +254,15 @@
     });
   }
 
-  function start() { build(); gedrag(); criteriaBlokken(); }
+  /* Alleen de tekst "op niveau" uit het voortgangsformulier, als gewone alinea.
+     Gebruik: <p data-vf="1"></p> (pagina Alleen de leeruitkomst). */
+  function vfTeksten() {
+    document.querySelectorAll('[data-vf]').forEach(function (el) {
+      var n = String(el.getAttribute('data-vf') || '').trim();
+      CRITERIA.forEach(function (c) { if (String(c.n) === n) el.textContent = c.vf; });
+    });
+  }
+
+  function start() { build(); gedrag(); criteriaBlokken(); vfTeksten(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
