@@ -33,3 +33,7 @@ Adres: https://marcelschenkeveld.github.io/LUK-Informatiemanagement/
 Bestandsnamen blijven stabiel zodat de links vanuit Canvas en Teams blijven werken. Elke pagina draagt haar versienummer in de voettekst; `stijl.css` en `nav.js` in de eerste regel. De wijzigingen worden bijgehouden in VERSIES.md in de projectmap. Bij een wijziging: bestand in de repo vervangen (zelfde naam) en committen.
 
 Voortgangsvinkjes worden alleen in de browser van de student bewaard (localStorage), per pagina; er wordt niets verzonden of op een server opgeslagen.
+
+## Publiceren vanaf de Mac (sinds 23-11-2026)
+
+Deze map is de werkmap. De vaste kloon van de repo staat buiten OneDrive in `~/Developer/LUK-Informatiemanagement`. Bij publiceren: `git pull` in de kloon, deze map met de kloon vergelijken, de gewijzigde bestanden kopiëren, committen en pushen. Uploaden via de website kan ook nog, maar haal daarna de kloon bij met `git pull`.
