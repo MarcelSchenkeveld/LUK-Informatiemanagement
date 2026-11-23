@@ -1,4 +1,4 @@
-/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.11 (23-11-2026)
+/* Navigatie naslag Informatiemanagement (CE, Fontys) - v1.12 (23-11-2026)
    Eén lijst voor alle pagina's. Nieuwe pagina toevoegen: regel toevoegen aan PAGES
    (status 'klaar' zodra het bestand in de repo staat) en <script src="nav.js"></script>
    onderaan de nieuwe pagina zetten. Verder niets. */
@@ -70,6 +70,7 @@
     '.nb a.cur{border-bottom:2px solid #e6007e;font-weight:700}' +
     '.nb .crumb{color:#6b6b6b}' +
     '.nb .crumb b{color:#1a1a1a;font-weight:400}' +
+    '@media(max-width:480px){.nb .crumb{display:none}}' +
     '.nbot{display:flex;justify-content:space-between;align-items:stretch;gap:10px;margin-top:36px;flex-wrap:wrap}' +
     '.nbot a{flex:1;min-width:140px;text-decoration:none;color:#663366;border:1.5px solid #dddddd;border-radius:8px;padding:10px 14px;font-size:14.5px;background:#fff}' +
     '.nbot a:hover{border-color:#663366}' +
@@ -255,7 +256,8 @@
   }
 
   /* Alleen de tekst "op niveau" uit het voortgangsformulier, als gewone alinea.
-     Gebruik: <p data-vf="1"></p> (pagina Alleen de leeruitkomst). */
+     Gebruik: <p data-vf="1">...</p> (pagina Alleen de leeruitkomst). De tekst staat er ook
+     vast in voor lezers zonder JavaScript; nav.js overschrijft hem met de tekst hieronder. */
   function vfTeksten() {
     document.querySelectorAll('[data-vf]').forEach(function (el) {
       var n = String(el.getAttribute('data-vf') || '').trim();
