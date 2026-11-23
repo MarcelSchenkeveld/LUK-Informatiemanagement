@@ -17,6 +17,7 @@ Adres: https://marcelschenkeveld.github.io/LUK-Informatiemanagement/
 - `iconen/`: de vier KIES-iconen (kiezen, instrueren, evalueren, spelregels; 256 px, transparant), gebruikt op De KIES-methode en AI als leerpartner via de klasse `.kico`. Moet als map in de repo staan.
 - `stijl.css`: de opmaak van alle pagina's. Eén plek voor kleuren, kaarten, stappen en sjablonen.
 - `werkblad-taak-ontleder.docx`: het invulbare Word-werkblad bij de pagina De KIES-methode (Fontys-huisstijl, liggend A4). Staat als bestand in de repo; die pagina linkt ernaar met een downloadknop. Nieuwe versie: bestand vervangen onder dezelfde naam, dan blijft de link werken.
+- `bronnentabel.xlsx` en `bronnenmatrix-en-inzicht.xlsx`: downloadkopieën van de Excel-sjablonen (bron: Studentmateriaal van OW4 en OW7, met versienummer in de naam). Bij een nieuwe versie van het sjabloon de kopie hier vervangen, naam ongewijzigd.
 - `nav.js`: de navigatie en het gedrag. Bevat de paginalijst (PAGES) en de groepen, zet op elke pagina de bovenbalk en de knoppen vorige / overzicht / volgende, vult de overzichtslijsten, en regelt het uitklappen, de vinkjes (lokaal in de browser), het onthullen en het kopiëren.
 
 ## Nieuwe pagina toevoegen
@@ -24,7 +25,8 @@ Adres: https://marcelschenkeveld.github.io/LUK-Informatiemanagement/
 1. Kopieer een bestaande pagina als model. In de `<head>` staat `<link rel="stylesheet" href="stijl.css">`, onderaan vlak voor `</body>` staat `<script src="nav.js"></script>`. Verder heeft de pagina geen eigen stijl of script nodig.
 2. Gebruik de vaste bouwstenen: `.card.accent` voor "waarom dit ertoe doet", `.ab` met twee `.card` voor het contrast, een knop met `data-toon="id"` bij een `.reveal` met dat id, `.acc` blokken voor de stappen, `input type="checkbox" data-k="..."` voor afvinkjes, en `.out` met een knop `data-kopieer="id"` plus een `<span class="small kopie-melding"></span>` voor een sjabloon.
 3. Zet de pagina in `nav.js` in `PAGES` met bestandsnaam, titel, korte omschrijving, groep en `status: 'klaar'`. Pagina's met `status: 'volgt'` staan grijs in het overzicht en tellen niet mee in vorige/volgende.
-4. Upload de nieuwe pagina en `nav.js` naar de repo (Add file > Upload files, zelfde naam) en commit. Binnen een minuut staat het online.
+4. Zet de pagina ook in de vaste linklijst in `index.html` (in `<div id="naslag-overzicht">`) en in `00-start-de-route.html` (in `<div id="naslag-links">`). Die lijst ziet alleen wie de pagina zonder JavaScript leest (automatisch uitlezen, sommige previews); in de browser vervangt `nav.js` hem door het overzicht.
+5. Upload de nieuwe pagina, `index.html`, `00-start-de-route.html` en `nav.js` naar de repo (Add file > Upload files, zelfde naam) en commit. Binnen een minuut staat het online.
 
 ## Bijwerken en versies
 
